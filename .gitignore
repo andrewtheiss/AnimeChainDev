@@ -1,0 +1,58 @@
+
+# Dependencies
+node_modules/
+node_modules/.bin/
+
+# Build outputs - MkDocs + React App Integration
+docs/site/
+*.pyc
+__pycache__/
+
+# React/Vite build artifacts
+dist/
+build/
+.vite/
+.react-router/
+
+# Development files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

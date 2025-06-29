@@ -1,0 +1,155 @@
+site_name: AnimeChain Documentation
+site_description: Complete documentation for AnimeChain - Layer 3 blockchain built on Arbitrum Orbital
+site_url: https://docs.animechain.ai  # Replace with your actual domain
+site_author: AnimeChain Team
+
+# Repository
+repo_name: AnimeChain/AnimeChainDev
+repo_url: https://github.com/AnimeChain/AnimeChainDev  # Replace with your repo
+edit_uri: edit/main/docs/docs/
+
+# Theme configuration
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode  
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Networks:
+    - Overview: networks/index.md
+    - Mainnet:
+      - Getting Started: networks/mainnet/getting-started.md
+      - Network Details: networks/mainnet/network-details.md
+      - Add to Wallet: networks/mainnet/add-to-wallet.md
+    - Testnet:
+      - Getting Started: networks/testnet/getting-started.md
+      - Network Details: networks/testnet/network-details.md
+      - Faucet: networks/testnet/faucet.md
+      - Add to Wallet: networks/testnet/add-to-wallet.md
+  - Animecoin:
+    - Overview: animecoin/index.md
+    - Bridging Guide: animecoin/bridging.md
+    - Contract Addresses: animecoin/contracts.md
+  - Developers:
+    - Quick Start: developers/index.md
+    - Smart Contracts: developers/contracts.md
+    - RPC API: developers/rpc-api.md
+    - Code Examples: developers/examples.md
+  - Architecture: architecture/index.md
+  - Interactive Tools: app/index.html
+  - Resources:
+    - FAQ: resources/faq.md
+    - Troubleshooting: resources/troubleshooting.md
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+# Extensions
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: AnimeChain
+      repo: AnimeChainDev
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Additional configuration
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AnimeChain
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/AnimeChain  # Replace with actual social links
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/animechain  # Replace with actual Discord
+  generator: false
+
+# Custom CSS
+extra_css:
+  - assets/stylesheets/extra.css
+
+# Custom JavaScript
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Document directory
+docs_dir: docs
+site_dir: site
