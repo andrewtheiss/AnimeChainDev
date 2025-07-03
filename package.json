@@ -6,7 +6,7 @@
     "build": "react-router build",
     "build:app": "react-router build --mode production",
     "dev": "react-router dev",
-    "dev:docs": "cd docs && python3 -m mkdocs serve",
+    "dev:docs": "bash setup/setup.sh python3 -m mkdocs serve -f docs/mkdocs.yml",
     "build:docs": "cd docs && python3 -m mkdocs build",
     "build:all": "npm run build:docs && npm run build:app",
     "serve:docs": "cd docs && python3 -m mkdocs serve",
