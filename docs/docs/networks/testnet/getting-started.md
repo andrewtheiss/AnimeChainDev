@@ -35,7 +35,7 @@ Welcome to **AnimeChain Testnet** - the perfect environment for developing and t
 
     Use our interactive tool to add the network automatically:
     
-    [Add Testnet to Wallet →](../../app/index.html){ .md-button .md-button--primary }
+    [Add Testnet to Wallet →](../../app.md){ .md-button .md-button--primary }
 
 === "Manual Configuration"
 
@@ -222,7 +222,7 @@ console.log(events);
 - 💬 **Discord:** [Join our testnet channel](https://discord.gg/animechain)
 - 🐛 **Issues:** [Report testnet bugs](https://github.com/AnimeChain/AnimeChainDev/issues)
 - 📚 **Documentation:** [Full Developer Guide](../../developers/index.md)
-- 🔧 **Tools:** [Interactive Testing Tools](../../app/index.html)
+- 🔧 **Tools:** [Interactive Testing Tools](../../app.md)
 
 ### Next Steps
 

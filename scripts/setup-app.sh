@@ -3,25 +3,44 @@
 
 set -e
 
-echo "Setting up React app integration with MkDocs..."
+echo "🔧 Setting up React app integration with MkDocs..."
 
 # Ensure the app directory exists
 mkdir -p docs/site/app
 
-# Copy the built React app files to the correct location
+# Check if React app was built
+if [ ! -d "docs/site/app/client" ]; then
+    echo "⚠️  React app build not found. Building now..."
+    npm run build:app
+fi
+
+# Verify the build succeeded
 if [ -d "docs/site/app/client" ]; then
-    echo "Copying React app index.html..."
+    echo "📁 Copying React app files..."
+    
+    # Copy main index.html
     cp docs/site/app/client/index.html docs/site/app/index.html
+    echo "  ✅ index.html copied"
     
-    echo "Copying React app assets..."
-    cp -r docs/site/app/client/assets/* docs/site/app/assets/ 2>/dev/null || mkdir -p docs/site/app/assets
+    # Copy assets directory (create if doesn't exist)
+    mkdir -p docs/site/app/assets
+    if [ -d "docs/site/app/client/assets" ]; then
+        cp -r docs/site/app/client/assets/* docs/site/app/assets/
+        echo "  ✅ Assets copied"
+    fi
     
-    echo "Copying favicon..."
-    cp docs/site/app/client/favicon.ico docs/site/app/favicon.ico 2>/dev/null || true
+    # Copy favicon
+    if [ -f "docs/site/app/client/favicon.ico" ]; then
+        cp docs/site/app/client/favicon.ico docs/site/app/favicon.ico
+        echo "  ✅ Favicon copied"
+    fi
     
-    echo "✅ React app successfully integrated with MkDocs!"
+    echo ""
+    echo "🎉 React app successfully integrated with MkDocs!"
     echo "📍 App accessible at: http://localhost:8000/app/"
+    echo "📖 App page accessible at: http://localhost:8000/app/"
+    echo ""
 else
-    echo "❌ React app build not found. Run 'npm run build:app' first."
+    echo "❌ React app build failed. Please check the build process."
     exit 1
 fi

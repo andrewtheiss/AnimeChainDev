@@ -15,7 +15,7 @@ Complete step-by-step guide to add AnimeChain Mainnet to popular wallets. Choose
 
 Use our one-click network addition tool:
 
-[Add AnimeChain to MetaMask →](../../app/index.html){ .md-button .md-button--primary }
+[Add AnimeChain to MetaMask →](../../app.md){ .md-button .md-button--primary }
 
 ### Manual Setup
 
@@ -278,7 +278,7 @@ With your wallet configured:
 If you're having trouble adding AnimeChain to your wallet:
 
 - 💬 **Discord:** [Get community support](https://discord.gg/animechain)
-- 🛠️ **Interactive Tool:** [Try our network setup tool](../../app/index.html)
+- 🛠️ **Interactive Tool:** [Try our network setup tool](../../app.md)
 - 📚 **Documentation:** [Network technical details](network-details.md)
 - 🐛 **Issues:** [Report problems on GitHub](https://github.com/AnimeChain/AnimeChainDev/issues)
 

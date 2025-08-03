@@ -113,7 +113,7 @@ graph TB
 ### For Testers
 1. [Connect to testnet](networks/testnet/getting-started.md)
 2. [Get free test tokens](networks/testnet/faucet.md)
-3. [Try our interactive tools](app/index.html)
+3. [Try our interactive tools](app.md)
 
 ---
 
@@ -151,7 +151,7 @@ graph TB
 
     Test contracts and transactions in your browser
 
-    [:octicons-arrow-right-24: Try Tools](app/index.html)
+    [:octicons-arrow-right-24: Try Tools](app.md)
 
 </div>
 
@@ -212,4 +212,4 @@ graph TB
 ---
 
 !!! tip "Need Help?"
-    New to AnimeChain? Start with our [Getting Started Guide](networks/mainnet/getting-started.md) or try our [Interactive Tools](app/index.html) to explore the network safely.
+    New to AnimeChain? Start with our [Getting Started Guide](networks/mainnet/getting-started.md) or try our [Interactive Tools](app.md) to explore the network safely.

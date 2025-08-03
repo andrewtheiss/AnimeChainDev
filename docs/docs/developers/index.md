@@ -1,39 +1,27 @@
 # Developer Quick-Start
 
-Everything you need to build, test and deploy smart contracts on **AnimeChain**.
+Build and deploy smart contracts on **AnimeChain**.
 
----
+## 🚀 Setup
 
-## 1️⃣ Add the Network
+```bash
+# Install tools
+npm install --save-dev hardhat @nomicfoundation/hardhat-viem dotenv
 
-First configure your wallet:
-
-```javascript
+# Add network to wallet
 await window.ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
-    chainId: '0x10D88',
+    chainId: '0x10D88', // Mainnet: 69000, Testnet: 0x1AF4 (6900)
     chainName: 'AnimeChain',
     nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
-    rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'],
+    rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'], // Mainnet
     blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
   }]
 });
 ```
 
-Testnet users: replace with ChainID `0x1AF4` (`6900`) and RPC URL `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`.
-
----
-
-## 2️⃣ Install Tooling
-
-```bash
-npm install --save-dev hardhat @nomicfoundation/hardhat-viem dotenv
-```
-
----
-
-## 3️⃣ Hardhat Config Example
+## ⚙️ Hardhat Config
 
 ```javascript
 require('dotenv').config();
@@ -42,13 +30,12 @@ require('@nomicfoundation/hardhat-viem');
 module.exports = {
   solidity: '0.8.20',
   networks: {
-    animechain: {
+    animechain: { // Mainnet
       url: 'https://rpc-animechain-39xf6m45e3.t.conduit.xyz/',
       chainId: 69000,
-      accounts: [process.env.PRIVATE_KEY],
-      gasPrice: 100000000 // 0.1 gwei
+      accounts: [process.env.PRIVATE_KEY]
     },
-    anime_testnet: {
+    testnet: { 
       url: 'https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/',
       chainId: 6900,
       accounts: [process.env.PRIVATE_KEY]
@@ -57,11 +44,7 @@ module.exports = {
 };
 ```
 
-Run a deployment:
-
-```bash
-npx hardhat run scripts/deploy.js --network animechain
-```
+Deploy: `npx hardhat run scripts/deploy.js --network testnet`
 
 ---
 

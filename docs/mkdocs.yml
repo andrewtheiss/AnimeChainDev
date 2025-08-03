@@ -70,6 +70,7 @@ nav:
     - Contract Addresses: animecoin/contracts.md
   - Developers:
     - Quick Start: developers/index.md
+    - Development Guide: developers/development-guide.md
     - Smart Contracts: developers/contracts.md
     - RPC API: developers/rpc-api.md
     - Code Examples: developers/examples.md
