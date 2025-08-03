@@ -1,13 +1,14 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { FaucetApp } from "../components/FaucetApp";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "AnimeChain Testnet Faucet" },
+    { name: "description", content: "Get free tANIME tokens for testing and development on AnimeChain Testnet" },
+    { name: "keywords", content: "AnimeChain, testnet, faucet, tANIME, blockchain, crypto" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <FaucetApp />;
 }

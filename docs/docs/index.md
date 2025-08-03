@@ -1,44 +1,63 @@
-# Welcome to AnimeChain
-
 <div align="center">
   <h1>🎌 AnimeChain Documentation</h1>
   <p><strong>Layer 3 Blockchain Built on Arbitrum Orbital</strong></p>
   <p>Your gateway to the anime-powered decentralized ecosystem</p>
 </div>
 
+<div class="faucet-button-container">
+  <a href="networks/testnet/faucet" class="faucet-btn">
+    <span class="btn-icon">🚰</span>
+    Testnet Faucet
+  </a>
+</div>
+
 ---
 
-## Choose Your Network
+<div class="main-actions">
+  <button class="main-action-btn" onclick="showDevelopSection()">
+    <span class="btn-icon">🛠️</span>
+    <span class="btn-text">Develop on AnimeChain</span>
+    <span class="btn-subtitle">Build applications and smart contracts</span>
+  </button>
+  
+  <a href="use-animechain" class="main-action-btn">
+    <span class="btn-icon">🎌</span>
+    <span class="btn-text">Use AnimeChain</span>
+    <span class="btn-subtitle">Add network, check balances, and manage tokens</span>
+  </a>
+</div>
 
-=== "🟢 **Mainnet**"
+<div id="develop-section" class="develop-section hidden">
+  <h2>🛠️ Development Environment</h2>
+  <p>Choose your preferred development network:</p>
+  
+  <div class="develop-options">
+    <a href="networks/testnet/getting-started" class="develop-btn">
+      <div class="btn-icon">🧪</div>
+      <div class="btn-text">Testnet</div>
+      <div class="btn-subtitle">Safe testing environment with free tokens</div>
+    </a>
+    
+    <a href="networks/mainnet/getting-started" class="develop-btn">
+      <div class="btn-icon">🟢</div>
+      <div class="btn-text">Mainnet</div>
+      <div class="btn-subtitle">Production-ready network for live applications</div>
+    </a>
+  </div>
+</div>
 
-    **Ready for Production**
-    
-    - **Chain ID:** 69000 (0x10D88)
-    - **Native Token:** ANIME
-    - **Full Security:** Production-ready with complete security model
-    - **RPC:** `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/`
-    - **Explorer:** [AnimeChain Explorer](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
-    
-    Perfect for deploying your production applications and handling real value transactions.
-    
-    [Get Started →](networks/mainnet/getting-started.md){ .md-button .md-button--primary }
-    [Network Details →](networks/mainnet/network-details.md){ .md-button }
-
-=== "🧪 **Testnet**"
-
-    **Perfect for Development**
-    
-    - **Chain ID:** 6900 (0x1AF4)
-    - **Native Token:** tANIME (Test tokens)
-    - **Free Tokens:** Get test tokens from our faucet
-    - **RPC:** `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`
-    - **Explorer:** [Testnet Explorer](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/)
-    
-    Safe environment for testing your dApps with free test tokens.
-    
-    [Get Started →](networks/testnet/getting-started.md){ .md-button }
-    [Get Test Tokens →](networks/testnet/faucet.md){ .md-button .md-button--primary }
+<script>
+function showDevelopSection() {
+  const developSection = document.getElementById('develop-section');
+  developSection.classList.remove('hidden');
+  developSection.classList.add('visible');
+  
+  // Smooth scroll to the develop section
+  setTimeout(() => {
+    developSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+</script>
 
 ---
 

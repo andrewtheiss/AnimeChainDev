@@ -3,13 +3,55 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  /* AnimeChain Purple Theme */
+  --color-primary-50: #faf5ff;
+  --color-primary-100: #f3e8ff;
+  --color-primary-200: #e9d5ff;
+  --color-primary-300: #d8b4fe;
+  --color-primary-400: #c084fc;
+  --color-primary-500: #a855f7;
+  --color-primary-600: #9333ea;
+  --color-primary-700: #7c3aed;
+  --color-primary-800: #6b21a8;
+  --color-primary-900: #581c87;
+  --color-primary-950: #3b0764;
+  
+  /* Anime-themed accent colors */
+  --color-accent-pink: #ff6b9d;
+  --color-accent-cyan: #4ecdc4;
+  --color-accent-blue: #45b7d1;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-950 dark:to-primary-950;
+  min-height: 100vh;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+/* Custom animations for faucet */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Faucet-specific styles */
+.faucet-card {
+  @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-primary-200 dark:border-primary-700 rounded-2xl shadow-xl;
+}
+
+.anime-gradient {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-accent-pink), var(--color-accent-cyan));
+}
+
+.pulse-glow {
+  @apply animate-pulse shadow-lg shadow-primary-500/25;
 }

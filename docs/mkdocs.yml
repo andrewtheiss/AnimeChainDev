@@ -52,6 +52,7 @@ theme:
 # Navigation structure
 nav:
   - Home: index.md
+  - Use AnimeChain: use-animechain.md
   - Networks:
     - Overview: networks/index.md
     - Mainnet:
@@ -73,7 +74,7 @@ nav:
     - RPC API: developers/rpc-api.md
     - Code Examples: developers/examples.md
   - Architecture: architecture/index.md
-  - Interactive Tools: app/index.html
+  - Interactive Tools: app.md
   - Resources:
     - FAQ: resources/faq.md
     - Troubleshooting: resources/troubleshooting.md

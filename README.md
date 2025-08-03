@@ -13,7 +13,7 @@ ls
 python3 -m venv AnimeChainDevEnv 
 source ./AnimeChainDevEnv/bin/activate
 cd ../AnimeChainDev/
-(AnimeChainDevEnv):  pip install mkdocs mkdocs-material mkdocsstrings
+(AnimeChainDevEnv):  pip install mkdocs mkdocs-material mkdocstrings
 
 ```
 
