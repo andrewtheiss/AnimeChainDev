@@ -10,6 +10,7 @@
     "build:docs": "bash setup/setup.sh python3 -m mkdocs build -f docs/mkdocs.yml",
     "build:all": "npm run build:docs && npm run build:app && bash scripts/setup-app.sh",
     "serve:docs": "bash setup/setup.sh python3 -m mkdocs serve -f docs/mkdocs.yml",
+    "serve:docs:win": "powershell -ExecutionPolicy Bypass -File setup/setup.ps1 python -m mkdocs serve -f docs/mkdocs.yml",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },

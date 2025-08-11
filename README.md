@@ -13,12 +13,16 @@ Documentation site with integrated React faucet for AnimeChain L3 blockchain.
 npm install
 bash setup/setup.sh pip install mkdocs mkdocs-material mkdocstrings
 
+# Windows users: use PowerShell
+# powershell -ExecutionPolicy Bypass -File setup/setup.ps1 pip install mkdocs mkdocs-material mkdocstrings
+
 # Choose your workflow:
 npm run dev              # React app only (localhost:5173)
 npm run dev:docs         # Documentation only (localhost:8000)
 npm run build:all        # Build integrated site
 npm run serve:docs       # Serve integrated site (localhost:8000)
 ```
+Windows: run `npm run serve:docs:win` to serve docs on localhost:8000.
 
 ## 🛠️ Development
 
