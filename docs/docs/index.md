@@ -1,7 +1,7 @@
 <div align="center">
-  <h1>🎌 AnimeChain Documentation</h1>
+  <h1>AnimeChain Documentation</h1>
   <p><strong>Layer 3 Blockchain Built on Arbitrum Orbital</strong></p>
-  <p>Your gateway to the anime-powered decentralized ecosystem</p>
+  <p>Get funds immediately via the faucet</p>
 </div>
 
 <div class="faucet-button-container">
@@ -61,7 +61,7 @@ function showDevelopSection() {
 
 ---
 
-## 🏗️ Architecture Overview
+# Architecture Overview
 
 AnimeChain is built as a **Layer 3 blockchain** using Arbitrum Orbital technology:
 
@@ -89,11 +89,12 @@ graph TB
 
 ### Key Benefits
 
-- **⚡ Ultra-low fees** - Significantly cheaper than L1 and L2
-- **🚀 High throughput** - Fast transaction processing
-- **🎌 Anime-focused** - Built specifically for anime and gaming dApps
-- **🔒 Arbitrum security** - Inherits security from Arbitrum and Ethereum
-- **🌉 Seamless bridging** - Easy asset movement between layers
+- **Rollup-of-a-rollup cost savings**: AnimeChain is an L3 rollup that batches on Arbitrum (which itself batches on Ethereum), further reducing per‑transaction cost versus using Arbitrum directly.
+- **Native ANIME for everything**: **ANIME** is the base gas and settlement currency chain‑wide, minimizing ERC‑20 overhead and enabling consistently fast throughput.
+- **Larger contracts (≈45 KB)**: Deploy feature‑rich contracts up to ~45 KB, avoiding the ~20–25 KB limits common on L1/L2 and reducing the need for proxies or contract splits.
+- **Fast inbound bridging (L1 → L2 → L3)**: Funding AnimeChain from Ethereum or Arbitrum propagates quickly via canonical bridges. See the [Bridging guide](animecoin/bridging.md).
+- **Longer native exits (L3 → L2 → L1)**: Withdrawing back to Arbitrum follows optimistic rollup timing similar to withdrawals on `bridge.arbitrum.io` from Arbitrum to Ethereum; use liquidity bridges when available for faster exits.
+- **Security inheritance**: Benefits from Arbitrum and Ethereum security guarantees.
 
 ---
 
