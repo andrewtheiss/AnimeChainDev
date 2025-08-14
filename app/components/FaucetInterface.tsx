@@ -134,21 +134,24 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
         </h3>
         
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="text-center p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg">
+          <div className="text-center p-4 rounded-lg"
+               style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
             <p className="text-sm text-gray-600 dark:text-gray-400">Current Balance</p>
             <p className="text-2xl font-bold text-primary-700 dark:text-primary-300">
               {balance} tANIME
             </p>
           </div>
           
-          <div className="text-center p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg">
+          <div className="text-center p-4 rounded-lg"
+               style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
             <p className="text-sm text-gray-600 dark:text-gray-400">Total Withdrawals</p>
             <p className="text-2xl font-bold text-primary-700 dark:text-primary-300">
               {withdrawalCount}
             </p>
           </div>
           
-          <div className="text-center p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg">
+          <div className="text-center p-4 rounded-lg"
+               style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
             <p className="text-sm text-gray-600 dark:text-gray-400">Last Withdrawal</p>
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300">
               {lastWithdrawal}
@@ -165,7 +168,8 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
 
         {/* Cooldown Status */}
         {timeUntilNext > 0 ? (
-          <div className="text-center p-6 bg-orange-50 dark:bg-orange-900/30 rounded-lg mb-6">
+          <div className="text-center p-6 rounded-lg mb-6"
+               style={{ backgroundColor: 'color-mix(in oklab, #ffedd5 65%, transparent)' }}>
             <div className="text-4xl mb-2">⏰</div>
             <p className="text-lg font-semibold text-orange-700 dark:text-orange-300">
               {formatTime(timeUntilNext)}
@@ -186,10 +190,10 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
                 {WITHDRAWAL_MESSAGES.map((message, index) => (
                   <label
                     key={index}
-                    className="flex items-start space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20"
+                    className="flex items-start space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-all"
                     style={{
                       borderColor: selectedMessage === index ? 'var(--color-primary-500)' : 'var(--color-primary-200)',
-                      backgroundColor: selectedMessage === index ? 'var(--color-primary-50)' : 'transparent'
+                      backgroundColor: selectedMessage === index ? 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' : 'transparent'
                     }}
                   >
                     <input
@@ -218,7 +222,7 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
               <button
                 onClick={handleWithdrawal}
                 disabled={isLoading || timeUntilNext > 0}
-                className="px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-pink hover:from-primary-700 hover:to-accent-pink/90 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 disabled:scale-100 pulse-glow disabled:opacity-50"
+                className={`btn-primary ${isLoading || timeUntilNext > 0 ? 'opacity-60 cursor-not-allowed' : 'pulse-glow'}`}
               >
                 {isLoading ? (
                   <span className="flex items-center space-x-2">

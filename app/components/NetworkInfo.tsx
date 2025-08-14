@@ -34,7 +34,7 @@ export function NetworkInfo() {
               href="https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-600 hover:text-primary-700 text-sm underline"
+              className="text-primary-700 hover:opacity-80 text-sm underline"
             >
               View Explorer
             </a>
@@ -46,8 +46,9 @@ export function NetworkInfo() {
         </div>
       </div>
 
-      <div className="mt-6 p-4 bg-primary-50 dark:bg-primary-900/30 rounded-lg">
-        <p className="text-sm text-primary-700 dark:text-primary-300 text-center">
+      <div className="mt-6 p-4 rounded-lg"
+           style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
+        <p className="text-sm text-primary-800 dark:text-primary-300 text-center">
           🎌 This is a <strong>test network</strong> - tokens have no real value. 
           Perfect for development and experimentation!
         </p>

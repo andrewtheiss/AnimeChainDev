@@ -21,7 +21,10 @@ export function WalletConnection({
     return (
       <div className="faucet-card p-8 text-center">
         <div className="float-animation mb-6">
-          <div className="w-24 h-24 mx-auto bg-gradient-to-r from-primary-500 to-accent-pink rounded-full flex items-center justify-center text-4xl">
+          <div className="w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl"
+               style={{
+                 background: 'linear-gradient(135deg, var(--color-primary-700), var(--color-primary-500))'
+               }}>
             👛
           </div>
         </div>
@@ -35,7 +38,7 @@ export function WalletConnection({
         {window.ethereum ? (
           <button
             onClick={onConnect}
-            className="px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 pulse-glow"
+            className="btn-primary pulse-glow"
           >
             🦊 Connect MetaMask
           </button>
@@ -62,7 +65,8 @@ export function WalletConnection({
     <div className="faucet-card p-6">
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-xl">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center text-xl"
+               style={{ background: 'linear-gradient(135deg, #16a34a, #15803d)' }}>
             ✅
           </div>
           <div>
@@ -82,7 +86,7 @@ export function WalletConnection({
               </div>
               <button
                 onClick={onSwitchNetwork}
-                className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors"
+                className="btn-outline"
               >
                 Switch to Testnet
               </button>

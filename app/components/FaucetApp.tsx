@@ -115,8 +115,8 @@ export function FaucetApp() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="page">
+      <div className="container">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -167,7 +167,7 @@ export function FaucetApp() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="../"
-                className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors"
+                className="btn-primary"
               >
                 📚 Documentation
               </a>
@@ -175,7 +175,7 @@ export function FaucetApp() {
                 href="https://discord.gg/animechain"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-accent-cyan hover:bg-opacity-80 text-white rounded-lg transition-colors"
+                className="btn-outline"
               >
                 💬 Discord Support
               </a>
@@ -183,7 +183,7 @@ export function FaucetApp() {
                 href="https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                className="btn-outline"
               >
                 🔍 Block Explorer
               </a>

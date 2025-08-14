@@ -15,13 +15,13 @@
 
 <div class="main-actions">
   <button class="main-action-btn" onclick="showDevelopSection()">
-    <span class="btn-icon">🛠️</span>
+    <img src="assets/images/dev.png" alt="Develop on AnimeChain" class="btn-image" />
     <span class="btn-text">Develop on AnimeChain</span>
     <span class="btn-subtitle">Build applications and smart contracts</span>
   </button>
   
   <a href="use-animechain" class="main-action-btn">
-    <span class="btn-icon">🎌</span>
+    <img src="assets/images/user.png" alt="Use AnimeChain" class="btn-image" />
     <span class="btn-text">Use AnimeChain</span>
     <span class="btn-subtitle">Add network, check balances, and manage tokens</span>
   </a>
