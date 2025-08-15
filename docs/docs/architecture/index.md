@@ -2,14 +2,14 @@
 
 AnimeChain is a **Layer 3 blockchain** built on Arbitrum Orbital technology.
 
-## 📊 Layer Stack
+# Layer Stack
 
 **L1 (Ethereum)** → **L2 (Arbitrum)** → **L3 (AnimeChain)**
 
 | Layer | Purpose | Security | Currency |
 |-------|---------|----------|----------|
 | **L1** | Settlement & data availability | Ethereum PoS | ETH |
-| **L2** | Optimistic rollup scaling | Ethereum | ETH/ARB |
+| **L2** | Optimistic rollup scaling | Ethereum | ETH |
 | **L3** | Anime & gaming apps | Arbitrum One | ANIME |
 
 ## ⚙️ Components
