@@ -210,6 +210,11 @@ graph TB
   let movedCubes = []; // persisted moved cubes {cx, cy, s, moves}
   let movedCubes1 = [];
   let cyclesCount = 0;
+  // L3 rollup of two blocks into an egress transaction
+  const rollupL3 = { active:false, phase:'idle', start:0, morphStart:0, emitted:false, bounds:null, target:null };
+  const egressTxsL3 = []; // { x, y, size, v, endX, last }
+  const highlightDuration = 700; // ms
+  const morphDuration = 500; // ms
   function triggerCubeMove(){ if(!cubeAnim.active && cubeAnim.fadeStart===0){ cubeAnim.active = true; cubeAnim.start = performance.now(); cubeAnim.fadeStart = 0; } }
   function triggerCubeMoveL1(){ if(!cubeAnim1.active && cubeAnim1.fadeStart===0){ cubeAnim1.active = true; cubeAnim1.start = performance.now(); cubeAnim1.fadeStart = 0; } }
   // Expose for manual triggering of a full mining cycle
@@ -367,6 +372,17 @@ graph TB
           // record new moved cube at target
           movedCubes.push({ cx, cy: targetCY, s, moves: 0 });
           cubeAnim.recorded = true; cyclesCount += 1;
+          // every 2 block loops: highlight last two cubes and emit egress txn to the right
+          if(cyclesCount % 2 === 0 && movedCubes.length >= 2){
+            const a = movedCubes[movedCubes.length-1];
+            const b = movedCubes[movedCubes.length-2];
+            const pad = Math.max(a.s, b.s) * 0.15;
+            const minX = Math.min(a.cx - a.s*0.6, b.cx - b.s*0.6) - pad;
+            const maxX = Math.max(a.cx + a.s*0.6, b.cx + b.s*0.6) + pad;
+            const minY = Math.min(a.cy - a.s*0.6, b.cy - b.s*0.6) - pad;
+            const maxY = Math.max(a.cy + a.s*0.6, b.cy + b.s*0.6) + pad;
+            rollupL3.active = true; rollupL3.phase = 'highlight'; rollupL3.start = now; rollupL3.morphStart = 0; rollupL3.emitted = false; rollupL3.bounds = { minX, maxX, minY, maxY }; rollupL3.target = null;
+          }
         }
         if(cubeAnim.fadeStart === 0) cubeAnim.fadeStart = now;
         // allow resume after full animation completes
@@ -374,6 +390,60 @@ graph TB
       }
     } else {
       drawProjectedCube2D(cx, baseCY, s);
+    }
+    // L3: highlight then morph into txn square and continue off-page
+    if(rollupL3.active && rollupL3.bounds){
+      const Ltmp = layout();
+      const b = rollupL3.bounds;
+      if(rollupL3.phase === 'highlight'){
+        const elapsed = now - rollupL3.start;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, 1 - (elapsed / highlightDuration) * 0.2);
+        ctx.fillStyle = 'rgba(255,214,10,0.18)';
+        ctx.strokeStyle = 'rgba(17,17,17,0.6)';
+        ctx.lineWidth = 2;
+        drawRoundedRect(b.minX, b.minY, (b.maxX - b.minX), (b.maxY - b.minY), 10);
+        ctx.fill(); ctx.stroke();
+        ctx.restore();
+        if(elapsed >= highlightDuration){
+          const yCenter = (b.minY + b.maxY) / 2;
+          const startX = b.maxX + 10;
+          const targetSize = Math.min(Ltmp.third * 0.16, 22);
+          const targetRect = { x: startX - targetSize/2, y: yCenter - targetSize/2, w: targetSize, h: targetSize };
+          rollupL3.phase = 'morph'; rollupL3.morphStart = now; rollupL3.target = targetRect;
+        }
+      } else if(rollupL3.phase === 'morph' && rollupL3.target){
+        const t = Math.min(1, (now - rollupL3.morphStart) / morphDuration);
+        const sx = b.minX, sy = b.minY, sw = (b.maxX - b.minX), sh = (b.maxY - b.minY);
+        const tx = rollupL3.target.x, ty = rollupL3.target.y, tw = rollupL3.target.w, th = rollupL3.target.h;
+        const ix = sx + (tx - sx)*t;
+        const iy = sy + (ty - sy)*t;
+        const iw = sw + (tw - sw)*t;
+        const ih = sh + (th - sh)*t;
+        ctx.save();
+        // blend color from yellow to blue across morph
+        const alpha = 0.18;
+        const mix = t;
+        const r = Math.round((255*(1-mix) + 30*mix));
+        const g = Math.round((214*(1-mix) + 136*mix));
+        const bcol = Math.round((10*(1-mix) + 229*mix));
+        ctx.fillStyle = `rgba(${r},${g},${bcol},${alpha})`;
+        ctx.strokeStyle = 'rgba(17,17,17,0.7)';
+        ctx.lineWidth = 2;
+        drawRoundedRect(ix, iy, iw, ih, 10 * (1 - t) + 5 * t);
+        ctx.fill(); ctx.stroke();
+        ctx.restore();
+        if(t >= 1 && !rollupL3.emitted){
+          const startXCenter = tx + tw/2;
+          const yCenter = ty + th/2;
+          const endX = Ltmp.width + 50;
+          const duration = 1500;
+          const v = (endX - startXCenter) / duration;
+          const size = tw; // same as target
+          egressTxsL3.push({ x:startXCenter, y:yCenter, size, v, endX, last: now });
+          rollupL3.emitted = true; rollupL3.active = false; rollupL3.bounds = null; rollupL3.target = null; rollupL3.phase = 'idle';
+        }
+      }
     }
     if(cubeAnim.fadeStart > 0){
       const ft = Math.min(1, (now - cubeAnim.fadeStart) / cubeFadeDuration);
@@ -487,6 +557,19 @@ graph TB
       }
       drawTxn(tx);
       if(tx.x >= tx.endX - 0.5){ txs.splice(i,1); }
+    }
+    // update/draw L3 egress txns to the right
+    for(let i=egressTxsL3.length-1;i>=0;i--){
+      const et = egressTxsL3[i];
+      const dt = now - et.last; et.last = now;
+      et.x += et.v * dt;
+      // draw styled txn (blue-ish)
+      ctx.save();
+      ctx.fillStyle='rgba(30,136,229,0.18)'; ctx.strokeStyle='#111'; ctx.lineWidth=1.4;
+      drawRoundedRect(et.x - et.size/2, et.y - et.size/2, et.size, et.size, 5);
+      ctx.fill(); ctx.stroke();
+      ctx.restore();
+      if(et.x >= et.endX - 0.5){ egressTxsL3.splice(i,1); }
     }
     for(let i=txsL1.length-1;i>=0;i--){
       const tx=txsL1[i];
