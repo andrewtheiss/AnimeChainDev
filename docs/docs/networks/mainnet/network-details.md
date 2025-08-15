@@ -368,7 +368,7 @@ Monitor network health:
 ---
 
 !!! tip "Need Help?"
-    - 💬 **Discord:** [Join our community](https://discord.gg/animechain)
+    - 💬 **DevZuki Community:** [Join here](https://t.co/4xlpVFIfDx) — community-led developer support; docs maintained by a DevZuki member
     - 📚 **Developer Docs:** [API Reference](../../developers/rpc-api.md)
     - 🛠️ **Interactive Tools:** [Developer Dashboard](../../app.md)
     - 🐛 **Issues:** [GitHub](https://github.com/AnimeChain/AnimeChainDev/issues) 

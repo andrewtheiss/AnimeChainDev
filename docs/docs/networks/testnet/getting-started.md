@@ -23,7 +23,7 @@ Welcome to **AnimeChain Testnet** - the perfect environment for developing and t
     
     ```
     Network Name: AnimeChain Testnet
-    RPC URL: https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
+    RPC URL: https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
     Chain ID: 6900
     Currency Symbol: tANIME
     Block Explorer: https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
@@ -44,7 +44,7 @@ Welcome to **AnimeChain Testnet** - the perfect environment for developing and t
     | Field | Value |
     |-------|-------|
     | **Network Name** | AnimeChain Testnet |
-    | **RPC URL** | `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
+    | **RPC URL** | `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
     | **Chain ID** | `6900` |
     | **Currency Symbol** | `tANIME` |
     | **Block Explorer** | `https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
@@ -77,7 +77,7 @@ Add AnimeChain Testnet to your development environment:
 module.exports = {
   networks: {
     animechain_testnet: {
-      url: "https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/",
+      url: "https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/",
       chainId: 6900,
       accounts: [process.env.PRIVATE_KEY]
     }
@@ -88,7 +88,7 @@ module.exports = {
 ```javascript
 // ethers.js
 const provider = new ethers.JsonRpcProvider(
-  "https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"
+  "https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/"
 );
 ```
 
@@ -102,7 +102,7 @@ const testnetClient = createPublicClient({
     name: 'AnimeChain Testnet',
     nativeCurrency: { name: 'Test ANIME', symbol: 'tANIME', decimals: 18 },
     rpcUrls: {
-      default: { http: ['https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/'] }
+      default: { http: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'] }
     }
   },
   transport: http()
@@ -118,7 +118,7 @@ Deploy contracts to AnimeChain testnet:
 npx hardhat run scripts/deploy.js --network animechain_testnet
 
 # Using Foundry
-forge create --rpc-url https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/ \
+forge create --rpc-url https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/ \
   --private-key $PRIVATE_KEY \
   src/MyContract.sol:MyContract
 ```
@@ -142,8 +142,8 @@ forge create --rpc-url https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.x
 
 | Service | URL |
 |---------|-----|
-| **RPC Endpoint** | `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
-| **WebSocket** | `wss://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
+| **RPC Endpoint** | `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
+| **WebSocket** | `wss://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
 | **Block Explorer** | [Testnet Explorer](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/) |
 | **Faucet** | [Get Test Tokens](faucet.md) |
 
@@ -219,7 +219,7 @@ console.log(events);
 
 ### Getting Help
 
-- 💬 **Discord:** [Join our testnet channel](https://discord.gg/animechain)
+- 💬 **DevZuki Community:** [Join here](https://t.co/4xlpVFIfDx) — community-led developer support; this documentation is provided by a DevZuki member and it's the best place to get help for now.
 - 🐛 **Issues:** [Report testnet bugs](https://github.com/AnimeChain/AnimeChainDev/issues)
 - 📚 **Documentation:** [Full Developer Guide](../../developers/index.md)
 - 🔧 **Tools:** [Interactive Testing Tools](../../app.md)

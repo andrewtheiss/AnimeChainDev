@@ -36,7 +36,7 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY]
     },
     testnet: { 
-      url: 'https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/',
+      url: 'https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/',
       chainId: 6900,
       accounts: [process.env.PRIVATE_KEY]
     }
@@ -85,7 +85,7 @@ AnimeChain Explorer supports source verification similar to Etherscan. After dep
 - **Contract Addresses & ABIs:** [Contracts](contracts.md)
 - **Code Examples:** [Examples](examples.md)
 - **Network Details:** [Mainnet](../networks/mainnet/network-details.md) / [Testnet](../networks/testnet/network-details.md)
-- **Community Discord:** <https://discord.gg/animechain>
+- **DevZuki Community:** <https://t.co/4xlpVFIfDx> — community-led developer support (docs maintained by a DevZuki member)
 
 ---
 

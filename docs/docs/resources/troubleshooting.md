@@ -168,7 +168,7 @@ Common issues and solutions when using AnimeChain.
 
 ---
 
-## 🪙 Token Issues
+## <img src="../assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Token Issues
 
 ### Token Not Showing in Wallet
 
@@ -487,10 +487,10 @@ Common issues and solutions when using AnimeChain.
 
 ### Community Support
 
-1. **Discord Community**
-   - [Join AnimeChain Discord](https://discord.gg/animechain)
-   - Developer support channels
-   - Community troubleshooting
+1. **DevZuki Community**
+   - [Join DevZuki](https://t.co/4xlpVFIfDx)
+   - Community-led developer support; docs provided by a DevZuki member
+   - Best place to get help right now
 
 2. **GitHub Issues**
    - [Report bugs](https://github.com/AnimeChain/AnimeChainDev/issues)
@@ -555,7 +555,7 @@ Common issues and solutions when using AnimeChain.
 ---
 
 !!! tip "Still Stuck?"
-    If you can't find a solution here, join our [Discord community](https://discord.gg/animechain) for real-time help from developers and community members.
+    If you can't find a solution here, join the [DevZuki community](https://t.co/4xlpVFIfDx) for real-time help from developers and community members. This documentation is provided by a DevZuki member.
 
 !!! warning "Security Notice"
     Never share your private keys or seed phrases when asking for help. Legitimate support will never ask for this information.

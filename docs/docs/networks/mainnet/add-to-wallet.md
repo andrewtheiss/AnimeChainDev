@@ -260,7 +260,7 @@ With your wallet configured:
 1. **[Bridge ANIME tokens](../../animecoin/bridging.md)** from Ethereum or Arbitrum
 2. **[Explore dApps](../../resources/faq.md)** in the AnimeChain ecosystem
 3. **[Build applications](../../developers/index.md)** on the network
-4. **[Join the community](https://discord.gg/animechain)** for support and updates
+4. **[Join the DevZuki community](https://t.co/4xlpVFIfDx)** for support and updates (community-led developer help; docs maintained by a DevZuki member)
 
 ### Security Best Practices
 
@@ -277,7 +277,7 @@ With your wallet configured:
 
 If you're having trouble adding AnimeChain to your wallet:
 
-- 💬 **Discord:** [Get community support](https://discord.gg/animechain)
+- 💬 **DevZuki Community:** [Get community support](https://t.co/4xlpVFIfDx) — best place to get help for now
 - 🛠️ **Interactive Tool:** [Try our network setup tool](../../app.md)
 - 📚 **Documentation:** [Network technical details](network-details.md)
 - 🐛 **Issues:** [Report problems on GitHub](https://github.com/AnimeChain/AnimeChainDev/issues)

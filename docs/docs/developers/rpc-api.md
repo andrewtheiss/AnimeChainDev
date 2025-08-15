@@ -12,7 +12,7 @@ Complete JSON-RPC API documentation for AnimeChain.
 - **Explorer:** [https://explorer-animechain-39xf6m45e3.t.conduit.xyz/](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
 
 ### Testnet
-- **RPC URL:** `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`
+- **RPC URL:** `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`
 - **Chain ID:** `6900` (0x1AF4)  
 - **Explorer:** [https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/)
 

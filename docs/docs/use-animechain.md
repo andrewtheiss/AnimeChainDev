@@ -26,7 +26,7 @@
           <strong>Chain ID:</strong> 6900 (0x1AF4)
         </div>
         <div class="param-item">
-          <strong>RPC URL:</strong> https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
+          <strong>RPC URL:</strong> https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
         </div>
         <div class="param-item">
           <strong>Native Token:</strong> tANIME (Test tokens)
@@ -39,7 +39,7 @@
     
     <div class="add-token-section">
       <button class="add-token-btn" onclick="addAnimeToken()">
-        <span class="btn-icon">🪙</span>
+        <span class="btn-icon"><img src="../assets/images/animecoin.webp" alt="ANIME" style="height: 1em; vertical-align: -0.15em;" /></span>
         Add ANIME Token to Wallet
       </button>
     </div>

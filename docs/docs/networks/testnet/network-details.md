@@ -26,8 +26,8 @@ Complete technical reference for AnimeChain **Testnet** – the sandbox network 
 
 | Service                | URL                                                                                             | Status |
 |------------------------|---------------------------------------------------------------------------------------------------|--------|
-| **RPC HTTP**           | `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`                                   | ✅ Active |
-| **RPC WebSocket**      | `wss://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`                                    | ✅ Active |
+| **RPC HTTP**           | `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`                                   | ✅ Active |
+| **RPC WebSocket**      | `wss://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`                                    | ✅ Active |
 | **Block Explorer**     | `https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`                              | ✅ Active |
 | **Faucet (Web)**       | [/networks/testnet/faucet/](faucet.md)                                                           | ✅ Active |
 
@@ -64,7 +64,7 @@ graph TB
     ```javascript
     import { ethers } from 'ethers';
     const provider = new ethers.JsonRpcProvider(
-      'https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/'
+      'https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'
     );
     const { chainId } = await provider.getNetwork();
     console.log(chainId); // 6900
@@ -76,7 +76,7 @@ graph TB
     module.exports = {
       networks: {
         anime_testnet: {
-          url: 'https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/',
+          url: 'https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/',
           chainId: 6900,
           gasPrice: 0,
           accounts: [process.env.PRIVATE_KEY]

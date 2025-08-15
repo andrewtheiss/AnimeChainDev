@@ -55,7 +55,7 @@ module.exports = {
       gasPrice: 'auto',
     },
     testnet: {
-      url: 'https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/',
+      url: 'https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/',
       chainId: 6900, 
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       gasPrice: 'auto',
@@ -450,4 +450,4 @@ npx hardhat test test/AnimeToken.js
 ---
 
 !!! tip "Need Help?"
-    Join our [Discord community](https://discord.gg/animechain) for developer support and discussions.
+    Join the [DevZuki community](https://t.co/4xlpVFIfDx) for developer support and discussions. This documentation is provided by a DevZuki member and it's the best place to get help for now.

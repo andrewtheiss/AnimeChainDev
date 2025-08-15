@@ -4,8 +4,8 @@ site_url: https://docs.animechain.ai  # Replace with your actual domain
 site_author: AnimeChain Team
 
 # Repository
-repo_name: AnimeChain/AnimeChainDev
-repo_url: https://github.com/AnimeChain/AnimeChainDev  # Replace with your repo
+repo_name: AnimeChainDev
+repo_url: https://github.com/andrewtheiss/AnimeChainDev  # Replace with your repo
 edit_uri: edit/main/docs/docs/
 
 # Theme configuration
@@ -64,7 +64,9 @@ nav:
       - Add to Wallet: networks/testnet/add-to-wallet.md
   - Animecoin:
     - Overview: animecoin/index.md
-    - Bridging Guide: animecoin/bridging.md
+    - Bridging Guide:
+      - The Easy Way: animecoin/bridging-easy.md
+      - The Hard Way: animecoin/bridging.md
     - Contract Addresses: animecoin/contracts.md
   - Developers:
     - Quick Start: developers/index.md
@@ -137,7 +139,7 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/AnimeChain  # Replace with actual social links
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/animechain  # Replace with actual Discord
+      link: https://t.co/4xlpVFIfDx  # DevZuki community support (docs maintained by a member)
   generator: false
 
 # Custom CSS

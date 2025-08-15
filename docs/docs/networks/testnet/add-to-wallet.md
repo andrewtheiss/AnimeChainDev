@@ -19,7 +19,7 @@ await window.ethereum.request({
     chainId: '0x1AF4',           // 6900 in hex
     chainName: 'AnimeChain Testnet',
     nativeCurrency: { name: 'tANIME', symbol: 'tANIME', decimals: 18 },
-    rpcUrls: ['https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/'],
+    rpcUrls: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'],
     blockExplorerUrls: ['https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/']
   }]
 });
@@ -37,7 +37,7 @@ await window.ethereum.request({
     | Field | Value |
     |-------|-------|
     | **Network name** | `AnimeChain Testnet` |
-    | **New RPC URL**  | `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
+    | **New RPC URL**  | `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
     | **Chain ID**     | `6900` |
     | **Currency symbol** | `tANIME` |
     | **Block explorer URL** | `https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/` |
@@ -62,7 +62,7 @@ await window.ethereum.request({
 
 ```
 Name: AnimeChain Testnet
-RPC:  https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
+RPC:  https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
 Chain ID: 6900
 Symbol: tANIME
 Explorer: https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
@@ -94,7 +94,7 @@ Most WalletConnect wallets let you add a custom chain. Use this JSON:
     "symbol": "tANIME",
     "decimals": 18
   },
-  "rpcUrls": ["https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"],
+  "rpcUrls": ["https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/"],
   "blockExplorerUrls": ["https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"]
 }
 ```

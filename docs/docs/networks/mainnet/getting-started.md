@@ -170,7 +170,7 @@ forge create --rpc-url https://rpc-animechain-39xf6m45e3.t.conduit.xyz/ \
 
 ### Getting Help
 
-- 💬 **Discord:** [Join our community](https://discord.gg/animechain)
+- 💬 **DevZuki Community:** [Join here](https://t.co/4xlpVFIfDx) — community-led developer support; docs maintained by a DevZuki member
 - 🐛 **Issues:** [GitHub Issues](https://github.com/AnimeChain/AnimeChainDev/issues)
 - 📚 **Documentation:** [Full API Reference](../../developers/rpc-api.md)
 - 🔧 **Tools:** [Interactive Developer Tools](../../app.md)

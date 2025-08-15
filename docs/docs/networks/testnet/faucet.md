@@ -50,9 +50,9 @@ await faucetContract.withdraw(v, r, s, commitmentMessage);
 |-------|----------|
 | Transaction failed | Check cooldown period, verify network connection |
 | No tokens received | Confirm transaction on explorer, refresh wallet |
-| Faucet empty | Try later or ask in Discord |
+| Faucet empty | Try later or ask in the DevZuki community |
 
-**Help**: [Discord](https://discord.gg/animechain) • [Faucet Tool](../../app.md) • [Explorer](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/)
+**Help**: [DevZuki Community](https://t.co/4xlpVFIfDx) — community-led developer support; docs maintained by a DevZuki member • [Faucet Tool](../../app.md) • [Explorer](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/)
 
 !!! tip "Best Practices"
     Only request what you need • Don't abuse rate limits • Plan your testing efficiently 

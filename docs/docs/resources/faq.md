@@ -10,7 +10,7 @@ AnimeChain is a Layer-3 blockchain built on the Arbitrum Orbit stack, tuned for 
 
 ---
 
-## 🪙 What is ANIME?
+## <img src="../assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> What is ANIME?
 
 ANIME is the native gas token on AnimeChain. On testnet it is **tANIME** and has no value.
 
@@ -54,10 +54,10 @@ Use Hardhat / Foundry with the RPC endpoint `https://rpc-animechain-39xf6m45e3.t
 
 ## 🐞 I encountered an issue – where to report?
 
-Open a GitHub Issue at <https://github.com/AnimeChain/AnimeChainDev/issues> or ask in **#dev-support** on Discord.
+Open a GitHub Issue at <https://github.com/AnimeChain/AnimeChainDev/issues> or ask in the **DevZuki community**: <https://t.co/4xlpVFIfDx> (community-led developer support; docs maintained by a DevZuki member).
 
 ---
 
 ## 👷‍♂️ Where can I see roadmap / governance info?
 
-Coming soon – follow announcements on Discord and Twitter. 
+Coming soon – follow announcements via the DevZuki community and Twitter. 

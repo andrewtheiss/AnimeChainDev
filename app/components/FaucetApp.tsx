@@ -102,7 +102,7 @@ export function FaucetApp() {
                   symbol: 'tANIME',
                   decimals: 18
                 },
-                rpcUrls: ['https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/'],
+                rpcUrls: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'],
                 blockExplorerUrls: ['https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/']
               }]
             });
@@ -172,12 +172,12 @@ export function FaucetApp() {
                 📚 Documentation
               </a>
               <a
-                href="https://discord.gg/animechain"
+                href="https://t.co/4xlpVFIfDx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline"
               >
-                💬 Discord Support
+                💬 DevZuki Community
               </a>
               <a
                 href="https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/"
