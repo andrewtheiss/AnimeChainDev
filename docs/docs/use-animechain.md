@@ -3,15 +3,15 @@
 ## Networks Table of Contents
 
 ### Mainnet
-- [Getting Started](networks/mainnet/getting-started.md)
-- [Network Details](networks/mainnet/network-details.md)
-- [Add to Wallet](networks/mainnet/add-to-wallet.md)
+- [Getting Started](#getting-started-mainnet)
+- [Network Details](#network-information-mainnet)
+- [Add to Wallet](#add-to-wallet-mainnet)
 
 ### Testnet
-- [Getting Started](networks/testnet/getting-started.md)
-- [Network Details](networks/testnet/network-details.md)
-- [Faucet](networks/testnet/faucet.md)
-- [Add to Wallet](networks/testnet/add-to-wallet.md)
+- [Getting Started](#getting-started-testnet)
+- [Network Details](#network-information-testnet)
+- [Faucet](#faucet)
+- [Add to Wallet](#add-to-wallet-testnet)
 
 ## How to use AnimeChain
 
@@ -20,6 +20,181 @@ In order to use AnimeChain, you must have **Animecoin (ANIME) on AnimeChain** as
 - Bridge ANIME to AnimeChain: see the [Bridging guide](animecoin/bridging.md).
 - Add the AnimeChain network to your wallet (and optionally L1/L2): use the “Add ANIME Token to Wallet” section below or follow the Network guides.
 - Add token contracts to your wallet to track balances (L1 ERC‑20, L2 Wrapped ANIME). Once done, you’re ready to develop or use dApps on AnimeChain.
+
+---
+
+## Mainnet
+
+### Getting Started (Mainnet)
+
+1) Add AnimeChain to your wallet
+
+```text
+Network Name: AnimeChain
+RPC URL: https://rpc-animechain-39xf6m45e3.t.conduit.xyz/
+Chain ID: 69000
+Currency Symbol: ANIME
+Block Explorer: https://explorer-animechain-39xf6m45e3.t.conduit.xyz/
+```
+
+2) Get ANIME tokens (for gas)
+
+- ANIME originates on Ethereum L1. Bridge L1 → L2 → L3 using the Relay interface below or see the Bridging guide.
+
+3) Start building
+
+- Deploy with Hardhat/Foundry, interact with dApps, and monitor on the explorer.
+
+### Developer Setup (Mainnet)
+
+```javascript
+// hardhat.config.js
+module.exports = {
+  networks: {
+    animechain: {
+      url: "https://rpc-animechain-39xf6m45e3.t.conduit.xyz/",
+      chainId: 69000,
+      accounts: [process.env.PRIVATE_KEY]
+    }
+  }
+};
+```
+
+```javascript
+// ethers.js
+import { ethers } from 'ethers';
+const provider = new ethers.JsonRpcProvider(
+  "https://rpc-animechain-39xf6m45e3.t.conduit.xyz/"
+);
+```
+
+```typescript
+// viem
+import { createPublicClient, http } from 'viem';
+const client = createPublicClient({
+  chain: {
+    id: 69000,
+    name: 'AnimeChain',
+    nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
+    rpcUrls: { default: { http: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'] } }
+  },
+  transport: http()
+});
+```
+
+### Network Information (Mainnet)
+
+| Property | Value |
+|----------|-------|
+| Network Name | AnimeChain |
+| Chain ID | 69000 (0x10D88) |
+| Native Token | ANIME |
+| Block Time | ~2s |
+
+| Service | URL |
+|---------|-----|
+| RPC HTTP | `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` |
+| WebSocket | `wss://rpc-animechain-39xf6m45e3.t.conduit.xyz/` |
+| Explorer | `https://explorer-animechain-39xf6m45e3.t.conduit.xyz/` |
+| Bridge Interface | [Relay Bridge](https://relay.link/bridge/ethereum?includeChainIds=6167f9a0-84dc-4296-8a26-2bb3cc56dc2c&fromChainId=69000&toCurrency=0x4dc26fc5854e7648a064a4abd590bbe71724c277) |
+
+### Gas Note (Mainnet)
+
+- Current manual gas price: 475.5 Gwei (ANIME). Ensure your gas settings reflect this, or transactions may fail.
+
+```javascript
+// Legacy gasPrice
+const gasPrice = ethers.parseUnits('475.5', 'gwei');
+await wallet.sendTransaction({ to, value, gasPrice });
+
+// EIP-1559
+const maxFeePerGas = ethers.parseUnits('475.5', 'gwei');
+const maxPriorityFeePerGas = ethers.parseUnits('0.5', 'gwei');
+await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
+```
+
+---
+
+## Testnet
+
+### Getting Started (Testnet)
+
+```text
+Network Name: AnimeChain Testnet
+RPC URL: https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
+Chain ID: 6900
+Currency Symbol: tANIME
+Block Explorer: https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
+```
+
+### Developer Setup (Testnet)
+
+```javascript
+// hardhat.config.js
+module.exports = {
+  networks: {
+    animechain_testnet: {
+      url: "https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/",
+      chainId: 6900,
+      accounts: [process.env.PRIVATE_KEY]
+    }
+  }
+};
+```
+
+```javascript
+// ethers.js
+import { ethers } from 'ethers';
+const provider = new ethers.JsonRpcProvider(
+  "https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/"
+);
+```
+
+```typescript
+// viem
+import { createPublicClient, http } from 'viem';
+const testnetClient = createPublicClient({
+  chain: {
+    id: 6900,
+    name: 'AnimeChain Testnet',
+    nativeCurrency: { name: 'Test ANIME', symbol: 'tANIME', decimals: 18 },
+    rpcUrls: { default: { http: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'] } }
+  },
+  transport: http()
+});
+```
+
+### Network Information (Testnet)
+
+| Property | Value |
+|----------|-------|
+| Network Name | AnimeChain Testnet |
+| Chain ID | 6900 (0x1AF4) |
+| Native Token | tANIME |
+| Parent Chain | Arbitrum Sepolia (421614) |
+
+| Service | URL |
+|---------|-----|
+| RPC HTTP | `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
+| WebSocket | `wss://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/` |
+| Block Explorer | [Testnet Explorer](https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/) |
+| Faucet | [Get Test Tokens](#faucet) |
+
+### Core Contracts (Testnet)
+
+| Contract | Address |
+|----------|---------|
+| Rollup | `0xb31ae2dA8AF1227D3533DBE11a5E9B0bCfc738B4` |
+| Inbox | `0x0590A4DEDCE7145e81BF59DB39029a27A6783141` |
+| Outbox | `0xb1C0EbEADFf5f277727ABf8aCdC1031AA119A26d` |
+| Bridge | `0x554105BbC8eB136933B210Eb60b5d7C9c592d6D8` |
+| Sequencer Inbox | `0x742FFc80b224C815E8faeE34DC0d612c722d5Bd0` |
+
+### Faucet
+
+- Recommended: [Use Interactive Faucet](app.md)
+- Manual flow: Connect wallet → Sign commitment message → Receive tokens.
+
 
 <div class="use-animechain-container">
   <div class="network-params-section">

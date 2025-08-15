@@ -33,13 +33,13 @@
   <p>Choose your preferred development network:</p>
   
   <div class="develop-options">
-    <a href="networks/testnet/getting-started" class="develop-btn">
+    <a href="use-animechain/#getting-started-testnet" class="develop-btn">
       <div class="btn-icon">🧪</div>
       <div class="btn-text">Testnet</div>
       <div class="btn-subtitle">Safe testing environment with free tokens</div>
     </a>
     
-    <a href="networks/mainnet/getting-started" class="develop-btn">
+    <a href="use-animechain/#getting-started-mainnet" class="develop-btn">
       <div class="btn-icon">🟢</div>
       <div class="btn-text">Mainnet</div>
       <div class="btn-subtitle">Production-ready network for live applications</div>
@@ -125,7 +125,7 @@ graph TB
 ## 🚀 Quick Start
 
 ### For Users
-1. [Add AnimeChain to your wallet](networks/mainnet/add-to-wallet.md)
+1. [Add AnimeChain to your wallet](use-animechain.md#add-to-wallet-mainnet)
 2. [Bridge ANIME tokens](animecoin/bridging.md) from L1/L2
 3. Start using anime dApps on L3!
 
@@ -136,8 +136,8 @@ graph TB
 4. [Explore code examples](developers/examples.md)
 
 ### For Testers
-1. [Connect to testnet](networks/testnet/getting-started.md)
-2. [Get free test tokens](networks/testnet/faucet.md)
+1. [Connect to testnet](use-animechain.md#getting-started-testnet)
+2. [Get free test tokens](use-animechain.md#faucet)
 3. [Try our interactive tools](app.md)
 
 ---
