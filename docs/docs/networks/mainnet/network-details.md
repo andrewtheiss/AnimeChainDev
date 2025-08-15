@@ -22,7 +22,7 @@ Complete technical reference for AnimeChain Mainnet - everything developers need
 | **RPC HTTP** | `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` | ✅ Active |
 | **RPC WebSocket** | `wss://rpc-animechain-39xf6m45e3.t.conduit.xyz/` | ✅ Active |
 | **Block Explorer** | `https://explorer-animechain-39xf6m45e3.t.conduit.xyz/` | ✅ Active |
-| **Bridge Interface** | Coming Soon | 🚧 Development |
+| **Bridge Interface** | [Relay Bridge](https://relay.link/bridge/ethereum?includeChainIds=6167f9a0-84dc-4296-8a26-2bb3cc56dc2c&fromChainId=69000&toCurrency=0x4dc26fc5854e7648a064a4abd590bbe71724c277) | Ready |
 
 ---
 

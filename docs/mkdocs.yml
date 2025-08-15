@@ -51,17 +51,6 @@ theme:
 nav:
   - Home: index.md
   - Use AnimeChain: use-animechain.md
-  - Networks:
-    - Overview: networks/index.md
-    - Mainnet:
-      - Getting Started: networks/mainnet/getting-started.md
-      - Network Details: networks/mainnet/network-details.md
-      - Add to Wallet: networks/mainnet/add-to-wallet.md
-    - Testnet:
-      - Getting Started: networks/testnet/getting-started.md
-      - Network Details: networks/testnet/network-details.md
-      - Faucet: networks/testnet/faucet.md
-      - Add to Wallet: networks/testnet/add-to-wallet.md
   - Animecoin:
     - Overview: animecoin/index.md
     - Bridging Guide:
@@ -131,8 +120,6 @@ markdown_extensions:
 
 # Additional configuration
 extra:
-  version:
-    provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/AnimeChain

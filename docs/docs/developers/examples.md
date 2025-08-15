@@ -257,7 +257,7 @@ async function checkTransaction(txHash) {
 
 ---
 
-## 🎌 NFT Operations
+## NFT Operations
 
 ### Deploy NFT Contract
 

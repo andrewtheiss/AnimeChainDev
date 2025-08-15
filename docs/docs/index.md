@@ -1,6 +1,7 @@
 <div align="center">
   <h1><img src="assets/images/animechain.webp" alt="AnimeChain" style="height: 36px; vertical-align: middle; margin-right: 8px;" />AnimeChain Documentation</h1>
-  <p><strong>Layer 3 Blockchain Built on Arbitrum Orbital</strong></p>
+  <p><strong>Layer 3 Network Powered by Animecoin</strong></p>
+  <p>Build natively with Animecoin as the native currency while staying EVM-compatible and directly connected to Ethereum via rollups</p>
   <p>Get funds immediately via the faucet</p>
 </div>
 
@@ -44,6 +45,28 @@
       <div class="btn-subtitle">Production-ready network for live applications</div>
     </a>
   </div>
+
+  <div class="gas-warning" style="margin-top: 1.5rem; padding: 1rem; border: 1px solid rgba(239,68,68,.25); background: rgba(239,68,68,.06); border-radius: 12px;">
+    <h3 style="margin: 0 0 .5rem; color:#b91c1c;">Warning: Elevated Gas Price on AnimeChain</h3>
+    <p style="margin: 0 0 .5rem;">
+      AnimeChain currently uses a manually increased gas price of <strong>475.5 Gwei</strong> (ANIME). When estimating or setting gas, be sure to account for this higher value, or your transactions may fail or underprice.
+    </p>
+    <div style="display:flex; align-items:flex-start; gap: 1rem; flex-wrap: wrap;">
+      <img src="assets/images/gastracker.webp" alt="AnimeChain Gas Tracker" style="max-width: 520px; width: 100%; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08);" />
+      <div style="min-width:280px; flex:1;">
+        <div style="font-weight:700; margin-bottom:.35rem;">Example (ethers v6):</div>
+        <pre style="margin:0; overflow:auto;"><code>// Legacy-style gasPrice
+const gasPrice = ethers.parseUnits('475.5', 'gwei');
+const tx = await wallet.sendTransaction({ to, value, gasPrice });
+
+// Or EIP-1559 style
+const maxFeePerGas = ethers.parseUnits('475.5', 'gwei');
+const maxPriorityFeePerGas = ethers.parseUnits('0.5', 'gwei');
+const tx1559 = await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
+</code></pre>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -69,7 +92,7 @@ AnimeChain is built as a **Layer 3 blockchain** using Arbitrum Orbital technolog
 graph TB
     L1[Ethereum L1<br/>🏦 Animecoin Origin]
     L2[Arbitrum L2<br/>🌉 Wrapped ANIME]
-    L3[AnimeChain L3<br/>🎌 Native ANIME]
+    L3[AnimeChain L3<br/>Native ANIME]
     
     L1 -->|Bridge| L2
     L2 -->|Bridge| L3

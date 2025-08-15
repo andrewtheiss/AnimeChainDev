@@ -1,5 +1,5 @@
 
-## 🎌 AnimeChain Context & Assumptions
+## AnimeChain Context & Assumptions
 
 ### **What is AnimeChain**
 

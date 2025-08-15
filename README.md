@@ -1,10 +1,10 @@
-# 🎌 AnimeChain Documentation & Faucet
+# AnimeChain Documentation & Faucet
 
 Documentation site with integrated React faucet for AnimeChain L3 blockchain.
 
 **Components:**
 - **📚 Documentation** (MkDocs) - Complete AnimeChain guides
-- **🎌 Faucet App** (React) - Interactive testnet token faucet
+- **Faucet App** (React) - Interactive testnet token faucet
 
 ## 🚀 Quick Start
 

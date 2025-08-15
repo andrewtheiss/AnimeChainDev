@@ -221,7 +221,7 @@ Common issues and solutions when using AnimeChain.
 
 ---
 
-## 🎌 NFT Issues
+## NFT Issues
 
 ### NFT Not Displaying
 

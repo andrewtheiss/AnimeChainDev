@@ -121,7 +121,7 @@ export function FaucetApp() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="anime-gradient bg-clip-text text-transparent">
-              🎌 AnimeChain
+              AnimeChain
             </span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-primary-700 dark:text-primary-300 mb-2">

@@ -285,4 +285,4 @@ If you're having trouble adding AnimeChain to your wallet:
 ---
 
 !!! success "You're Ready!"
-    With AnimeChain added to your wallet, you're ready to explore the anime-focused Layer 3 ecosystem. Remember to get some ANIME tokens for transaction fees and start small as you learn the network! 🎌 
+    With AnimeChain added to your wallet, you're ready to explore the anime-focused Layer 3 ecosystem. Remember to get some ANIME tokens for transaction fees and start small as you learn the network!

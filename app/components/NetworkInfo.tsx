@@ -49,7 +49,7 @@ export function NetworkInfo() {
       <div className="mt-6 p-4 rounded-lg"
            style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
         <p className="text-sm text-primary-800 dark:text-primary-300 text-center">
-          🎌 This is a <strong>test network</strong> - tokens have no real value. 
+          This is a <strong>test network</strong> - tokens have no real value. 
           Perfect for development and experimentation!
         </p>
       </div>

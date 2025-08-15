@@ -1,4 +1,4 @@
-# 🎌 AnimeChain Testnet Faucet
+# AnimeChain Testnet Faucet
 
 Get free **tANIME** tokens for testing and development on AnimeChain Testnet.
 
