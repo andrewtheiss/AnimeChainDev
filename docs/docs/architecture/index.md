@@ -16,9 +16,71 @@ AnimeChain is a **Layer 3 blockchain** built on Arbitrum Orbital technology.
 
 #### Rollup-of-a-rollup (visual)
 
+<div style="margin: .5rem 0 1rem 0; font-weight: 700;">Legend</div>
+<div style="display:flex; gap:1rem; align-items:center; margin-bottom: .75rem;">
+  <span style="display:inline-flex; align-items:center; gap:.5rem;">
+    <span style="display:inline-block; width:12px; height:12px; border-radius:3px; background: rgba(255,214,10,1);"></span>
+    <span>AnimeChain (L3)</span>
+  </span>
+  <span style="display:inline-flex; align-items:center; gap:.5rem;">
+    <span style="display:inline-block; width:12px; height:12px; border-radius:3px; background: rgba(30,136,229,1);"></span>
+    <span>Arbitrum (L2)</span>
+  </span>
+  <span style="display:inline-flex; align-items:center; gap:.5rem;">
+    <span style="display:inline-block; width:12px; height:12px; border-radius:3px; background: rgba(120,120,120,1);"></span>
+    <span>Ethereum (L1)</span>
+  </span>
+  
+</div>
+
+<div style="margin: 1rem 0 .25rem 0; font-weight: 800; display:flex; align-items:center; gap:.5rem;">
+  <span style="display:inline-block; width:10px; height:10px; border-radius:3px; background: rgba(255,214,10,1);"></span>
+  <span>L3 → L2: Rollup of a rollup (AnimeChain to Arbitrum)</span>
+</div>
+
+- **Batching on L3**: AnimeChain’s sequencer orders transactions and produces L3 blocks on a ~2s cadence.
+- **Compression**: Recent L3 blocks are periodically compressed into a single L2 transaction (a “package”).
+- **Submission to L2**: The package is posted to Arbitrum’s inbox. When Arbitrum is ready to accept the message, it ingests the package and replays/updates L2 state accordingly.
+- **Result**: L3 state commitments and any cross-chain messages become available on L2 once the batch is accepted.
+
+<div style="margin: 1rem 0 .25rem 0; font-weight: 800; display:flex; align-items:center; gap:.5rem;">
+  <span style="display:inline-block; width:10px; height:10px; border-radius:3px; background: rgba(30,136,229,1);"></span>
+  <span>L2 → L1: Optimistic rollup (Arbitrum to Ethereum)</span>
+</div>
+
+- **Batching on L2**: Arbitrum batches L2 data and posts commitments/calldata to Ethereum for data availability.
+- **Optimistic finality**: L2 outputs are considered correct unless challenged. After the challenge window closes (typ. ~7 days), the posted state roots are finalized on L1.
+- **Result**: Once finalized on L1, withdrawals and cross-chain messages from L2 to L1 can be proven and executed trustlessly on Ethereum.
+
 <div class="rollup-canvas-wrap" style="margin: 1rem 0;">
   <canvas id="chainCanvas" width="1000" height="1050" aria-label="Chains visualization" style="max-width:100%; width:100%; height:1050px; display:block; border-radius:8px; background: radial-gradient(ellipse at top left, rgba(255,255,255,0.06), rgba(0,0,0,0.02));"></canvas>
 </div>
+
+## Cross-Layer Message Timing (Examples)
+
+These real examples illustrate why L3 → L2 (and onward to L1) can take time.
+
+In a cross-chain flow, your transaction first executes and finalizes on the source chain (e.g., L3). Then, its effect is conveyed to the next layer via a batched message: L3 compresses recent blocks into a rollup “package” and posts it to L2’s inbox; L2 only reflects the change after it reads and processes that inbox. Each hop has its own cadence and finality rules (e.g., L3→L2 inbox reads can be on a multi‑hour schedule; L2→L1 also includes an optimistic challenge period). Therefore, “confirmed on L3” does not immediately imply visibility or effect on L2/L1 until the message is ingested and processed at each hop.
+
+<div class="step-cards">
+  <div class="step-card step-l3">
+    <div class="step-header"><span class="step-dot"></span><span>Step 1 — L3 confirmation (AnimeChain)</span></div>
+    <p>The transaction is confirmed on L3 but has not yet been sent to L2. It will be included in a future L3 → L2 rollup batch.</p>
+    <img alt="AnimeChain explorer shows confirmed L3 transaction before L2 submission" src="../assets/images/txnWaitForRollup.png" />
+  </div>
+  <div class="step-card step-l2">
+    <div class="step-header"><span class="step-dot"></span><span>Step 2 — Rollup posted; awaiting L2 inbox read (Arbitrum)</span></div>
+    <p>The rollup has been posted to L2, but Arbitrum has not yet opened and processed its cross-chain inbox. This can be on a multi‑hour schedule (up to ~12h).</p>
+    <img alt="Arbitrum has not yet read cross-chain messages; can take up to ~12h" src="../assets/images/txnWaitForRollup2.png" />
+  </div>
+  <div class="step-card step-final">
+    <div class="step-header"><span class="step-dot"></span><span>Step 3 — Reflected downstream</span></div>
+    <p>The message has been read and processed; the transaction is reflected on L2 and downstream state is updated.</p>
+    <img alt="Confirmed through the process: delivered and processed on L2" src="../assets/images/txnWaitForRollup3.png" />
+  </div>
+</div>
+
+Note: Inbound funding/messages L1 → L2 → L3 are typically much faster than outbound L3 → L2 → L1.
 
 <script>
 (function(){
