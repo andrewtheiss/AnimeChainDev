@@ -1,10 +1,10 @@
-# 🎌 AnimeChain Documentation & Faucet
+# AnimeChain Documentation & Faucet
 
 Documentation site with integrated React faucet for AnimeChain L3 blockchain.
 
 **Components:**
 - **📚 Documentation** (MkDocs) - Complete AnimeChain guides
-- **🎌 Faucet App** (React) - Interactive testnet token faucet
+- **Faucet App** (React) - Interactive testnet token faucet
 
 ## 🚀 Quick Start
 
@@ -75,5 +75,5 @@ Consistent AnimeChain purple theme:
 
 ---
 
-**Links**: [Discord](https://discord.gg/animechain) • [Docs](http://localhost:8000/) • [Faucet](http://localhost:8000/app/)
+**Links**: [DevZuki Community](https://t.co/4xlpVFIfDx) • [Docs](http://localhost:8000/) • [Faucet](http://localhost:8000/app/)
 

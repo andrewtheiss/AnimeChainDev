@@ -4,25 +4,23 @@ site_url: https://docs.animechain.ai  # Replace with your actual domain
 site_author: AnimeChain Team
 
 # Repository
-repo_name: AnimeChain/AnimeChainDev
-repo_url: https://github.com/AnimeChain/AnimeChainDev  # Replace with your repo
+repo_name: AnimeChainDev
+repo_url: https://github.com/andrewtheiss/AnimeChainDev  # Replace with your repo
 edit_uri: edit/main/docs/docs/
 
 # Theme configuration
 theme:
   name: material
   palette:
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    # Light mode (default)
+    - scheme: default
       primary: indigo
       accent: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Dark mode  
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
@@ -53,20 +51,11 @@ theme:
 nav:
   - Home: index.md
   - Use AnimeChain: use-animechain.md
-  - Networks:
-    - Overview: networks/index.md
-    - Mainnet:
-      - Getting Started: networks/mainnet/getting-started.md
-      - Network Details: networks/mainnet/network-details.md
-      - Add to Wallet: networks/mainnet/add-to-wallet.md
-    - Testnet:
-      - Getting Started: networks/testnet/getting-started.md
-      - Network Details: networks/testnet/network-details.md
-      - Faucet: networks/testnet/faucet.md
-      - Add to Wallet: networks/testnet/add-to-wallet.md
   - Animecoin:
     - Overview: animecoin/index.md
-    - Bridging Guide: animecoin/bridging.md
+    - Bridging Guide:
+      - The Easy Way: animecoin/bridging-easy.md
+      - The Hard Way: animecoin/bridging.md
     - Contract Addresses: animecoin/contracts.md
   - Developers:
     - Quick Start: developers/index.md
@@ -131,15 +120,13 @@ markdown_extensions:
 
 # Additional configuration
 extra:
-  version:
-    provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/AnimeChain
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/AnimeChain  # Replace with actual social links
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/animechain  # Replace with actual Discord
+      link: https://t.co/4xlpVFIfDx  # DevZuki community support (docs maintained by a member)
   generator: false
 
 # Custom CSS
@@ -148,8 +135,6 @@ extra_css:
 
 # Custom JavaScript
 extra_javascript:
-  - assets/javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Document directory

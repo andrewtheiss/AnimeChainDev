@@ -1,4 +1,4 @@
-# 🎌 AnimeChain Testnet Faucet
+# AnimeChain Testnet Faucet
 
 Get free **tANIME** tokens for testing and development on AnimeChain Testnet.
 
@@ -34,7 +34,7 @@ Choose your level of dedication:
 
 ## 🔗 Quick Links
 
-[Testnet Guide](networks/testnet/getting-started.md) • [Faucet Docs](networks/testnet/faucet.md) • [Discord](https://discord.gg/animechain) • [Dev Guide](developers/index.md)
+[Testnet Guide](networks/testnet/getting-started.md) • [Faucet Docs](networks/testnet/faucet.md) • [DevZuki Community](https://t.co/4xlpVFIfDx) • [Dev Guide](developers/index.md)
 
 !!! warning "Testnet Only"
     Tokens have no real value. Network may reset during development.

@@ -1,7 +1,8 @@
 <div align="center">
-  <h1>🎌 AnimeChain Documentation</h1>
-  <p><strong>Layer 3 Blockchain Built on Arbitrum Orbital</strong></p>
-  <p>Your gateway to the anime-powered decentralized ecosystem</p>
+  <h1><img src="assets/images/animechain.webp" alt="AnimeChain" style="height: 36px; vertical-align: middle; margin-right: 8px;" />AnimeChain Documentation</h1>
+  <p><strong>Layer 3 Network Powered by Animecoin</strong></p>
+  <p>Build natively with Animecoin as the native currency while staying EVM-compatible and directly connected to Ethereum via rollups</p>
+  <p>Get funds immediately via the faucet</p>
 </div>
 
 <div class="faucet-button-container">
@@ -32,17 +33,39 @@
   <p>Choose your preferred development network:</p>
   
   <div class="develop-options">
-    <a href="networks/testnet/getting-started" class="develop-btn">
+    <a href="use-animechain/#getting-started-testnet" class="develop-btn">
       <div class="btn-icon">🧪</div>
       <div class="btn-text">Testnet</div>
       <div class="btn-subtitle">Safe testing environment with free tokens</div>
     </a>
     
-    <a href="networks/mainnet/getting-started" class="develop-btn">
+    <a href="use-animechain/#getting-started-mainnet" class="develop-btn">
       <div class="btn-icon">🟢</div>
       <div class="btn-text">Mainnet</div>
       <div class="btn-subtitle">Production-ready network for live applications</div>
     </a>
+  </div>
+
+  <div class="gas-warning" style="margin-top: 1.5rem; padding: 1rem; border: 1px solid rgba(239,68,68,.25); background: rgba(239,68,68,.06); border-radius: 12px;">
+    <h3 style="margin: 0 0 .5rem; color:#b91c1c;">Warning: Elevated Gas Price on AnimeChain</h3>
+    <p style="margin: 0 0 .5rem;">
+      AnimeChain currently uses a manually increased gas price of <strong>475.5 Gwei</strong> (ANIME). When estimating or setting gas, be sure to account for this higher value, or your transactions may fail or underprice.
+    </p>
+    <div style="display:flex; align-items:flex-start; gap: 1rem; flex-wrap: wrap;">
+      <img src="assets/images/gastracker.webp" alt="AnimeChain Gas Tracker" style="max-width: 520px; width: 100%; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08);" />
+      <div style="min-width:280px; flex:1;">
+        <div style="font-weight:700; margin-bottom:.35rem;">Example (ethers v6):</div>
+        <pre style="margin:0; overflow:auto;"><code>// Legacy-style gasPrice
+const gasPrice = ethers.parseUnits('475.5', 'gwei');
+const tx = await wallet.sendTransaction({ to, value, gasPrice });
+
+// Or EIP-1559 style
+const maxFeePerGas = ethers.parseUnits('475.5', 'gwei');
+const maxPriorityFeePerGas = ethers.parseUnits('0.5', 'gwei');
+const tx1559 = await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
+</code></pre>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -61,7 +84,7 @@ function showDevelopSection() {
 
 ---
 
-## 🏗️ Architecture Overview
+# Architecture Overview
 
 AnimeChain is built as a **Layer 3 blockchain** using Arbitrum Orbital technology:
 
@@ -69,7 +92,7 @@ AnimeChain is built as a **Layer 3 blockchain** using Arbitrum Orbital technolog
 graph TB
     L1[Ethereum L1<br/>🏦 Animecoin Origin]
     L2[Arbitrum L2<br/>🌉 Wrapped ANIME]
-    L3[AnimeChain L3<br/>🎌 Native ANIME]
+    L3[AnimeChain L3<br/>Native ANIME]
     
     L1 -->|Bridge| L2
     L2 -->|Bridge| L3
@@ -89,18 +112,20 @@ graph TB
 
 ### Key Benefits
 
-- **⚡ Ultra-low fees** - Significantly cheaper than L1 and L2
-- **🚀 High throughput** - Fast transaction processing
-- **🎌 Anime-focused** - Built specifically for anime and gaming dApps
-- **🔒 Arbitrum security** - Inherits security from Arbitrum and Ethereum
-- **🌉 Seamless bridging** - Easy asset movement between layers
+- **Rollup-of-a-rollup cost savings**: AnimeChain is an L3 rollup that batches on Arbitrum (which itself batches on Ethereum), further reducing per‑transaction cost versus using Arbitrum directly.
+- **Native ANIME for everything**: **ANIME** is the base gas and settlement currency chain‑wide, minimizing ERC‑20 overhead and enabling consistently fast throughput.
+- **Larger contracts (≈45 KB)**: Deploy feature‑rich contracts up to ~45 KB, avoiding the ~20–25 KB limits common on L1/L2 and reducing the need for proxies or contract splits.
+- **Fast inbound bridging (L1 → L2 → L3)**: Funding AnimeChain from Ethereum or Arbitrum propagates quickly via canonical bridges. See the [Bridging guide](animecoin/bridging.md).
+- **Longer native exits (L3 → L2 → L1)**: Withdrawing back to Arbitrum follows optimistic rollup timing similar to withdrawals on `bridge.arbitrum.io` from Arbitrum to Ethereum; use liquidity bridges when available for faster exits.
+- **Security inheritance**: Benefits from Arbitrum and Ethereum security guarantees.
 
----
+[Architecture Detials →](architecture/){ .md-button }
+
 
 ## 🚀 Quick Start
 
 ### For Users
-1. [Add AnimeChain to your wallet](networks/mainnet/add-to-wallet.md)
+1. [Add AnimeChain to your wallet](use-animechain.md#add-to-wallet-mainnet)
 2. [Bridge ANIME tokens](animecoin/bridging.md) from L1/L2
 3. Start using anime dApps on L3!
 
@@ -111,8 +136,8 @@ graph TB
 4. [Explore code examples](developers/examples.md)
 
 ### For Testers
-1. [Connect to testnet](networks/testnet/getting-started.md)
-2. [Get free test tokens](networks/testnet/faucet.md)
+1. [Connect to testnet](use-animechain.md#getting-started-testnet)
+2. [Get free test tokens](use-animechain.md#faucet)
 3. [Try our interactive tools](app.md)
 
 ---
@@ -157,7 +182,7 @@ graph TB
 
 ---
 
-## 🪙 Animecoin (ANIME)
+## <img src="assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Animecoin (ANIME)
 
 **ANIME** is the native token powering the AnimeChain ecosystem:
 
@@ -179,17 +204,17 @@ graph TB
 
     ---
 
-    View source code and contribute
+    View open source documentation and contribute
 
-    [:octicons-arrow-right-24: AnimeChain GitHub](https://github.com/AnimeChain)
+    [:octicons-arrow-right-24: AnimeChain Documentation](https://github.com/AnimeChain/AnimeChainDev)
 
--   :fontawesome-brands-discord: **Discord**
+-   :fontawesome-brands-discord: **DevZuki Community**
 
     ---
 
-    Join our developer community
+    Community-led developer support. This documentation is provided by a DevZuki member and it's the best place to get help for now.
 
-    [:octicons-arrow-right-24: Join Discord](https://discord.gg/animechain)
+    [:octicons-arrow-right-24: Join DevZuki](https://t.co/4xlpVFIfDx)
 
 -   :material-help-circle: **Support**
 

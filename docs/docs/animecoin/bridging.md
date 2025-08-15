@@ -1,6 +1,11 @@
-# Bridging ANIME Across Layers
+# Bridging ANIME Across Layers – The Hard Way
 
-Step-by-step instructions to move ANIME between Ethereum (L1), Arbitrum One (L2) and AnimeChain (L3).
+All ANIME originates on Ethereum L1. The versions on L2 and L3 are wrapped representations of the mainnet token.
+
+- ANIME tokens can be wrapped from L1 to L2 to be used on Arbitrum.
+- ANIME tokens MUST be wrapped from L1 to L3 or from L2 to L3 to use AnimeChain natively.
+
+This guide covers the manual paths and contract-based flows between Ethereum (L1), Arbitrum One (L2), and AnimeChain (L3).
 
 ---
 

@@ -1,5 +1,5 @@
 
-## 🎌 AnimeChain Context & Assumptions
+## AnimeChain Context & Assumptions
 
 ### **What is AnimeChain**
 
@@ -18,7 +18,7 @@
 
 **Testnet:**
 - Chain ID: 6900 (0x1AF4)  
-- RPC: `https://rpc-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`
+- RPC: `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`
 - Explorer: `https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`
 - Token: tANIME (free test tokens)
 - Parent: Arbitrum Sepolia (421614)
@@ -195,7 +195,7 @@ curl http://localhost:8000/app/ # React app entry
 2. **Purple theme** aligns with anime aesthetic  
 3. **Network choice** is the primary user decision
 4. **Interactive tools** enhance documentation
-5. **GitHub/Discord** are primary community channels
+5. **GitHub/DevZuki** are primary community channels
 
 ### **Content Assumptions**
 
@@ -220,7 +220,7 @@ When continuing this project, understand that:
 7. **Developer focus** - prioritize technical accuracy over marketing
 8. **Mobile responsive** - many users browse on mobile
 9. **Static hosting** - no backend required for deployment
-10. **Community-driven** - GitHub/Discord integration important
+10. **Community-driven** - GitHub/DevZuki integration important
 
 The goal is creating the **best developer documentation site** for an anime-focused L3 blockchain, with **integrated interactive tools** that make development easier and more engaging.
 
