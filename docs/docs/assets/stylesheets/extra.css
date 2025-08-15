@@ -283,6 +283,16 @@
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
 }
 
+/* Vertical chain tiles */
+.chain-tiles-vertical { display: grid; grid-template-rows: repeat(3, 1fr); gap: 14px; }
+.chain-tile { position: relative; min-height: 160px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; }
+.chain-tile-header { position: absolute; top: 10px; left: 10px; display:flex; align-items:center; gap:10px; padding:6px 10px; background: rgba(255,255,255,0.95); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 2; }
+.chain-tile-header img { width: 22px; height: 22px; object-fit: contain; }
+.chain-tile-header span { font-weight: 800; font-size: 0.95rem; color: #0f172a; }
+.chain-l3 { background: linear-gradient(180deg, rgba(255,214,10,0.16), rgba(255,214,10,0.08)); }
+.chain-l2 { background: linear-gradient(180deg, rgba(78,205,196,0.16), rgba(78,205,196,0.08)); }
+.chain-l1 { background: linear-gradient(180deg, rgba(69,183,209,0.16), rgba(69,183,209,0.08)); }
+
 [data-md-color-scheme="default"] .main-action-btn:hover {
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 55%, #cbd5e1 100%);
   border-color: rgba(15, 23, 42, 0.2);
@@ -482,3 +492,7 @@ html {
     transform: translateY(0);
   }
 } 
+
+/* Canvas container tweaks */
+.rollup-canvas-wrap { position: relative; }
+#rollupCanvas { display: block; }
