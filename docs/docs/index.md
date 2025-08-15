@@ -196,17 +196,22 @@ graph TB
   }
 
   const txs=[]; let nextSpawn = performance.now();
+  const txsL1=[]; let nextSpawnL1 = performance.now();
   function randSpawn(){ return 200 + Math.random()*1600; }
   // Mining controller to synchronize pauses and block movement
   const miningCtrl = { state:'idle', inputActive:false, pauseStart:0, stackMoveStart:0, stackDelta:0 };
+  const miningCtrl1 = { state:'idle', inputActive:false, pauseStart:0, stackMoveStart:0, stackDelta:0 };
 
   // Cube move animation state
   const cubeMoveDuration = 900; // ms
   const cubeFadeDuration = 700; // ms
   const cubeAnim = { active: false, start: 0, fadeStart: 0, recorded:false };
+  const cubeAnim1 = { active: false, start: 0, fadeStart: 0, recorded:false };
   let movedCubes = []; // persisted moved cubes {cx, cy, s, moves}
+  let movedCubes1 = [];
   let cyclesCount = 0;
   function triggerCubeMove(){ if(!cubeAnim.active && cubeAnim.fadeStart===0){ cubeAnim.active = true; cubeAnim.start = performance.now(); cubeAnim.fadeStart = 0; } }
+  function triggerCubeMoveL1(){ if(!cubeAnim1.active && cubeAnim1.fadeStart===0){ cubeAnim1.active = true; cubeAnim1.start = performance.now(); cubeAnim1.fadeStart = 0; } }
   // Expose for manual triggering of a full mining cycle
   window.triggerMiningCycle = function(){
     if(miningCtrl.state==='idle'){
@@ -220,13 +225,26 @@ graph TB
       }
     }
   };
+  window.triggerMiningCycleL1 = function(){
+    if(miningCtrl1.state==='idle'){
+      miningCtrl1.inputActive = true;
+      miningCtrl1.pauseStart = performance.now();
+      miningCtrl1.state = 'pausing';
+      for(let k=0;k<txsL1.length;k++){
+        const txx = txsL1[k];
+        txx.stopAtWait = txx.x < txx.waitX;
+      }
+    }
+  };
   // auto trigger every few seconds (3.5–6s)
   let nextAutoMine = performance.now() + (3500 + Math.random()*2500);
+  let nextAutoMineL1 = performance.now() + (3500 + Math.random()*2500);
   function spawnTxn(){
     const L=layout();
     const size=Math.max(16, Math.min(24, L.width*0.02));
-    const centerY=L.l3.cy; const offset=(Math.random()*2-1)*8;
-    const startX=-size-20; const baseEndX=L.width-24;
+    const yShift = L.third * 0.2;
+    const centerY=L.l3.cy + yShift; const offset=(Math.random()*2-1)*8;
+    const startX=-size-20; const xShift = L.width * 0.25; const baseEndX=L.width-24 - xShift;
     const rawTotal = baseEndX - startX;
     const finalDist = rawTotal * 0.90; // end 10% earlier than before
     const endX = startX + finalDist;
@@ -236,6 +254,21 @@ graph TB
     txs.push({ size, y:centerY+offset, startX, endX, x:startX, v, waitX, stopAtWait: miningCtrl.inputActive, paused:false, last: nowTs });
   }
 
+  function spawnTxnL1(){
+    const L=layout();
+    const size=Math.max(16, Math.min(24, L.width*0.02));
+    const yShift = L.third * 0.2;
+    const centerY=L.l1.cy + yShift; const offset=(Math.random()*2-1)*8;
+    const startX=-size-20; const xShift = L.width * 0.25; const baseEndX=L.width-24 - xShift;
+    const rawTotal = baseEndX - startX;
+    const finalDist = rawTotal * 0.90;
+    const endX = startX + finalDist;
+    const duration=2200+Math.random()*1600; const v = finalDist / duration;
+    const waitX = startX + finalDist*0.85;
+    const nowTs = performance.now();
+    txsL1.push({ size, y:centerY+offset, startX, endX, x:startX, v, waitX, stopAtWait: miningCtrl1.inputActive, paused:false, last: nowTs });
+  }
+
   function drawTxn(tx){ ctx.save(); ctx.fillStyle='rgba(0,0,0,0.12)'; ctx.strokeStyle='#111'; ctx.lineWidth=1.2; drawRoundedRect(tx.x-tx.size/2, tx.y-tx.size/2, tx.size, tx.size, 5); ctx.fill(); ctx.stroke(); ctx.restore(); }
 
   function frame(now){ const L=layout(); ctx.clearRect(0,0,L.width,L.height); drawBackgrounds();
@@ -243,19 +276,41 @@ graph TB
     ctx.save(); ctx.strokeStyle='rgba(0,0,0,0.04)'; ctx.lineWidth=1; const grid=20; for(let x=0;x<L.width;x+=grid){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,L.height); ctx.stroke(); } for(let y=0;y<L.height;y+=grid){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(L.width,y); ctx.stroke(); } ctx.restore();
     // spawning
     if(now>=nextSpawn){ spawnTxn(); nextSpawn = now + randSpawn(); }
+    if(now>=nextSpawnL1){ spawnTxnL1(); nextSpawnL1 = now + randSpawn(); }
     // auto mining trigger
     if(now>=nextAutoMine){ window.triggerMiningCycle(); nextAutoMine = now + (3500 + Math.random()*2500); }
+    if(now>=nextAutoMineL1){ window.triggerMiningCycleL1(); nextAutoMineL1 = now + (3500 + Math.random()*2500); }
     // Single line per frame: animate with cubes; from top to current cube center
     ctx.save(); ctx.strokeStyle = '#111'; ctx.lineWidth = 2;
     {
       const Ltmp = layout();
       const baseS = Math.min(Ltmp.third * 0.5, 100);
       const sNow = baseS * 0.7;
-      const cxNow = Ltmp.width - 24 - sNow/2;
-      const baseCYNow = Ltmp.l3.cy;
+      const xShift = Ltmp.width * 0.25; const cxNow = Ltmp.width - 24 - sNow/2 - xShift;
+      const yShift = Ltmp.third * 0.2;
+      const baseCYNow = Ltmp.l3.cy + yShift;
       let cyNow = baseCYNow;
       if(cubeAnim.active){
         const t = Math.min(1, (now - cubeAnim.start) / cubeMoveDuration);
+        const p = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
+        const targetCYNow = baseCYNow - 1.2 * sNow;
+        cyNow = baseCYNow + (targetCYNow - baseCYNow) * p;
+      }
+      ctx.beginPath(); ctx.moveTo(cxNow, 0); ctx.lineTo(cxNow, cyNow); ctx.stroke();
+    }
+    ctx.restore();
+    // L1: Single line per frame from top to current cube center in L1 lane
+    ctx.save(); ctx.strokeStyle = '#111'; ctx.lineWidth = 2;
+    {
+      const Ltmp = layout();
+      const baseS = Math.min(Ltmp.third * 0.5, 100);
+      const sNow = baseS * 0.7;
+      const xShift = Ltmp.width * 0.25; const cxNow = Ltmp.width - 24 - sNow/2 - xShift;
+      const yShift = Ltmp.third * 0.2;
+      const baseCYNow = Ltmp.l1.cy + yShift;
+      let cyNow = baseCYNow;
+      if(cubeAnim1.active){
+        const t = Math.min(1, (now - cubeAnim1.start) / cubeMoveDuration);
         const p = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
         const targetCYNow = baseCYNow - 1.2 * sNow;
         cyNow = baseCYNow + (targetCYNow - baseCYNow) * p;
@@ -274,12 +329,24 @@ graph TB
       }
       drawProjectedCube2D(mc.cx, drawY, mc.s);
     }
+    // L1 moved cubes
+    for(let i=0;i<movedCubes1.length;i++){
+      const mc = movedCubes1[i];
+      let drawY = mc.cy;
+      if(cubeAnim1.active && miningCtrl1.state==='moving' && mc.animFromY !== undefined){
+        const t = Math.min(1, (now - miningCtrl1.stackMoveStart) / cubeMoveDuration);
+        const p = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
+        drawY = mc.animFromY + (mc.animToY - mc.animFromY) * p;
+      }
+      drawProjectedCube2D(mc.cx, drawY, mc.s);
+    }
     // draw cube at far right end of L3 lane with vertical move + connector + fade-in replacement
     const Lnow = layout();
     const baseS = Math.min(Lnow.third * 0.5, 100);
     const s = baseS * 0.7; // scale blocks by 70%
-    const cx = Lnow.width - 24 - s/2;
-    const baseCY = Lnow.l3.cy;
+    const xShift = Lnow.width * 0.25; const cx = Lnow.width - 24 - s/2 - xShift;
+    const yShift = Lnow.third * 0.2;
+    const baseCY = Lnow.l3.cy + yShift;
     const targetCY = baseCY - 1.2 * s;
     let drawCY = baseCY;
     if(cubeAnim.active){
@@ -325,6 +392,54 @@ graph TB
         }
       }
     }
+    // L1 active cube
+    {
+      const Lnow1 = layout();
+      const baseS1 = Math.min(Lnow1.third * 0.5, 100);
+      const s1 = baseS1 * 0.7; // scale blocks by 70%
+      const xShift1 = Lnow1.width * 0.25; const cx1 = Lnow1.width - 24 - s1/2 - xShift1;
+      const yShift1 = Lnow1.third * 0.2;
+      const baseCY1 = Lnow1.l1.cy + yShift1;
+      const targetCY1 = baseCY1 - 1.2 * s1;
+      let drawCY1 = baseCY1;
+      if(cubeAnim1.active){
+        const t = Math.min(1, (now - cubeAnim1.start) / cubeMoveDuration);
+        const p = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
+        drawCY1 = baseCY1 + (targetCY1 - baseCY1) * p;
+        drawProjectedCube2D(cx1, drawCY1, s1);
+        if(t >= 1){
+          if(!cubeAnim1.recorded){
+            for(let i=0;i<movedCubes1.length;i++){
+              if(movedCubes1[i].animToY !== undefined){ movedCubes1[i].cy = movedCubes1[i].animToY; }
+              movedCubes1[i].moves = (movedCubes1[i].moves||0) + 1;
+              delete movedCubes1[i].animFromY; delete movedCubes1[i].animToY;
+            }
+            movedCubes1 = movedCubes1.filter(c => (c.moves||0) < 2);
+            movedCubes1.push({ cx: cx1, cy: targetCY1, s: s1, moves: 0 });
+            cubeAnim1.recorded = true;
+          }
+          if(cubeAnim1.fadeStart === 0) cubeAnim1.fadeStart = now;
+          if(miningCtrl1.state==='moving'){ miningCtrl1.state='fading'; }
+        }
+      } else {
+        drawProjectedCube2D(cx1, baseCY1, s1);
+      }
+      if(cubeAnim1.fadeStart > 0){
+        const ft = Math.min(1, (now - cubeAnim1.fadeStart) / cubeFadeDuration);
+        ctx.save(); ctx.globalAlpha = ft; drawProjectedCube2D(cx1, baseCY1, s1); ctx.restore();
+        if(ft >= 1){
+          cubeAnim1.active = false;
+          cubeAnim1.recorded = false;
+          cubeAnim1.fadeStart = 0;
+          if(miningCtrl1.state==='fading'){
+            miningCtrl1.inputActive=false; miningCtrl1.state='idle';
+            for(let k=0;k<txsL1.length;k++){
+              txsL1[k].paused=false; txsL1[k].stopAtWait=false; txsL1[k].last = now;
+            }
+          }
+        }
+      }
+    }
     // mining state machine: pause -> move block -> fade new -> resume
     if(miningCtrl.state==='pausing'){
       if(now - miningCtrl.pauseStart >= 400){
@@ -342,6 +457,21 @@ graph TB
         miningCtrl.state='moving';
       }
     }
+    if(miningCtrl1.state==='pausing'){
+      if(now - miningCtrl1.pauseStart >= 400){
+        const Ltmp = layout();
+        const baseS = Math.min(Ltmp.third * 0.5, 100);
+        const sNow = baseS * 0.7;
+        miningCtrl1.stackDelta = -1.2 * sNow;
+        miningCtrl1.stackMoveStart = now;
+        for(let i=0;i<movedCubes1.length;i++){
+          movedCubes1[i].animFromY = movedCubes1[i].cy;
+          movedCubes1[i].animToY = movedCubes1[i].cy + miningCtrl1.stackDelta;
+        }
+        triggerCubeMoveL1();
+        miningCtrl1.state='moving';
+      }
+    }
     // update/draw
     for(let i=txs.length-1;i>=0;i--){
       const tx=txs[i];
@@ -357,6 +487,21 @@ graph TB
       }
       drawTxn(tx);
       if(tx.x >= tx.endX - 0.5){ txs.splice(i,1); }
+    }
+    for(let i=txsL1.length-1;i>=0;i--){
+      const tx=txsL1[i];
+      const dt = now - tx.last; tx.last = now;
+      if(!tx.paused){
+        const targetX = tx.stopAtWait ? tx.waitX : tx.endX;
+        const direction = Math.sign(targetX - tx.x);
+        tx.x = tx.x + direction * tx.v * dt;
+        if((direction > 0 && tx.x >= targetX) || (direction < 0 && tx.x <= targetX)){
+          tx.x = targetX;
+          if(tx.stopAtWait && targetX === tx.waitX){ tx.paused = true; }
+        }
+      }
+      drawTxn(tx);
+      if(tx.x >= tx.endX - 0.5){ txsL1.splice(i,1); }
     }
     requestAnimationFrame(frame);
   }
