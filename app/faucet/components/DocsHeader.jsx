@@ -23,8 +23,8 @@ export default function DocsHeader() {
           <a className="docs-header__link" href="/animecoin/">Animecoin</a>
           <a className="docs-header__link" href="/developers/">Developers</a>
           <a className="docs-header__link" href="/architecture/">Architecture</a>
-          <a className="docs-header__link" href="/interactive-tools/">Interactive Tools</a>
           <a className="docs-header__link docs-header__link--active" href="/app/">Faucet</a>
+          <a className="docs-header__link" href="/resources/faq/">Resources</a>
         </nav>
       </div>
     </header>

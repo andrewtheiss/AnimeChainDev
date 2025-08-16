@@ -9,7 +9,7 @@ const DEV_GAS_RESERVE_WEI = (() => {
   try { return ethers.parseEther('0.01'); } catch { return 10_000_000_000_000_000n; }
 })();
 
-export default function Faucet({ contractAddress, network = 'animechain', onConnectionUpdate }) {
+export default function Faucet({ contractAddress, network = 'animechain_testnet', onConnectionUpdate }) {
   const [account, setAccount] = useState(null);
   const [provider, setProvider] = useState(null);
   const [contract, setContract] = useState(null);

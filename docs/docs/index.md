@@ -1,8 +1,8 @@
 <div align="center">
   <h1><img src="/assets/images/animechain.webp" alt="AnimeChain" style="height: 36px; vertical-align: middle; margin-right: 8px;" />AnimeChain Documentation</h1>
-  <p><strong>Layer 3 Network Powered by Animecoin</strong></p>
+  <p><strong>Layer 3 Blockchain Powered Natively by Animecoin</strong></p>
   <p>Build natively with Animecoin as the native currency while staying EVM-compatible and directly connected to Ethereum via rollups</p>
-  <p>Get funds immediately via the faucet</p>
+  <p>Get funds immediately via the faucet or follow links for network details and documentation.</p>
 </div>
 
 <div class="faucet-button-container">
@@ -11,9 +11,6 @@
     Testnet Faucet
   </a>
 </div>
-
-!!! Unofficial Documentation
-    This documentation is created by the community and is not officially part of the AnimeCoin Foundation.  However, testnet faucet funds have been provided by the official team in support of this work.  Mainnet faucet is provided by me so only use for development.
 
 ---
 
@@ -36,7 +33,7 @@
   <p>Choose your preferred development network:</p>
   
   <div class="develop-options">
-    <a href="use-animechain/#getting-started-testnet" class="develop-btn">
+    <a href="use-animechain/#testnet_1" class="develop-btn">
       <div class="btn-icon">🧪</div>
       <div class="btn-text">Testnet</div>
       <div class="btn-subtitle">Safe testing environment with free tokens</div>
