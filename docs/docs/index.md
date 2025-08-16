@@ -236,5 +236,11 @@ graph TB
 
 ---
 
+
 !!! tip "Need Help?"
     New to AnimeChain? Start with our [Getting Started Guide](use-animechain.md#getting-started-mainnet) or try our [Interactive Tools](/interactive-tools/) to explore the network safely.
+
+---
+   
+!!! Disclaimer
+    This documentation is created by the community and is not officially part of the AnimeCoin Foundation.  However, testnet faucet funds have been provided by the official team in support of this work!  Thanks again!  Mainnet faucet is provided by me, so only use for development.
