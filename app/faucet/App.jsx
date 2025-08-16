@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import DocsHeader from './components/DocsHeader'
 import Faucet from './components/Faucet'
@@ -23,6 +23,38 @@ function App() {
   const [isConnected, setIsConnected] = useState(false);
 
   const contractAddress = CONTRACTS[network];
+
+  // Sync faucet theme with docs palette choice (Material for MkDocs) and persist for both apps
+  useEffect(() => {
+    try {
+      const paletteRaw = localStorage.getItem('__palette');
+      const palette = paletteRaw ? JSON.parse(paletteRaw) : null;
+      const scheme = palette && palette.scheme ? palette.scheme : 'default';
+      document.documentElement.setAttribute('data-md-color-scheme', scheme);
+      // Persist a simple mirror for cross-site usage
+      localStorage.setItem('animechain_theme', scheme === 'slate' ? 'dark' : 'light');
+      document.cookie = `animechain_theme=${scheme === 'slate' ? 'dark' : 'light'};path=/;max-age=31536000;samesite=lax`;
+    } catch {}
+    const onStorage = (e) => {
+      if (e.key === '__palette' || e.key === 'animechain_theme') {
+        try {
+          let scheme = 'default';
+          if (e.key === '__palette') {
+            const palette = e.newValue ? JSON.parse(e.newValue) : null;
+            scheme = palette && palette.scheme ? palette.scheme : 'default';
+          } else if (e.key === 'animechain_theme') {
+            const v = e.newValue || 'light';
+            scheme = v === 'dark' ? 'slate' : 'default';
+          }
+          document.documentElement.setAttribute('data-md-color-scheme', scheme);
+          localStorage.setItem('animechain_theme', scheme === 'slate' ? 'dark' : 'light');
+          document.cookie = `animechain_theme=${scheme === 'slate' ? 'dark' : 'light'};path=/;max-age=31536000;samesite=lax`;
+        } catch {}
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   const handleNetworkChange = async (newNetwork) => {
     try {
@@ -80,29 +112,32 @@ function App() {
   return (
     <>
       <DocsHeader />
-      <div className="network-selector">
-        <label htmlFor="network-select">Select Network:</label>
-        <select 
-          id="network-select"
-          value={network} 
-          onChange={(e) => handleNetworkChange(e.target.value)}
-          className="network-dropdown"
-        >
-          <option value="animechain">🎬 AnimeChain Mainnet</option>
-          <option value="animechain_testnet">🧪 AnimeChain Testnet (Proof of Work)</option>
-        </select>
-      </div>
-      <h1>{getNetworkDisplayName()} Faucet</h1>
-      <Faucet 
-        contractAddress={contractAddress} 
-        network={network}
-        onConnectionUpdate={updateConnectionStatus}
-      />
-      {!isConnected ? (
-        <p className="read-the-docs">Connect your wallet to request {getTokenSymbol()} tokens</p>
-      ) : (
-        <RefillFooter contractAddress={contractAddress} network={network} />
-      )}
+      <main className="docs-content">
+        <div className="network-selector">
+          <label htmlFor="network-select">Select Network:</label>
+          <select 
+            id="network-select"
+            value={network} 
+            onChange={(e) => handleNetworkChange(e.target.value)}
+            className="network-dropdown"
+          >
+            <option value="animechain">🎬 AnimeChain Mainnet</option>
+            <option value="animechain_testnet">🧪 AnimeChain Testnet (Proof of Work)</option>
+          </select>
+        </div>
+        <h1 className="page-title">{getNetworkDisplayName()} Faucet</h1>
+        <p className="page-subtitle">Request small amounts of {getTokenSymbol()} for testing</p>
+        <Faucet 
+          contractAddress={contractAddress} 
+          network={network}
+          onConnectionUpdate={updateConnectionStatus}
+        />
+        {!isConnected ? (
+          <p className="read-the-docs">Connect your wallet to request {getTokenSymbol()} tokens</p>
+        ) : (
+          <RefillFooter contractAddress={contractAddress} network={network} />
+        )}
+      </main>
     </>
   )
 }

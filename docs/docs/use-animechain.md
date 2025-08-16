@@ -82,7 +82,7 @@ const client = createPublicClient({
 });
 ```
 
-### Network Information (Mainnet)
+### Network Information (Mainnet) {#add-to-wallet-mainnet}
 
 | Property | Value |
 |----------|-------|
@@ -164,7 +164,7 @@ const testnetClient = createPublicClient({
 });
 ```
 
-### Network Information (Testnet)
+### Network Information (Testnet) {#add-to-wallet-testnet}
 
 | Property | Value |
 |----------|-------|

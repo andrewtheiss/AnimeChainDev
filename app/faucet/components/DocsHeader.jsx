@@ -14,10 +14,11 @@ export default function DocsHeader() {
         <nav className="docs-header__nav" aria-label="Main Navigation">
           <a className="docs-header__link" href="/">Home</a>
           <a className="docs-header__link" href="/use-animechain/">Use AnimeChain</a>
+          <a className="docs-header__link" href="/animecoin/">Animecoin</a>
           <a className="docs-header__link" href="/developers/">Developers</a>
           <a className="docs-header__link" href="/architecture/">Architecture</a>
-          <a className="docs-header__link" href="/app.md">Interactive Tools</a>
-          <a className="docs-header__link docs-header__link--active" href="/app/">Faucet</a>
+          <a className="docs-header__link" href="/app/">Interactive Tools</a>
+          <a className="docs-header__link docs-header__link--active" href="/app/index.html">Faucet</a>
         </nav>
       </div>
     </header>

@@ -3,13 +3,13 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: #1f2937; /* slate-800 */
-  color: #e5e7eb; /* gray-200 */
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #3f51b5; /* material indigo */
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .docs-header__inner {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 10px 16px;
   display: flex;
@@ -43,20 +43,26 @@
 }
 
 .docs-header__link {
-  color: #c7d2fe; /* indigo-200 */
+  color: #ffffff;
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 6px;
   transition: background-color .15s ease, color .15s ease;
 }
 
-.docs-header__link:hover {
-  background: rgba(99,102,241,0.15);
+.docs-header__link:hover { background: rgba(255,255,255,0.16); color: #ffffff; }
+
+.docs-header__link--active {
+  background: rgba(255,255,255,0.22);
   color: #ffffff;
 }
 
-.docs-header__link--active {
-  background: #4f46e5; /* indigo-600 */
+/* Dark scheme parity with docs */
+[data-md-color-scheme="slate"] .docs-header {
+  background: #3f51b5;
   color: #ffffff;
+  border-bottom-color: rgba(255,255,255,0.12);
 }
+[data-md-color-scheme="slate"] .docs-header__link { color: #ffffff; }
+[data-md-color-scheme="slate"] .docs-header__link:hover { color: #ffffff; }
 

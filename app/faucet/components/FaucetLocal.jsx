@@ -166,7 +166,10 @@ export default function Faucet({ contractAddress, network = 'animechain', onConn
   return (
     <div className="faucet-container dark-theme">
       {network==='animechain_testnet' && <div className="dev-banner">Testnet Mode - {networkConfig.chainName}</div>}
-      <div className="logo-container"><img src="/animecoin.png" alt="Animecoin Logo" className="animecoin-logo" /></div>
+      <div className="logo-container">
+        <img src="/assets/images/animechain.webp" alt="AnimeChain Logo" className="chain-logo" onError={(e)=>{e.currentTarget.style.display='none';}} />
+        <img src="/animecoin.png" alt="Animecoin Logo" className="coin-logo" />
+      </div>
       {isInitializing ? (
         <div className="loading-overlay"><div className="spinner" /><p>Loading your faucet status…</p></div>
       ) : !account ? (

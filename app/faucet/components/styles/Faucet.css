@@ -1,13 +1,12 @@
-/* Copied working faucet styles */
+/* Harmonized faucet container to match docs light theme */
 .faucet-container {
   margin: 2rem auto;
   padding: 2rem;
-  border-radius: 12px;
-  background: rgba(18, 18, 18, 0.6);
-  backdrop-filter: blur(5px);
-  max-width: 600px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%);
+  max-width: 720px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.12);
 }
-/* Additional styles reduced for brevity; original kept in appcomplete */
+/* Additional styles reduced for brevity */
 

@@ -100,6 +100,17 @@ function RefillFooter({ contractAddress, network }) {
       )}
       {error && <p className="error" style={{ marginTop: 8 }}>{error}</p>}
       {success && <p className="success-message" style={{ marginTop: 8 }}>{success}</p>}
+      <footer style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid rgba(15,23,42,0.08)', color: '#334155' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+          <span>© AnimeChain</span>
+          <nav style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <a href="/" style={{ color: '#1f2937', textDecoration: 'none' }}>Docs</a>
+            <a href="/use-animechain/" style={{ color: '#1f2937', textDecoration: 'none' }}>Use AnimeChain</a>
+            <a href="/developers/" style={{ color: '#1f2937', textDecoration: 'none' }}>Developers</a>
+            <a href="/app/index.html" style={{ color: '#1f2937', textDecoration: 'none' }}>Faucet</a>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 }

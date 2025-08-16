@@ -119,7 +119,7 @@ graph TB
 - **Longer native exits (L3 → L2 → L1)**: Withdrawing back to Arbitrum follows optimistic rollup timing similar to withdrawals on `bridge.arbitrum.io` from Arbitrum to Ethereum; use liquidity bridges when available for faster exits.
 - **Security inheritance**: Benefits from Arbitrum and Ethereum security guarantees.
 
-[Architecture Detials →](architecture/){ .md-button }
+[Architecture Details →](architecture/index.md){ .md-button }
 
 
 ## 🚀 Quick Start
