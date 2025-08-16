@@ -11,6 +11,7 @@ edit_uri: edit/main/docs/docs/
 # Theme configuration
 theme:
   name: material
+  logo: assets/images/animechain.webp
   palette:
     # Light mode (default)
     - scheme: default

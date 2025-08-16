@@ -1,10 +1,11 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   text-align: center;
   color: #0f172a;
   background: #ffffff;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 
 /* Center column like MkDocs content width */
@@ -14,8 +15,14 @@
   text-align: left;
 }
 
-.page-title { margin: 0 0 8px; font-size: 2rem; color: #0f172a; font-weight: 800; text-align: center; }
+.page-title { margin: 0 0 8px; font-size: 16.8px; color: #0f172a; font-weight: 800; text-align: center; }
 .page-subtitle { margin: 0 0 12px; color: #334155; text-align: center; }
+.pow-note {
+  max-width: 720px;
+  margin: 8px auto 16px auto;
+  text-align: center;
+  color: #0f172a;
+}
 
 .network-selector {
   display: flex;
@@ -90,6 +97,7 @@
 [data-md-color-scheme="slate"] .page-subtitle,
 [data-md-color-scheme="slate"] .signature-info,
 [data-md-color-scheme="slate"] .server-info { color: #cbd5e1; }
+[data-md-color-scheme="slate"] .pow-note { color: #e5e7eb; }
 [data-md-color-scheme="slate"] .withdrawal-count { color: #a5b4fc; }
 [data-md-color-scheme="slate"] .withdrawal-count .count { background: #4f46e5; color: #fff; }
 [data-md-color-scheme="slate"] .expected-message { background: rgba(79, 70, 229, 0.15); border-color: rgba(79, 70, 229, 0.35); }

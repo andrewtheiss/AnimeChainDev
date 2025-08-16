@@ -17,7 +17,7 @@ function App() {
     if (savedNetwork && ['animechain', 'animechain_testnet'].includes(savedNetwork)) {
       return savedNetwork;
     }
-    return import.meta.env.VITE_NETWORK || 'animechain';
+    return import.meta.env.VITE_NETWORK || 'animechain_testnet';
   });
   
   const [isConnected, setIsConnected] = useState(false);
@@ -27,13 +27,20 @@ function App() {
   // Sync faucet theme with docs palette choice (Material for MkDocs) and persist for both apps
   useEffect(() => {
     try {
+      const getCookie = (name) => {
+        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : null;
+      };
+      const cookieTheme = getCookie('animechain_theme');
       const paletteRaw = localStorage.getItem('__palette');
       const palette = paletteRaw ? JSON.parse(paletteRaw) : null;
-      const scheme = palette && palette.scheme ? palette.scheme : 'default';
+      let scheme = 'default';
+      if (cookieTheme) scheme = cookieTheme === 'dark' ? 'slate' : 'default';
+      else if (palette && palette.scheme) scheme = palette.scheme;
       document.documentElement.setAttribute('data-md-color-scheme', scheme);
-      // Persist a simple mirror for cross-site usage
-      localStorage.setItem('animechain_theme', scheme === 'slate' ? 'dark' : 'light');
-      document.cookie = `animechain_theme=${scheme === 'slate' ? 'dark' : 'light'};path=/;max-age=31536000;samesite=lax`;
+      const lc = scheme === 'slate' ? 'dark' : 'light';
+      localStorage.setItem('animechain_theme', lc);
+      document.cookie = `animechain_theme=${lc};path=/;max-age=31536000;samesite=lax`;
     } catch {}
     const onStorage = (e) => {
       if (e.key === '__palette' || e.key === 'animechain_theme') {
@@ -127,6 +134,9 @@ function App() {
         </div>
         <h1 className="page-title">{getNetworkDisplayName()} Faucet</h1>
         <p className="page-subtitle">Request small amounts of {getTokenSymbol()} for testing</p>
+        <div className="pow-note">
+          This is a PoW Faucet which refreshes every 24 hours. You have 8 withdrawls every 24 hours. The first transaction is gasless and so a proxy server at faucet.animechain.dev will take your PoW signature to trigger a faucet deposit on your behalf.
+        </div>
         <Faucet 
           contractAddress={contractAddress} 
           network={network}

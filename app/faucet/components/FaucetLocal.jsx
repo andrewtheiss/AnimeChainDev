@@ -28,6 +28,7 @@ export default function Faucet({ contractAddress, network = 'animechain', onConn
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [nonce, setNonce] = useState('0');
+  const [chainImgSrc, setChainImgSrc] = useState('/animechain.webp');
 
   const [isAdmin, setIsAdmin] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
@@ -167,7 +168,15 @@ export default function Faucet({ contractAddress, network = 'animechain', onConn
     <div className="faucet-container dark-theme">
       {network==='animechain_testnet' && <div className="dev-banner">Testnet Mode - {networkConfig.chainName}</div>}
       <div className="logo-container">
-        <img src="/assets/images/animechain.webp" alt="AnimeChain Logo" className="chain-logo" onError={(e)=>{e.currentTarget.style.display='none';}} />
+        <img
+          src={chainImgSrc}
+          alt="AnimeChain Logo"
+          className="chain-logo"
+          onError={() => {
+            if (chainImgSrc === '/animechain.webp') setChainImgSrc('/assets/images/animechain.webp');
+            else if (chainImgSrc === '/assets/images/animechain.webp') setChainImgSrc('/public/animechain.webp');
+          }}
+        />
         <img src="/animecoin.png" alt="Animecoin Logo" className="coin-logo" />
       </div>
       {isInitializing ? (

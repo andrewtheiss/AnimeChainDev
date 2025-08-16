@@ -71,6 +71,37 @@ function RefillFooter({ contractAddress, network }) {
         >
           {showDetails ? 'Hide Faucet Details' : 'Faucet Details'}
         </button>
+        <button
+          onClick={async () => {
+            try {
+              if (!window.ethereum) throw new Error('Please install MetaMask');
+              const cfg = NETWORKS[network];
+              if (!cfg) throw new Error('Unknown network');
+              // Try to switch first
+              try {
+                await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: cfg.chainId }] });
+              } catch (e) {
+                if (e && e.code === 4902) {
+                  // Sanitize params for addEthereumChain (MetaMask rejects unknown keys)
+                  const addParams = {
+                    chainId: cfg.chainId,
+                    chainName: cfg.chainName,
+                    nativeCurrency: cfg.nativeCurrency,
+                    rpcUrls: cfg.rpcUrls,
+                    blockExplorerUrls: cfg.blockExplorerUrls,
+                    iconUrls: cfg.iconUrls,
+                  };
+                  await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [addParams] });
+                } else {
+                  throw e;
+                }
+              }
+            } catch (e) { console.error(e); }
+          }}
+          className="footer-refill-button"
+        >
+          🦊 Add to MetaMask
+        </button>
       </div>
       {showRefill && (
         <div className="refill-container transparent" style={{ marginTop: 8 }}>
@@ -90,7 +121,7 @@ function RefillFooter({ contractAddress, network }) {
       )}
       {showDetails && (
         <div className="refill-container transparent" style={{ marginTop: 8 }}>
-          <div className="dev-faucet-info">
+          <div className="dev-faucet-info" style={{ color: '#0f172a' }}>
             <p>⚡ DevFaucet: Proof-of-work mining required for withdrawal</p>
             <p>💎 Progressive amounts: 5, 5, 10, 15, 25, 50, 75, 100 tokens</p>
             <p>🔄 Daily reset: Up to 8 withdrawals per 24-hour period</p>
