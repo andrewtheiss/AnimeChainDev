@@ -1,5 +1,9 @@
 import type { Route } from "./+types/home";
-import { FaucetApp } from "../components/FaucetApp";
+// Import working faucet UI (ported from appcomplete)
+import App from "../faucet/App.jsx";
+import "../faucet/index.css";
+import "../faucet/App.css";
+import "../faucet/components/styles/Faucet.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,5 +14,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <FaucetApp />;
+  return <App />;
 }
