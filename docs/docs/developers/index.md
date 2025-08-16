@@ -2,10 +2,12 @@
 
 Build and deploy smart contracts on **AnimeChain**.
 
+Animechain is like most Ethereum based chains.  If you can learn to deploy code on Ethereum or an Eth testnet, you only need to change a few parameters to deploy all that code on Animechain (and of course... some funds).
+
 ## Development and Deployment via a UI (Remix)
 
 <div class="dev-quickstart-ui">
-  <p>Developing via the Remix web UI is the simplest way to test on AnimeChain.</p>
+  <p>Developing via the Remix UI (remix.ethereum.org) is the simplest way to test</p>
   <ol>
     <li>Add AnimeChain (or AnimeChain Testnet) to your browser wallet provider.</li>
     <li>Select the wallet/network so it's active and ensure you have funds. If you need funds on testnet, use the <a href="/app/">Testnet Faucet</a>.</li>
@@ -114,12 +116,13 @@ const tx1559 = await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriori
       </div>
     </div>
   </div>
-</div>
 ---
 
 ## Verify on Explorer
 
-AnimeChain Explorer supports source verification similar to Etherscan. After deployment:
+What is 'Verification'?  Since code is just 1's and 0's, verification PROVES to the internet that your deployed code matches the code in your repository.  This allows anyone on the internet to check that your code matches the code you deployed and you're not doing anything fishy.
+
+AnimeChain Explorer supports the same source verification (similar to Etherscan). After deployment:
 
 1. Copy contract address.
 2. Open Explorer → Contracts → Verify.
@@ -136,6 +139,7 @@ AnimeChain Explorer supports source verification similar to Etherscan. After dep
 - Network parameters: see [Use AnimeChain](../use-animechain.md)
 - **DevZuki Community:** <https://t.co/4xlpVFIfDx> — community-led developer support (docs maintained by a DevZuki member)
 
+
 ---
 
-🚀 Happy building – tag your projects with **#AnimeChain**! 
+**Note**:  All basic Solidity contracts work just the same on Animechain!  

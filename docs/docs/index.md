@@ -12,6 +12,9 @@
   </a>
 </div>
 
+!!! Unofficial Documentation
+    This documentation is created by the community and is not officially part of the AnimeCoin Foundation.  However, testnet faucet funds have been provided by the official team in support of this work.  Mainnet faucet is provided by me so only use for development.
+
 ---
 
 <div class="main-actions">

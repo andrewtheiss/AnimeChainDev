@@ -63,11 +63,15 @@ Please see the bridging section for details on how to bridge between chains.
 
 | | Mainnet | Testnet |
 |--|---------|---------|
-| **Chain Name** | TBA | `conduit-orbit-deployer` |
-| **Chain ID** | TBA | `6900` |
-| **Parent Chain ID** | TBA | `421614` |
-| **Native Token (L3)** | TBA | `0x38208F36E9d6CE86ccE0977fA5690140Ec78A5d4` |
-| **minL2BaseFee** | TBA | `10000000` |
+| **Chain Name** | AnimeChain | `conduit-orbit-deployer` |
+| **Chain ID** | `69000` | `6900` |
+| **Parent Chain ID** | `42161` | `421614` |
+| **Parent Chain** | Arbitrum One | TBA |
+| **RPC URL** | `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` | TBA |
+| **Block Explorer** | `https://explorer-animechain-39xf6m45e3.t.conduit.xyz/` | TBA |
+| **L3 Base Token on Parent (Arbitrum)** | `0x37a645648dF29205C6261289983FB04ECD70b4B3` | TBA |
+| **Native Token (L3)** | `0x4dc26fc5854e7648a064a4abd590bbe71724c277` | `0x38208F36E9d6CE86ccE0977fA5690140Ec78A5d4` |
+| **minL2BaseFee** | `5000000000` | `10000000` |
 | **Network Fee Receiver** | TBA | `0x252431e84d5e22435a0c833c2220770c52f59633` |
 | **Infrastructure Fee Collector** | TBA | `0x252431e84d5e22435a0c833c2220770c52f59633` |
 | **Batch Poster** | TBA | `0x4483365B7136E49AE64513Cf037501c9A0054BB3` |
@@ -82,6 +86,12 @@ Please see the bridging section for details on how to bridge between chains.
 | **Utils** | TBA | `0x2E0848589d85Bb55a3F3e0f5cE5bFAcd24f3E197` |
 | **Validator Wallet Creator** | TBA | `0x03568A3aAAC150D0D22230729126B92Ee7988D44` |
 | **L3 Upgrade Executor** | TBA | `0xb3c44d34c55087a482307eBa753b3cAd31622537` |
+| **LayerZero EndpointV2** | `0x6F475642a6e85809B1c36Fa62763669b1b48DD5B` | TBA |
+| **LayerZero sendUln302** | `0xC39161c743D0307EB9BCc9FEF03eeb9Dc4802de7` | TBA |
+| **LayerZero receiveUln302** | `0xe1844c5D63a9543023008D332Bd3d2e6f1FE1043` | TBA |
+| **LayerZero Executor** | `0x4208D6E27538189bB48E603D6123A94b8Abe0A0b` | TBA |
+| **LayerZero Endpoint ID** | `30372` | TBA |
+| **App Bridge from Arbitrum** | `0xA203252940839c8482dD4b938b4178f842E343D7` | TBA |
 | **Token Bridge (L2) Router** | TBA | `0xD9d44147aBefa4a965dfA02792A49A8672e1464F` |
 | **Token Bridge (L2) Standard Gateway** | TBA | `0xfD99AFa35cFb778cB6d16552CE62874E2838a293` |
 | **Token Bridge (L2) Custom Gateway** | TBA | `0x7aE1625b7284dFcb6CA1431a547c4eA80b0A0490` |
