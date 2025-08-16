@@ -11,7 +11,7 @@ edit_uri: edit/main/docs/docs/
 # Theme configuration
 theme:
   name: material
-  logo: assets/images/animechain.webp
+  logo: /assets/images/animechain.webp
   palette:
     # Light mode (default)
     - scheme: default
@@ -65,8 +65,8 @@ nav:
     - RPC API: developers/rpc-api.md
     - Code Examples: developers/examples.md
   - Architecture: architecture/index.md
-  - Interactive Tools: app.md
-  - Faucet: /app/index.html
+  - Interactive Tools: interactive-tools.md
+  - Faucet: /app/
   - Resources:
     - FAQ: resources/faq.md
     - Troubleshooting: resources/troubleshooting.md

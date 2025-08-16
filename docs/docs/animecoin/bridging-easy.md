@@ -28,7 +28,7 @@ You can still change source/destination chains in the UI if you need L1 ↔ L3 o
 
 This screenshot shows AnimeChain available for transfers of Animecoin. It demonstrates an L1 ↔ L3 flow, but you can adjust the settings for other directions as needed.
 
-![Relay showing AnimeChain for Animecoin transfers](../assets/images/bridge assets.webp)
+![Relay showing AnimeChain for Animecoin transfers](/assets/images/bridge assets.webp)
 
 ---
 

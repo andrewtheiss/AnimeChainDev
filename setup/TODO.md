@@ -347,10 +347,6 @@ docs/site/
 ### **🚧 REMAINING WORK**
 
 **📚 Documentation Pages:**
-- [ ] `networks/mainnet/network-details.md` - Complete RPC/contract reference
-- [ ] `networks/mainnet/add-to-wallet.md` - Detailed wallet setup guide
-- [ ] `networks/testnet/network-details.md` - Testnet technical details
-- [ ] `networks/testnet/add-to-wallet.md` - Testnet wallet configuration
 - [ ] `animecoin/index.md` - Token overview and economics
 - [ ] `animecoin/bridging.md` - L1→L2→L3 bridging guide
 - [ ] `animecoin/contracts.md` - Token contract addresses
@@ -467,12 +463,8 @@ Set up MkDocs as the primary documentation site with an embedded React applicati
 - [x] Create network-specific documentation: ✅ (Partial)
   - [x] `docs/docs/networks/index.md` - Networks overview ✅
   - [x] `docs/docs/networks/mainnet/getting-started.md` - Mainnet setup guide ✅
-  - [x] `docs/docs/networks/testnet/getting-started.md` - Testnet setup guide ✅
-  - [x] `docs/docs/networks/testnet/faucet.md` - Faucet with custom messages ✅
   - [ ] `docs/docs/networks/mainnet/network-details.md` - RPC, contracts, etc.
   - [ ] `docs/docs/networks/mainnet/add-to-wallet.md` - Detailed wallet setup
-  - [ ] `docs/docs/networks/testnet/network-details.md` - Testnet RPC, contracts, etc.
-  - [ ] `docs/docs/networks/testnet/add-to-wallet.md` - Testnet wallet setup
 
 - [ ] Create core documentation:
   - [ ] `docs/docs/animecoin/index.md` - Token overview (L1/L2/L3)

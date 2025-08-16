@@ -117,7 +117,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="faucet-app">
       <DocsHeader />
       <main className="docs-content">
         <div className="network-selector">
@@ -148,7 +148,7 @@ function App() {
           <RefillFooter contractAddress={contractAddress} network={network} />
         )}
       </main>
-    </>
+    </div>
   )
 }
 

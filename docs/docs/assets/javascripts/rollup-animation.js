@@ -30,9 +30,9 @@
     }
 
     const logos = {
-      l3: loadImage('assets/images/animecoin.webp'),
-      l2: loadImage('assets/images/arbitrum.webp'),
-      l1: loadImage('assets/images/eth.webp')
+      l3: loadImage('/assets/images/animecoin.webp'),
+      l2: loadImage('/assets/images/arbitrum.webp'),
+      l1: loadImage('/assets/images/eth.webp')
     };
 
     const moveDurationMs = 2000;

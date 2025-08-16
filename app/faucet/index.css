@@ -1,4 +1,5 @@
-:root {
+/* Scope faucet base styles to avoid colliding with docs/global site */
+.faucet-app :root, :root.faucet-app {
   font-family: Inter, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -10,16 +11,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+.faucet-app a, :root.faucet-app a {
   font-weight: 500;
-  color: #8670ff;
+  color: white;
   text-decoration: inherit;
+  opacity: 0.7;
 }
-a:hover {
+.faucet-app a:hover, :root.faucet-app a:hover {
   color: #6c5ce7;
+  opacity: 1;
 }
 
-body {
+.faucet-app body, :root.faucet-app body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
@@ -27,20 +30,28 @@ body {
   position: relative;
 }
 
-body::before { display: none; }
+.faucet-app body::before, :root.faucet-app body::before { display: none; }
 
-h1 { font-size: 3.2em; line-height: 1.1; color: #0f172a; text-shadow: none; }
+.faucet-app h1, :root.faucet-app h1 { font-size: 3.2em; line-height: 1.1; color: #0f172a; text-shadow: none; }
 
-button { border-radius: 8px; border: 1px solid transparent; padding: 0.6em 1.2em; font-size: 1em; font-weight: 500; font-family: inherit; cursor: pointer; transition: border-color 0.25s; }
-button:hover {
+.faucet-app button, :root.faucet-app button { border-radius: 8px; border: 1px solid transparent; padding: 0.6em 1.2em; font-size: 1em; font-weight: 500; font-family: inherit; cursor: pointer; transition: border-color 0.25s; }
+.faucet-app button:hover, :root.faucet-app button:hover {
   border-color: #6c5ce7;
 }
-button:focus,
-button:focus-visible {
+.faucet-app button:focus,
+.faucet-app button:focus-visible,
+:root.faucet-app button:focus,
+:root.faucet-app button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 /* Respect docs dark scheme via attribute if present */
-[data-md-color-scheme="slate"] :root { color: #e5e7eb; background-color: #0b1220; }
-[data-md-color-scheme="slate"] body { background-color: #0b1220; }
+[data-md-color-scheme="slate"] .faucet-app :root,
+[data-md-color-scheme="slate"] :root.faucet-app { color: #e5e7eb; background-color: #0b1220; }
+[data-md-color-scheme="slate"] .faucet-app body,
+[data-md-color-scheme="slate"] :root.faucet-app body { background-color: #0b1220; }
+
+/* Normalize faucet font-size context to avoid production scaling from docs */
+.faucet-app { font-size: 16px; }
+.faucet-app .docs-content { font-size: 1rem; }
 

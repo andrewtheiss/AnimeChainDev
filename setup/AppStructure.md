@@ -20,7 +20,6 @@ This project implements a **hybrid documentation + interactive application syste
 ├── 📚 MkDocs Static Site (Primary)
 │   ├── / (Homepage)
 │   ├── /networks/mainnet/getting-started/
-│   ├── /networks/testnet/faucet/
 │   └── ... (All documentation pages)
 │
 └── ⚛️ React SPA (Embedded at /app/)

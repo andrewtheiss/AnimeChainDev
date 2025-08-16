@@ -138,7 +138,7 @@ function RefillFooter({ contractAddress, network }) {
             <a href="/" style={{ color: '#1f2937', textDecoration: 'none' }}>Docs</a>
             <a href="/use-animechain/" style={{ color: '#1f2937', textDecoration: 'none' }}>Use AnimeChain</a>
             <a href="/developers/" style={{ color: '#1f2937', textDecoration: 'none' }}>Developers</a>
-            <a href="/app/index.html" style={{ color: '#1f2937', textDecoration: 'none' }}>Faucet</a>
+            <a href="/app/" style={{ color: '#1f2937', textDecoration: 'none' }}>Faucet</a>
           </nav>
         </div>
       </footer>

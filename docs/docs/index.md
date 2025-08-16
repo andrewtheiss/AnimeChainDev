@@ -1,12 +1,12 @@
 <div align="center">
-  <h1><img src="assets/images/animechain.webp" alt="AnimeChain" style="height: 36px; vertical-align: middle; margin-right: 8px;" />AnimeChain Documentation</h1>
+  <h1><img src="/assets/images/animechain.webp" alt="AnimeChain" style="height: 36px; vertical-align: middle; margin-right: 8px;" />AnimeChain Documentation</h1>
   <p><strong>Layer 3 Network Powered by Animecoin</strong></p>
   <p>Build natively with Animecoin as the native currency while staying EVM-compatible and directly connected to Ethereum via rollups</p>
   <p>Get funds immediately via the faucet</p>
 </div>
 
 <div class="faucet-button-container">
-  <a href="networks/testnet/faucet" class="faucet-btn">
+  <a href="/app/" class="faucet-btn">
     <span class="btn-icon">🚰</span>
     Testnet Faucet
   </a>
@@ -16,13 +16,13 @@
 
 <div class="main-actions">
   <button class="main-action-btn" onclick="showDevelopSection()">
-    <img src="assets/images/dev.png" alt="Develop on AnimeChain" class="btn-image" />
+    <img src="/assets/images/dev.png" alt="Develop on AnimeChain" class="btn-image" />
     <span class="btn-text">Develop on AnimeChain</span>
     <span class="btn-subtitle">Build applications and smart contracts</span>
   </button>
   
   <a href="use-animechain" class="main-action-btn">
-    <img src="assets/images/user.png" alt="Use AnimeChain" class="btn-image" />
+    <img src="/assets/images/user.png" alt="Use AnimeChain" class="btn-image" />
     <span class="btn-text">Use AnimeChain</span>
     <span class="btn-subtitle">Add network, check balances, and manage tokens</span>
   </a>
@@ -49,18 +49,18 @@
   <div class="gas-warning" style="margin-top: 1.5rem; padding: 1rem; border: 1px solid rgba(239,68,68,.25); background: rgba(239,68,68,.06); border-radius: 12px;">
     <h3 style="margin: 0 0 .5rem; color:#b91c1c;">Warning: Elevated Gas Price on AnimeChain</h3>
     <p style="margin: 0 0 .5rem;">
-      AnimeChain currently uses a manually increased gas price of <strong>475.5 Gwei</strong> (ANIME). When estimating or setting gas, be sure to account for this higher value, or your transactions may fail or underprice.
+      AnimeChain currently uses a manually increased gas price of <strong>435.5 Gwei</strong> (ANIME). When estimating or setting gas, be sure to account for this higher value, or your transactions may fail or underprice.
     </p>
     <div style="display:flex; align-items:flex-start; gap: 1rem; flex-wrap: wrap;">
-      <img src="assets/images/gastracker.webp" alt="AnimeChain Gas Tracker" style="max-width: 520px; width: 100%; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08);" />
+      <img src="/assets/images/gastracker.webp" alt="AnimeChain Gas Tracker" style="max-width: 520px; width: 100%; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08);" />
       <div style="min-width:280px; flex:1;">
         <div style="font-weight:700; margin-bottom:.35rem;">Example (ethers v6):</div>
         <pre style="margin:0; overflow:auto;"><code>// Legacy-style gasPrice
-const gasPrice = ethers.parseUnits('475.5', 'gwei');
+const gasPrice = ethers.parseUnits('435.5', 'gwei');
 const tx = await wallet.sendTransaction({ to, value, gasPrice });
 
 // Or EIP-1559 style
-const maxFeePerGas = ethers.parseUnits('475.5', 'gwei');
+const maxFeePerGas = ethers.parseUnits('435.5', 'gwei');
 const maxPriorityFeePerGas = ethers.parseUnits('0.5', 'gwei');
 const tx1559 = await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
 </code></pre>
@@ -138,7 +138,7 @@ graph TB
 ### For Testers
 1. [Connect to testnet](use-animechain.md#getting-started-testnet)
 2. [Get free test tokens](use-animechain.md#faucet)
-3. [Try our interactive tools](app.md)
+3. [Try our interactive tools](/app/)
 
 ---
 
@@ -176,13 +176,13 @@ graph TB
 
     Test contracts and transactions in your browser
 
-    [:octicons-arrow-right-24: Try Tools](app.md)
+    [:octicons-arrow-right-24: Try Tools](/interactive-tools/)
 
 </div>
 
 ---
 
-## <img src="assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Animecoin (ANIME)
+## <img src="/assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Animecoin (ANIME)
 
 **ANIME** is the native token powering the AnimeChain ecosystem:
 
@@ -237,4 +237,4 @@ graph TB
 ---
 
 !!! tip "Need Help?"
-    New to AnimeChain? Start with our [Getting Started Guide](networks/mainnet/getting-started.md) or try our [Interactive Tools](app.md) to explore the network safely.
+    New to AnimeChain? Start with our [Getting Started Guide](use-animechain.md#getting-started-mainnet) or try our [Interactive Tools](/interactive-tools/) to explore the network safely.

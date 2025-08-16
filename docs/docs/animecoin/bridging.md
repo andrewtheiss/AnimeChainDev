@@ -127,5 +127,5 @@ task('withdraw', 'Withdraw ANIME to L2')
 ## 🔗 See Also
 
 - [ANIME Token Overview](index.md)
-- [Faucet Guide](../networks/testnet/faucet.md)
+- [Get Test Tokens](/app/)
 - [Developer Examples](../developers/examples.md) 

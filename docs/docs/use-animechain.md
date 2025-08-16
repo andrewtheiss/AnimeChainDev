@@ -100,15 +100,15 @@ const client = createPublicClient({
 
 ### Gas Note (Mainnet)
 
-- Current manual gas price: 475.5 Gwei (ANIME). Ensure your gas settings reflect this, or transactions may fail.
+- Current manual gas price: 435.5 Gwei (ANIME). Ensure your gas settings reflect this, or transactions may fail.
 
 ```javascript
 // Legacy gasPrice
-const gasPrice = ethers.parseUnits('475.5', 'gwei');
+const gasPrice = ethers.parseUnits('435.5', 'gwei');
 await wallet.sendTransaction({ to, value, gasPrice });
 
 // EIP-1559
-const maxFeePerGas = ethers.parseUnits('475.5', 'gwei');
+const maxFeePerGas = ethers.parseUnits('435.5', 'gwei');
 const maxPriorityFeePerGas = ethers.parseUnits('0.5', 'gwei');
 await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
 ```
@@ -192,7 +192,7 @@ const testnetClient = createPublicClient({
 
 ### Faucet
 
-- Recommended: [Use Interactive Faucet](app.md)
+- Recommended: [Use Interactive Faucet](/app/)
 - Manual flow: Connect wallet → Sign commitment message → Receive tokens.
 
 

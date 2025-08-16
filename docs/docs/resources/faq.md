@@ -10,7 +10,7 @@ AnimeChain is a Layer-3 blockchain built on the Arbitrum Orbit stack, tuned for 
 
 ---
 
-## <img src="../assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> What is ANIME?
+## <img src="/assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> What is ANIME?
 
 ANIME is the native gas token on AnimeChain. On testnet it is **tANIME** and has no value.
 
@@ -20,8 +20,7 @@ ANIME is the native gas token on AnimeChain. On testnet it is **tANIME** and has
 
 Follow the step-by-step guide:
 
-- [Mainnet Add-to-Wallet](../networks/mainnet/add-to-wallet.md)
-- [Testnet Add-to-Wallet](../networks/testnet/add-to-wallet.md)
+- Add networks and tokens via [Use AnimeChain](../use-animechain.md)
 
 Or use the one-click button in the React app.
 
@@ -30,7 +29,7 @@ Or use the one-click button in the React app.
 ## 💰 How do I get ANIME tokens?
 
 1. Bridge from Ethereum → Arbitrum → AnimeChain following the [bridging guide](../animecoin/bridging.md).
-2. On testnet, claim **tANIME** from the [faucet](../networks/testnet/faucet.md).
+2. On testnet, claim **tANIME** from the [interactive faucet](/app/).
 
 ---
 
@@ -42,7 +41,7 @@ Arbitrum's optimistic rollup security model requires a challenge window to dispu
 
 ## 📉 What are typical gas fees?
 
-Simple transfer: **~$0.001**. See the [network details](../networks/mainnet/network-details.md) for a full comparison table.
+Simple transfer: **~$0.001**. See [Use AnimeChain](../use-animechain.md) for parameters and details.
 
 ---
 

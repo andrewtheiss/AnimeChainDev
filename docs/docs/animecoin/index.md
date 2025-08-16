@@ -2,7 +2,7 @@
 
 Native token powering the AnimeChain ecosystem across all layers.
 
-## <img src="../assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Overview
+## <img src="/assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Overview
 
 | | Mainnet | Testnet |
 |--|---------|---------|

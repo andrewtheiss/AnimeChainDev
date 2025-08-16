@@ -97,7 +97,7 @@ Common issues and solutions when using AnimeChain.
     
     **Solutions:**
     - Check ANIME balance for gas fees
-    - Get test ANIME from [faucet](../networks/testnet/faucet.md)
+    - Get test ANIME from the [interactive faucet](/app/)
     - Reduce transaction amount
 
 === "Gas Estimation Failed"
@@ -168,7 +168,7 @@ Common issues and solutions when using AnimeChain.
 
 ---
 
-## <img src="../assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Token Issues
+## <img src="/assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> Token Issues
 
 ### Token Not Showing in Wallet
 
@@ -547,7 +547,7 @@ Common issues and solutions when using AnimeChain.
 ## 📚 Additional Resources
 
 - [FAQ](faq.md) - Frequently asked questions
-- [Network Details](../networks/mainnet/network-details.md) - Technical specifications  
+- Network details: see [Use AnimeChain](../use-animechain.md)  
 - [RPC API](../developers/rpc-api.md) - Complete API reference
 - [Examples](../developers/examples.md) - Code examples
 - [Development Guide](../developers/development-guide.md) - Setup instructions

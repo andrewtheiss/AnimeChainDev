@@ -28,9 +28,14 @@ if [ -d "docs/site/app/client" ]; then
         cp -r docs/site/app/client/assets/* docs/site/app/assets/
         echo "  ✅ Assets copied"
     fi
-    # Ensure shared public images (animecoin) are available for faucet UI
+    # Ensure shared public images are available at app and root
     if [ -f "public/animecoin.png" ]; then
         cp public/animecoin.png docs/site/app/animecoin.png || true
+        cp public/animecoin.png docs/site/animecoin.png || true
+    fi
+    if [ -f "public/animechain.webp" ]; then
+        cp public/animechain.webp docs/site/app/animechain.webp || true
+        cp public/animechain.webp docs/site/animechain.webp || true
     fi
     
     # Copy favicon

@@ -28,6 +28,11 @@ if (Test-Path "docs/site/app/client") {
 
   if (Test-Path "public/animecoin.png") {
     Copy-Item -Force "public/animecoin.png" "docs/site/app/animecoin.png"
+    Copy-Item -Force "public/animecoin.png" "docs/site/animecoin.png"
+  }
+  if (Test-Path "public/animechain.webp") {
+    Copy-Item -Force "public/animechain.webp" "docs/site/app/animechain.webp"
+    Copy-Item -Force "public/animechain.webp" "docs/site/animechain.webp"
   }
 
   Write-Host "React app successfully integrated with MkDocs!"

@@ -66,17 +66,17 @@ In a cross-chain flow, your transaction first executes and finalizes on the sour
   <div class="step-card step-l3">
     <div class="step-header"><span class="step-dot"></span><span>Step 1 — L3 confirmation (AnimeChain)</span></div>
     <p>The transaction is confirmed on L3 but has not yet been sent to L2. It will be included in a future L3 → L2 rollup batch.</p>
-    <img alt="AnimeChain explorer shows confirmed L3 transaction before L2 submission" src="../assets/images/txnWaitForRollup.png" />
+    <img alt="AnimeChain explorer shows confirmed L3 transaction before L2 submission" src="/assets/images/txnWaitForRollup.png" />
   </div>
   <div class="step-card step-l2">
     <div class="step-header"><span class="step-dot"></span><span>Step 2 — Rollup posted; awaiting L2 inbox read (Arbitrum)</span></div>
     <p>The rollup has been posted to L2, but Arbitrum has not yet opened and processed its cross-chain inbox. This can be on a multi‑hour schedule (up to ~12h).</p>
-    <img alt="Arbitrum has not yet read cross-chain messages; can take up to ~12h" src="../assets/images/txnWaitForRollup2.png" />
+    <img alt="Arbitrum has not yet read cross-chain messages; can take up to ~12h" src="/assets/images/txnWaitForRollup2.png" />
   </div>
   <div class="step-card step-final">
     <div class="step-header"><span class="step-dot"></span><span>Step 3 — Reflected downstream</span></div>
     <p>The message has been read and processed; the transaction is reflected on L2 and downstream state is updated.</p>
-    <img alt="Confirmed through the process: delivered and processed on L2" src="../assets/images/txnWaitForRollup3.png" />
+    <img alt="Confirmed through the process: delivered and processed on L2" src="/assets/images/txnWaitForRollup3.png" />
   </div>
 </div>
 
@@ -94,9 +94,9 @@ Note: Inbound funding/messages L1 → L2 → L3 are typically much faster than o
 
   function loadImg(src){ const img=new Image(); let ok=false; img.onload=()=>ok=true; img.src=src; return {img,isLoaded:()=>ok}; }
   const logos = {
-    l3: loadImg('../assets/images/animecoin.webp'),
-    l2: loadImg('../assets/images/arbitrum.webp'),
-    l1: loadImg('../assets/images/eth.webp')
+    l3: loadImg('/assets/images/animecoin.webp'),
+    l2: loadImg('/assets/images/arbitrum.webp'),
+    l1: loadImg('/assets/images/eth.webp')
   };
 
   function layout(){
@@ -927,4 +927,4 @@ Note: Inbound funding/messages L1 → L2 → L3 are typically much faster than o
 
 Transactions → AnimeChain → Arbitrum One → Ethereum (for censorship resistance)
 
-**Links**: [Network Details](../networks/mainnet/network-details.md) • [ANIME Token](../animecoin/index.md) • [Start Building](../developers/index.md) 
+**Links**: [Use AnimeChain](../use-animechain.md) • [ANIME Token](../animecoin/index.md) • [Start Building](../developers/index.md) 

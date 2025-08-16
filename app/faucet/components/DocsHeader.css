@@ -11,7 +11,7 @@
 .docs-header__inner {
   max-width: 1464px;
   margin: 0 auto;
-  height: 57.6px;
+  height: 48px;
   padding: 0px;
   display: flex;
   align-items: center;
@@ -37,6 +37,8 @@
   font-size: 21.6px;
   padding-left: 20px;
   font-weight: 800;
+  color: #ffffff;
+  opacity: 1;
 }
 
 .docs-header__nav {
@@ -47,7 +49,7 @@
 .docs-header__nav .docs-header__link:last-child { transition-delay: .1s; }
 
 /* Top header mimic */
-.md-header__inner { height: 57.6px; display: flex; align-items: center; gap: 12px; max-width: 1464px; margin: 0 auto; padding: 6px 6pxpx; }
+.md-header__inner { height: 48px; display: flex; align-items: center; gap: 12px; max-width: 1464px; margin: 0 auto; padding: 6px 6px; }
 .md-header__button.md-logo { display: inline-flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; }
 .md-header__title { flex: 1; color: #fff; }
 .md-header__ellipsis { display: flex; flex-direction: column; line-height: 1.1; }

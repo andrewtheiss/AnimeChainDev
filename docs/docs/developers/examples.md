@@ -724,10 +724,10 @@ console.log(`Found ${historicalTransfers.length} historical transfers`);
 
 ## 🔗 Additional Resources
 
-- [AnimeChain Network Details](../networks/mainnet/network-details.md)
+- Network parameters: see [Use AnimeChain](../use-animechain.md)
 - [Smart Contract Documentation](contracts.md)
 - [RPC API Reference](rpc-api.md)
-- [Hardhat Configuration Guide](../networks/testnet/getting-started.md)
+- Hardhat configuration examples are available in [Use AnimeChain](../use-animechain.md)
 
 ---
 
