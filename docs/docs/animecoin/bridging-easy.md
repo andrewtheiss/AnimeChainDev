@@ -1,6 +1,6 @@
-# Bridging ANIME – The Easy Way
+# Bridging Animecoin (ANIME) – The Easy Way
 
-Use Relay to bridge ANIME with a simple UI – no manual contract steps.
+Use Relay to bridge Animecoin (ANIME) with a simple UI – no manual contract steps.
 
 ---
 

@@ -18,7 +18,7 @@
 In order to use AnimeChain, you must have **Animecoin (ANIME) on AnimeChain** as the native token for gas and transactions.
 
 - Bridge ANIME to AnimeChain: see the [Bridging guide](animecoin/bridging.md).
-- Add the AnimeChain network to your wallet (and optionally L1/L2): use the “Add ANIME Token to Wallet” section below or follow the Network guides.
+- Add the AnimeChain network to your wallet (and optionally L1/L2): use the “Add Animecoin to Wallet” section below or follow the Network guides.
 - Add token contracts to your wallet to track balances (L1 ERC‑20, L2 Wrapped ANIME). Once done, you’re ready to develop or use dApps on AnimeChain.
 
 ---
@@ -37,7 +37,7 @@ Currency Symbol: ANIME
 Block Explorer: https://explorer-animechain-39xf6m45e3.t.conduit.xyz/
 ```
 
-2) Get ANIME tokens (for gas)
+2) Get Animecoin (ANIME) for gas
 
 - ANIME originates on Ethereum L1. Bridge L1 → L2 → L3 using the Relay interface below or see the Bridging guide.
 
@@ -123,7 +123,7 @@ await wallet.sendTransaction({ to, value, maxFeePerGas, maxPriorityFeePerGas });
 Network Name: AnimeChain Testnet
 RPC URL: https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
 Chain ID: 6900
-Currency Symbol: tANIME
+Currency Symbol: ANIME
 Block Explorer: https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/
 ```
 
@@ -157,7 +157,7 @@ const testnetClient = createPublicClient({
   chain: {
     id: 6900,
     name: 'AnimeChain Testnet',
-    nativeCurrency: { name: 'Test ANIME', symbol: 'tANIME', decimals: 18 },
+    nativeCurrency: { name: 'Test ANIME', symbol: 'ANIME', decimals: 18 },
     rpcUrls: { default: { http: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'] } }
   },
   transport: http()
@@ -170,7 +170,7 @@ const testnetClient = createPublicClient({
 |----------|-------|
 | Network Name | AnimeChain Testnet |
 | Chain ID | 6900 (0x1AF4) |
-| Native Token | tANIME |
+| Native Token | ANIME |
 | Parent Chain | Arbitrum Sepolia (421614) |
 
 | Service | URL |
@@ -225,7 +225,7 @@ const testnetClient = createPublicClient({
           <strong>RPC URL:</strong> https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/
         </div>
         <div class="param-item">
-          <strong>Native Token:</strong> tANIME (Test tokens)
+          <strong>Native Token:</strong> ANIME (Test tokens)
         </div>
         <div class="param-item">
           <strong>Explorer:</strong> <a href="https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/" target="_blank">Testnet Explorer</a>
@@ -241,9 +241,9 @@ const testnetClient = createPublicClient({
 
     <div class="add-token-section">
       <div style="display:flex; align-items:center; justify-content:center; gap:.5rem; flex-wrap:wrap;">
-        <button class="add-token-btn" onclick="addAnimeToken()">
+        <button class="add-token-btn" onclick="addAnimecoin()">
           <span class="btn-icon"><img src="/assets/images/animecoin.webp" alt="ANIME" style="height: 1.1em; vertical-align: -0.15em;" /></span>
-          Add ANIME Token to Wallet
+          Add Animecoin to Wallet
         </button>
       </div>
       <div style="margin-top:.5rem; display:flex; align-items:center; justify-content:center;">
@@ -315,7 +315,7 @@ function formatUnits(valueBigInt, decimals) {
   return (negative ? '-' : '') + whole.toString() + (fractionStr ? '.' + fractionStr : '');
 }
 
-async function addAnimeToken() {
+async function addAnimecoin() {
   const select = document.getElementById('tokenNetworkSelect');
   const which = select ? select.value : 'l2';
   const statusEl = document.getElementById('add-token-status');

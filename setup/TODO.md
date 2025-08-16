@@ -20,7 +20,7 @@
 - Chain ID: 6900 (0x1AF4)  
 - RPC: `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`
 - Explorer: `https://explorer-conduit-orbit-deployer-d4pqjb0rle.t.conduit.xyz/`
-- Token: tANIME (free test tokens)
+- Token: ANIME (free test tokens)
 - Parent: Arbitrum Sepolia (421614)
 
 ### **Token Economics**

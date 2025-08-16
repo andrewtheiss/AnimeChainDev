@@ -496,4 +496,4 @@ Common JSON-RPC error codes:
     WebSocket connections are available at `wss://rpc-animechain-39xf6m45e3.t.conduit.xyz/` for real-time event subscriptions.
 
 !!! warning "Testnet vs Mainnet"
-    Always double-check you're using the correct RPC endpoint. Testnet transactions use test ANIME tokens with no real value.
+    Always double-check you're using the correct RPC endpoint. Testnet transactions use test Animecoin (ANIME) with no real value.

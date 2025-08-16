@@ -104,7 +104,7 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract AnimeToken extends ERC20, Ownable {
+contract AnimecoinToken extends ERC20, Ownable {
     constructor(
         string memory name,
         string memory symbol,
@@ -280,9 +280,9 @@ async function main() {
   console.log("Deploying contracts with account:", deployer.address);
   console.log("Account balance:", (await deployer.provider.getBalance(deployer.address)).toString());
 
-  // Deploy AnimeToken
-  const AnimeToken = await hre.ethers.getContractFactory("AnimeToken");
-  const animeToken = await AnimeToken.deploy(
+  // Deploy AnimecoinToken
+  const AnimecoinToken = await hre.ethers.getContractFactory("AnimecoinToken");
+  const animeToken = await AnimecoinToken.deploy(
     "Anime Community Token",
     "ACT", 
     1000000, // 1M tokens
@@ -290,7 +290,7 @@ async function main() {
   );
 
   await animeToken.waitForDeployment();
-  console.log("AnimeToken deployed to:", await animeToken.getAddress());
+  console.log("AnimecoinToken deployed to:", await animeToken.getAddress());
 
   // Deploy AnimeNFT
   const AnimeNFT = await hre.ethers.getContractFactory("AnimeNFT");
@@ -353,12 +353,12 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor" "Ar
 
 ### Test File Example
 
-Create `test/AnimeToken.js`:
+Create `test/AnimecoinToken.js`:
 
 ```javascript
 const { expect } = require("chai");
 
-describe("AnimeToken", function () {
+describe("AnimecoinToken", function () {
   let animeToken;
   let owner;
   let addr1;
@@ -367,8 +367,8 @@ describe("AnimeToken", function () {
   beforeEach(async function () {
     [owner, addr1, addr2] = await ethers.getSigners();
     
-    const AnimeToken = await ethers.getContractFactory("AnimeToken");
-    animeToken = await AnimeToken.deploy(
+    const AnimecoinToken = await ethers.getContractFactory("AnimecoinToken");
+    animeToken = await AnimecoinToken.deploy(
       "Test Token",
       "TEST",
       1000000,
@@ -411,7 +411,7 @@ npx hardhat test
 npx hardhat test --gas-reporter
 
 # Run specific test file
-npx hardhat test test/AnimeToken.js
+npx hardhat test test/AnimecoinToken.js
 ```
 
 ---

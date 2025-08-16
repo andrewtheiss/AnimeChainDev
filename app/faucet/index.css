@@ -22,6 +22,11 @@
   opacity: 1;
 }
 
+
+.faucet-app .explorer-link-container a, :root.faucet-app .explorer-link-container a{
+  color: black !important
+}
+
 .faucet-app body, :root.faucet-app body {
   margin: 0;
   min-width: 320px;

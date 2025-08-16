@@ -12,7 +12,7 @@ AnimeChain is a Layer-3 blockchain built on the Arbitrum Orbit stack, tuned for 
 
 ## <img src="/assets/images/animecoin.webp" alt="Animecoin" style="height: 20px; vertical-align: middle; margin-right: 6px;" /> What is ANIME?
 
-ANIME is the native gas token on AnimeChain. On testnet it is **tANIME** and has no value.
+ANIME is the native gas token on AnimeChain. On testnet it is **ANIME** and has no value.
 
 ---
 
@@ -26,10 +26,10 @@ Or use the one-click button in the React app.
 
 ---
 
-## 💰 How do I get ANIME tokens?
+## 💰 How do I get Animecoin (ANIME)?
 
 1. Bridge from Ethereum → Arbitrum → AnimeChain following the [bridging guide](../animecoin/bridging.md).
-2. On testnet, claim **tANIME** from the [interactive faucet](/app/).
+2. On testnet, claim **ANIME** from the [interactive faucet](/app/).
 
 ---
 

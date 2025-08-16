@@ -17,7 +17,7 @@ export function NetworkInfo() {
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600 dark:text-gray-400">Currency:</span>
-            <span className="font-mono text-sm font-medium">tANIME</span>
+            <span className="font-mono text-sm font-medium">ANIME</span>
           </div>
         </div>
         

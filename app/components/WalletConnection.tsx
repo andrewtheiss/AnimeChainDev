@@ -32,7 +32,7 @@ export function WalletConnection({
           Connect Your Wallet
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">
-          Connect your wallet to get free tANIME tokens for testing on AnimeChain Testnet
+          Connect your wallet to get free ANIME tokens for testing on AnimeChain Testnet
         </p>
         
         {window.ethereum ? (

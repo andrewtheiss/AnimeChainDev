@@ -98,8 +98,8 @@ export function FaucetApp() {
                 chainId: '0x1af4',
                 chainName: 'AnimeChain Testnet',
                 nativeCurrency: {
-                  name: 'tANIME',
-                  symbol: 'tANIME',
+                  name: 'ANIME',
+                  symbol: 'ANIME',
                   decimals: 18
                 },
                 rpcUrls: ['https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/'],
@@ -128,7 +128,7 @@ export function FaucetApp() {
             Testnet Faucet
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Get free <strong>tANIME</strong> tokens to test and develop on AnimeChain Testnet. 
+            Get free <strong>ANIME</strong> tokens to test and develop on AnimeChain Testnet. 
             Build something amazing in the anime-powered decentralized ecosystem! 🚀
           </p>
         </div>

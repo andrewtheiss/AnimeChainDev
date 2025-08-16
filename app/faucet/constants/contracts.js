@@ -34,7 +34,7 @@ export const NETWORKS = {
     chainName: 'AnimeChain Testnet',
     nativeCurrency: {
       name: 'Test Anime',
-      symbol: 'tANIME',
+      symbol: 'ANIME',
       decimals: 18
     },
     rpcUrls: ['https://testnet-rpc.anime.xyz/'],
@@ -69,7 +69,7 @@ export const NETWORKS = {
     chainName: 'AnimeChain Testnet',
     nativeCurrency: {
       name: 'Test Anime',
-      symbol: 'tANIME',
+      symbol: 'ANIME',
       decimals: 18
     },
     rpcUrls: ['https://testnet-rpc.anime.xyz/'],

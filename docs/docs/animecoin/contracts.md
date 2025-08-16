@@ -1,6 +1,6 @@
 # Contract Addresses
 
-Smart contract addresses for ANIME token across different layers.
+Smart contract addresses for Animecoin (symbol: ANIME) across different layers.
 
 ---
 
@@ -9,7 +9,7 @@ Smart contract addresses for ANIME token across different layers.
 ### Ethereum (L1)
 | Contract | Address | Type |
 |----------|---------|------|
-| ANIME Token | `TBA` | ERC-20 |
+| Animecoin | `TBA` | ERC-20 |
 | Bridge Contract | `TBA` | Bridge |
 
 ### Arbitrum One (L2) 
@@ -21,7 +21,7 @@ Smart contract addresses for ANIME token across different layers.
 ### AnimeChain (L3)
 | Contract | Address | Type |
 |----------|---------|------|
-| Native ANIME | Native gas token | Native |
+| Animecoin (native) | Native gas token | Native |
 | Bridge Contract | `TBA` | Bridge |
 
 ---
@@ -31,7 +31,7 @@ Smart contract addresses for ANIME token across different layers.
 ### Ethereum Goerli (L1)
 | Contract | Address | Type |
 |----------|---------|------|
-| ANIME Token | `TBA` | ERC-20 |
+| Animecoin | `TBA` | ERC-20 |
 | Bridge Contract | `TBA` | Bridge |
 
 ### Arbitrum Goerli (L2)
@@ -43,14 +43,14 @@ Smart contract addresses for ANIME token across different layers.
 ### AnimeChain Testnet (L3)
 | Contract | Address | Type |
 |----------|---------|------|
-| Native ANIME | Native gas token | Native |
+| Animecoin (native) | Native gas token | Native |
 | Bridge Contract | `TBA` | Bridge |
 
 ---
 
 ## 📋 Contract ABIs
 
-### ANIME Token ABI (L1/L2)
+### Animecoin ABI (L1/L2)
 
 ```json
 [

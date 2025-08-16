@@ -111,7 +111,7 @@ function App() {
   const getTokenSymbol = () => {
     switch (network) {
       case 'animechain': return 'ANIME';
-      case 'animechain_testnet': return 'tANIME';
+      case 'animechain_testnet': return 'ANIME';
       default: return 'ANIME';
     }
   };

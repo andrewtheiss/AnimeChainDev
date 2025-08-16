@@ -126,7 +126,7 @@ graph TB
 
 ### For Users
 1. [Add AnimeChain to your wallet](use-animechain.md#add-to-wallet-mainnet)
-2. [Bridge ANIME tokens](animecoin/bridging.md) from L1/L2
+2. [Bridge Animecoin](animecoin/bridging.md) from L1/L2
 3. Start using anime dApps on L3!
 
 ### For Developers
@@ -192,7 +192,7 @@ graph TB
 | **L2 (Arbitrum)** | Wrapped ANIME | Lower fees, DeFi |
 | **L3 (AnimeChain)** | Native ANIME | Gas fees, native ecosystem |
 
-[Learn more about ANIME →](animecoin/index.md){ .md-button }
+[Learn more about Animecoin →](animecoin/index.md){ .md-button }
 
 ---
 

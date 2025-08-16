@@ -927,4 +927,4 @@ Note: Inbound funding/messages L1 → L2 → L3 are typically much faster than o
 
 Transactions → AnimeChain → Arbitrum One → Ethereum (for censorship resistance)
 
-**Links**: [Use AnimeChain](../use-animechain.md) • [ANIME Token](../animecoin/index.md) • [Start Building](../developers/index.md) 
+**Links**: [Use AnimeChain](../use-animechain.md) • [Animecoin](../animecoin/index.md) • [Start Building](../developers/index.md) 

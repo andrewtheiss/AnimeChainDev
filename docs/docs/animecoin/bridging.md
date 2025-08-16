@@ -1,4 +1,4 @@
-# Bridging ANIME Across Layers – The Hard Way
+# Bridging Animecoin (ANIME) Across Layers – The Hard Way
 
 All ANIME originates on Ethereum L1. The versions on L2 and L3 are wrapped representations of the mainnet token.
 
@@ -110,7 +110,7 @@ task('withdraw', 'Withdraw ANIME to L2')
 | Contract | L2 Address | L3 Address |
 |----------|------------|------------|
 | Orbit Bridge | `0xBr1dgE...` | `0x0rb1t...` |
-| tANIME (ERC20) | `0xWr4pp...` | Native ANIME |
+| ANIME (ERC20) | `0xWr4pp...` | Native ANIME |
 
 > **Mainnet addresses will be published post-audit.**
 
@@ -126,6 +126,6 @@ task('withdraw', 'Withdraw ANIME to L2')
 
 ## 🔗 See Also
 
-- [ANIME Token Overview](index.md)
+- [Animecoin Overview](index.md)
 - [Get Test Tokens](/app/)
 - [Developer Examples](../developers/examples.md) 

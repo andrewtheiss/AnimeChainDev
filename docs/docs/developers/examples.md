@@ -227,7 +227,7 @@ tokenContract.on('Transfer', (from, to, value, event) => {
 ### Native ANIME Transfers
 
 ```javascript
-// Send ANIME tokens
+// Send Animecoin (ANIME) tokens
 async function sendANIME(to, amount) {
   const tx = await wallet.sendTransaction({
     to: to,

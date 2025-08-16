@@ -79,7 +79,7 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
       // Simulate transaction delay
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      alert('🎉 Withdrawal successful! Check your wallet for tANIME tokens.');
+      alert('🎉 Withdrawal successful! Check your wallet for ANIME tokens.');
       setLastWithdrawal(new Date().toLocaleString());
       setWithdrawalCount(prev => prev + 1);
       setTimeUntilNext(24 * 60 * 60); // 24 hours in seconds
@@ -138,7 +138,7 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
                style={{ backgroundColor: 'color-mix(in oklab, var(--color-primary-50) 60%, transparent)' }}>
             <p className="text-sm text-gray-600 dark:text-gray-400">Current Balance</p>
             <p className="text-2xl font-bold text-primary-700 dark:text-primary-300">
-              {balance} tANIME
+              {balance} ANIME
             </p>
           </div>
           
@@ -233,7 +233,7 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
                     <span>Processing...</span>
                   </span>
                 ) : (
-                  '🚰 Request tANIME Tokens'
+                  '🚰 Request ANIME Tokens'
                 )}
               </button>
               
@@ -257,11 +257,11 @@ export function FaucetInterface({ account, isCorrectNetwork }: FaucetInterfacePr
           </li>
           <li className="flex items-start space-x-2">
             <span className="text-primary-600 font-bold">2.</span>
-            <span>Click "Request tANIME Tokens" and sign the message in your wallet</span>
+            <span>Click "Request ANIME Tokens" and sign the message in your wallet</span>
           </li>
           <li className="flex items-start space-x-2">
             <span className="text-primary-600 font-bold">3.</span>
-            <span>Receive free tANIME tokens for testing and development</span>
+            <span>Receive free ANIME tokens for testing and development</span>
           </li>
           <li className="flex items-start space-x-2">
             <span className="text-primary-600 font-bold">4.</span>
