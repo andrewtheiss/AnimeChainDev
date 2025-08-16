@@ -1,0 +1,62 @@
+/* Minimal Material-like header to match docs theme */
+.docs-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #1f2937; /* slate-800 */
+  color: #e5e7eb; /* gray-200 */
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.docs-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docs-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.docs-header__logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.docs-header__title {
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.docs-header__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.docs-header__link {
+  color: #c7d2fe; /* indigo-200 */
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.docs-header__link:hover {
+  background: rgba(99,102,241,0.15);
+  color: #ffffff;
+}
+
+.docs-header__link--active {
+  background: #4f46e5; /* indigo-600 */
+  color: #ffffff;
+}
+

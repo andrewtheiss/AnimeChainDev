@@ -65,6 +65,7 @@ nav:
     - Code Examples: developers/examples.md
   - Architecture: architecture/index.md
   - Interactive Tools: app.md
+  - Faucet: index.md  # Placeholder tab pointing to docs, actual faucet at /app/
   - Resources:
     - FAQ: resources/faq.md
     - Troubleshooting: resources/troubleshooting.md

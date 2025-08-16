@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import DocsHeader from './components/DocsHeader'
 import Faucet from './components/Faucet'
 import RefillFooter from './components/RefillFooter'
 import { NETWORKS } from './constants/contracts'
@@ -78,6 +79,7 @@ function App() {
 
   return (
     <>
+      <DocsHeader />
       <div className="network-selector">
         <label htmlFor="network-select">Select Network:</label>
         <select 
