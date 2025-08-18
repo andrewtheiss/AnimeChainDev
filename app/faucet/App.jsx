@@ -116,6 +116,33 @@ function App() {
     }
   };
 
+  const handleAddToMetaMask = async () => {
+    try {
+      if (!window.ethereum) throw new Error('Please install MetaMask');
+      const cfg = NETWORKS[network];
+      if (!cfg) throw new Error('Unknown network');
+      try {
+        await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: cfg.chainId }] });
+      } catch (e) {
+        if (e && e.code === 4902) {
+          const addParams = {
+            chainId: cfg.chainId,
+            chainName: cfg.chainName,
+            nativeCurrency: cfg.nativeCurrency,
+            rpcUrls: cfg.rpcUrls,
+            blockExplorerUrls: cfg.blockExplorerUrls,
+            iconUrls: cfg.iconUrls,
+          };
+          await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [addParams] });
+        } else {
+          throw e;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="faucet-app">
       <DocsHeader />
@@ -136,6 +163,10 @@ function App() {
         <p className="page-subtitle">Request small amounts of {getTokenSymbol()} for testing</p>
         <div className="pow-note">
           This is a PoW Faucet which refreshes every 24 hours. You have 8 withdrawls every 24 hours. The first transaction is gasless and so a proxy server at faucet.animechain.dev will take your PoW signature to trigger a faucet deposit on your behalf.
+        </div>
+        <div className="pre-faucet-actions">
+          <span className="pre-faucet-text">First, make sure you:</span>
+          <button onClick={handleAddToMetaMask} className="footer-refill-button">🦊 Add to MetaMask</button>
         </div>
         <Faucet 
           contractAddress={contractAddress} 

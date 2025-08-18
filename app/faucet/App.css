@@ -24,6 +24,19 @@
   color: #0f172a;
 }
 
+.pre-faucet-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0 0 0;
+}
+
+.pre-faucet-text {
+  color: #334155;
+  font-weight: 600;
+}
+
 .network-selector {
   display: flex;
   align-items: center;
