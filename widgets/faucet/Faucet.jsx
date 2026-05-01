@@ -119,7 +119,13 @@ export default function Faucet({ contractAddress, network = 'animechain_testnet'
   }, [contract]);
 
   // PoW helpers
-  const getIpAddressHash = async () => { const fp = navigator.userAgent + navigator.language + screen.width + screen.height; return ethers.keccak256(ethers.toUtf8Bytes((account||'') + fp)); };
+  const getIpAddressHash = async () => {
+    try {
+      const stored = await contract.ip_address_hash(account);
+      if (stored && stored !== ethers.ZeroHash) return stored;
+    } catch {}
+    return ethers.keccak256(ethers.getBytes(account));
+  };
   const getDifficultyTarget = async (idx) => { try { const v = await contract.get_difficulty_target(idx); return Number(v); } catch { return [8000,8000,8000,8000,16000,32000,64000,128000][idx-1]||8000; } };
   const calculatePowHash = (user, blockHash, ipHash, nonce) => ethers.keccak256(ethers.concat([ethers.getBytes(blockHash), ethers.getBytes(user), ethers.getBytes(ipHash), ethers.zeroPadValue(ethers.toBeHex(nonce),32)]));
   const getFreshBlockHash = async () => { try { const latest=await provider.getBlock('latest'); return latest.hash; } catch { return ethers.ZeroHash; } };
