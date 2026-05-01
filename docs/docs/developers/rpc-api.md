@@ -7,9 +7,9 @@ Complete JSON-RPC API documentation for AnimeChain.
 ## 📡 Network Endpoints
 
 ### Mainnet
-- **RPC URL:** `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/`  
+- **RPC URL:** `https://public-rpc.anime.xyz`  
 - **Chain ID:** `69000` (0x10D88)
-- **Explorer:** [https://explorer-animechain-39xf6m45e3.t.conduit.xyz/](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
+- **Explorer:** [https://explorer.anime.xyz/](https://explorer.anime.xyz/)
 
 ### Testnet
 - **RPC URL:** `https://explorer-animechain-testnet-i8yja6a1a0.t.conduit.xyz/`
@@ -272,7 +272,7 @@ Returns logs matching a filter.
 import { ethers } from 'ethers';
 
 // Connect to AnimeChain
-const provider = new ethers.JsonRpcProvider('https://rpc-animechain-39xf6m45e3.t.conduit.xyz/');
+const provider = new ethers.JsonRpcProvider('https://public-rpc.anime.xyz');
 
 // Get chain ID
 const chainId = await provider.getNetwork();
@@ -304,7 +304,7 @@ console.log('Transaction:', tx.hash);
 import Web3 from 'web3';
 
 // Connect to AnimeChain
-const web3 = new Web3('https://rpc-animechain-39xf6m45e3.t.conduit.xyz/');
+const web3 = new Web3('https://public-rpc.anime.xyz');
 
 // Get chain ID
 const chainId = await web3.eth.getChainId();
@@ -339,17 +339,17 @@ import { privateKeyToAccount } from 'viem/accounts';
 // Define AnimeChain
 const animeChain = {
   id: 69000,
-  name: 'AnimeChain',
+  name: 'Animechain Mainnet',
   network: 'animechain',
   nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'] },
-    public: { http: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'] },
+    default: { http: ['https://public-rpc.anime.xyz'] },
+    public: { http: ['https://public-rpc.anime.xyz'] },
   },
   blockExplorers: {
     default: { 
       name: 'AnimeChain Explorer',
-      url: 'https://explorer-animechain-39xf6m45e3.t.conduit.xyz/'
+      url: 'https://explorer.anime.xyz/'
     },
   },
 };
@@ -419,7 +419,7 @@ const batch = [
 
 const responses = await Promise.all(
   batch.map(request => 
-    fetch('https://rpc-animechain-39xf6m45e3.t.conduit.xyz/', {
+    fetch('https://public-rpc.anime.xyz', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -493,7 +493,7 @@ Common JSON-RPC error codes:
 ---
 
 !!! tip "WebSocket Support"
-    WebSocket connections are available at `wss://rpc-animechain-39xf6m45e3.t.conduit.xyz/` for real-time event subscriptions.
+    WebSocket connections are available at `wss://public-rpc.anime.xyz` for real-time event subscriptions.
 
 !!! warning "Testnet vs Mainnet"
     Always double-check you're using the correct RPC endpoint. Testnet transactions use test Animecoin (ANIME) with no real value.

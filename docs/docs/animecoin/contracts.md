@@ -126,7 +126,7 @@ Smart contract addresses for Animecoin (symbol: ANIME) across different layers.
 ### Mainnet Explorers
 - **Ethereum:** [Etherscan](https://etherscan.io)
 - **Arbitrum:** [Arbiscan](https://arbiscan.io) 
-- **AnimeChain:** [AnimeChain Explorer](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
+- **AnimeChain:** [AnimeChain Explorer](https://explorer.anime.xyz/)
 
 ### Testnet Explorers  
 - **Ethereum Goerli:** [Goerli Etherscan](https://goerli.etherscan.io)

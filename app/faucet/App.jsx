@@ -21,6 +21,7 @@ function App() {
   });
   
   const [isConnected, setIsConnected] = useState(false);
+  const [addStatus, setAddStatus] = useState(null);
 
   const contractAddress = CONTRACTS[network];
 
@@ -34,7 +35,7 @@ function App() {
       const cookieTheme = getCookie('animechain_theme');
       const paletteRaw = localStorage.getItem('__palette');
       const palette = paletteRaw ? JSON.parse(paletteRaw) : null;
-      let scheme = 'default';
+      let scheme = 'slate';
       if (cookieTheme) scheme = cookieTheme === 'dark' ? 'slate' : 'default';
       else if (palette && palette.scheme) scheme = palette.scheme;
       document.documentElement.setAttribute('data-md-color-scheme', scheme);
@@ -45,12 +46,12 @@ function App() {
     const onStorage = (e) => {
       if (e.key === '__palette' || e.key === 'animechain_theme') {
         try {
-          let scheme = 'default';
+          let scheme = 'slate';
           if (e.key === '__palette') {
             const palette = e.newValue ? JSON.parse(e.newValue) : null;
-            scheme = palette && palette.scheme ? palette.scheme : 'default';
+            scheme = palette && palette.scheme ? palette.scheme : 'slate';
           } else if (e.key === 'animechain_theme') {
-            const v = e.newValue || 'light';
+            const v = e.newValue || 'dark';
             scheme = v === 'dark' ? 'slate' : 'default';
           }
           document.documentElement.setAttribute('data-md-color-scheme', scheme);
@@ -117,30 +118,70 @@ function App() {
   };
 
   const handleAddToMetaMask = async () => {
-    try {
-      if (!window.ethereum) throw new Error('Please install MetaMask');
-      const cfg = NETWORKS[network];
-      if (!cfg) throw new Error('Unknown network');
-      try {
-        await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: cfg.chainId }] });
-      } catch (e) {
-        if (e && e.code === 4902) {
-          const addParams = {
-            chainId: cfg.chainId,
-            chainName: cfg.chainName,
-            nativeCurrency: cfg.nativeCurrency,
-            rpcUrls: cfg.rpcUrls,
-            blockExplorerUrls: cfg.blockExplorerUrls,
-            iconUrls: cfg.iconUrls,
-          };
-          await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [addParams] });
-        } else {
-          throw e;
-        }
-      }
-    } catch (e) {
-      console.error(e);
+    setAddStatus(null);
+    if (!window.ethereum) {
+      setAddStatus({ kind: 'error', message: 'No wallet detected. Please install MetaMask.' });
+      return;
     }
+    const cfg = NETWORKS[network];
+    if (!cfg) {
+      setAddStatus({ kind: 'error', message: `Unknown network: ${network}` });
+      return;
+    }
+    // iconUrls intentionally omitted: MetaMask ignores it, and the path the
+    // NETWORKS config advertises 404s on the faucet domain (docs-only asset).
+    // Some stricter wallets reject configs whose icon URL doesn't resolve.
+    const addParams = {
+      chainId: cfg.chainId,
+      chainName: cfg.chainName,
+      nativeCurrency: cfg.nativeCurrency,
+      rpcUrls: cfg.rpcUrls,
+      blockExplorerUrls: cfg.blockExplorerUrls,
+    };
+    // wallet_addEthereumChain doubles as add-or-update in MetaMask 11+:
+    // when the chainId is already saved but chainName/rpcUrls/explorer differ,
+    // MetaMask shows an "Update network" prompt with the new params. Older
+    // wallets silently no-op for an existing chainId, so we still attempt the
+    // chainId sanity check below to flag stale configs.
+    try {
+      await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [addParams] });
+    } catch (e) {
+      if (e && e.code === 4001) {
+        setAddStatus({ kind: 'info', message: 'Network update cancelled.' });
+        return;
+      }
+      console.error('wallet_addEthereumChain failed', e);
+      setAddStatus({ kind: 'error', message: `Could not add network: ${e?.message || 'unknown error'}` });
+      return;
+    }
+    try {
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: cfg.chainId }] });
+    } catch (e) {
+      if (e && e.code === 4001) {
+        setAddStatus({ kind: 'info', message: `${cfg.chainName} is added. Switch was cancelled.` });
+        return;
+      }
+      console.error('wallet_switchEthereumChain failed', e);
+      setAddStatus({ kind: 'error', message: `Could not switch network: ${e?.message || 'unknown error'}` });
+      return;
+    }
+    // Sanity check: confirm the wallet is now on the expected chain. If
+    // chainId mismatches, the wallet is probably still pointed at a stale
+    // entry that wasn't replaced by the add-or-update flow.
+    try {
+      const active = await window.ethereum.request({ method: 'eth_chainId' });
+      const expected = cfg.chainId.toLowerCase();
+      if (typeof active === 'string' && active.toLowerCase() !== expected) {
+        setAddStatus({
+          kind: 'error',
+          message: `Wallet is on ${active}, expected ${cfg.chainId}. Remove the network in MetaMask and click "Add to MetaMask" again.`,
+        });
+        return;
+      }
+    } catch {
+      // best-effort; fall through to success
+    }
+    setAddStatus({ kind: 'success', message: `Connected to ${cfg.chainName}.` });
   };
 
   return (
@@ -168,6 +209,11 @@ function App() {
           <span className="pre-faucet-text">First, make sure you:</span>
           <button onClick={handleAddToMetaMask} className="footer-refill-button">🦊 Add to MetaMask</button>
         </div>
+        {addStatus && (
+          <div role="status" aria-live="polite" className={`add-status add-status--${addStatus.kind}`}>
+            {addStatus.message}
+          </div>
+        )}
         <Faucet 
           contractAddress={contractAddress} 
           network={network}

@@ -49,7 +49,7 @@ module.exports = {
   },
   networks: {
     animechain: {
-      url: 'https://rpc-animechain-39xf6m45e3.t.conduit.xyz/',
+      url: 'https://public-rpc.anime.xyz',
       chainId: 69000,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       gasPrice: 'auto',
@@ -74,8 +74,8 @@ module.exports = {
         network: 'animechain',
         chainId: 69000,
         urls: {
-          apiURL: 'https://explorer-animechain-39xf6m45e3.t.conduit.xyz/api',
-          browserURL: 'https://explorer-animechain-39xf6m45e3.t.conduit.xyz/'
+          apiURL: 'https://explorer.anime.xyz/api',
+          browserURL: 'https://explorer.anime.xyz/'
         }
       },
       {
@@ -340,7 +340,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor" "Ar
 
 ### Manual Verification
 
-1. Go to the [AnimeChain Explorer](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
+1. Go to the [AnimeChain Explorer](https://explorer.anime.xyz/)
 2. Search for your contract address
 3. Click "Verify & Publish" 
 4. Select compiler version and optimization settings

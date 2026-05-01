@@ -1,28 +1,44 @@
 # AnimeChain Documentation & Faucet
 
-Documentation site with integrated React faucet for AnimeChain L3 blockchain.
+Two static apps stitched together at deploy time:
 
-**Components:**
-- **📚 Documentation** (MkDocs) - Complete AnimeChain guides
-- **Faucet App** (React) - Interactive testnet token faucet
+| Path | App | Source | Build → |
+|---|---|---|---|
+| `/`, `/use-animechain/`, `/animecoin/`, `/developers/`, `/architecture/`, `/resources/*` | **MkDocs** (Python) | `docs/docs/*.md` | `docs/site/` |
+| `/app/**` (faucet SPA) | **React Router / Vite** | `app/` | `docs/site/app/` |
+| `faucet.animechain.dev` | PoW proxy backend | external repo | n/a |
 
-## 🚀 Quick Start
+Firebase serves `docs/site/` and rewrites `/app/**` → `/app/index.html` (`firebase.json`). The React app applies `basename: "/app/"` only on production builds (`react-router.config.ts`, `vite.config.ts`), so cross-app links like `<a href="/use-animechain/">` are plain anchors that hand off to MkDocs via a full browser navigation.
+
+## Install
 
 ```bash
-# Install dependencies
 npm install
 bash setup/setup.sh pip install mkdocs mkdocs-material mkdocstrings
-
-# Windows users: use PowerShell
-# powershell -ExecutionPolicy Bypass -File setup/setup.ps1 pip install mkdocs mkdocs-material mkdocstrings
-
-# Choose your workflow:
-npm run dev              # React app only (localhost:5173)
-npm run dev:docs         # Documentation only (localhost:8000)
-npm run build:all        # Build integrated site
-npm run serve:docs       # Serve integrated site (localhost:8000)
+# Windows: powershell -ExecutionPolicy Bypass -File setup/setup.ps1 pip install mkdocs mkdocs-material mkdocstrings
 ```
-Windows: run `npm run serve:docs:win` to serve docs on localhost:8000.
+
+## Run locally
+
+| Goal | Command | URL |
+|---|---|---|
+| Faucet only (fast iteration) | `npm run dev` | `localhost:5173` |
+| Docs only | `npm run dev:docs` | `localhost:8000` |
+| **Full integrated site** (use this when testing cross-app links like `/use-animechain/`) | `npm run build:all && npm run serve:docs` | `localhost:8000` |
+| Closest to production | `npm run build:all && firebase emulators:start --only hosting` | `localhost:5000` |
+
+`npm run dev` serves only the React app, so links to MkDocs paths (`/use-animechain/`, `/animecoin/`, etc.) will 404 there — that's expected; switch to integrated mode to test them.
+
+Windows: `npm run serve:docs:win` for the docs server.
+
+## Deploy
+
+```bash
+npm run build:all   # builds docs, then app, then flattens via scripts/setup-app.sh
+firebase deploy --only hosting
+```
+
+---
 
 ## 🛠️ Development
 

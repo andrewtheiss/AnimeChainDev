@@ -16,14 +16,14 @@ import { ethers } from 'ethers';
 // AnimeChain network configuration
 const ANIMECHAIN_MAINNET = {
   chainId: '0x10D88', // 69000
-  chainName: 'AnimeChain',
+  chainName: 'Animechain Mainnet',
   nativeCurrency: {
     name: 'ANIME',
     symbol: 'ANIME', 
     decimals: 18
   },
-  rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'],
-  blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
+  rpcUrls: ['https://public-rpc.anime.xyz'],
+  blockExplorerUrls: ['https://explorer.anime.xyz/']
 };
 
 // Connect to provider
@@ -48,7 +48,7 @@ console.log(`Balance: ${ethers.formatEther(balance)} ANIME`);
 import Web3 from 'web3';
 
 // Connect to AnimeChain
-const web3 = new Web3('https://rpc-animechain-39xf6m45e3.t.conduit.xyz/');
+const web3 = new Web3('https://public-rpc.anime.xyz');
 
 // Check connection
 const chainId = await web3.eth.getChainId();
@@ -72,11 +72,11 @@ import { privateKeyToAccount } from 'viem/accounts';
 // Define AnimeChain
 const animeChain = {
   id: 69000,
-  name: 'AnimeChain',
+  name: 'Animechain Mainnet',
   network: 'animechain',
   nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'] }
+    default: { http: ['https://public-rpc.anime.xyz'] }
   }
 };
 
@@ -109,14 +109,14 @@ async function addAnimeChainToMetaMask() {
         method: 'wallet_addEthereumChain',
         params: [{
           chainId: '0x10D88', // 69000
-          chainName: 'AnimeChain',
+          chainName: 'Animechain Mainnet',
           nativeCurrency: {
             name: 'ANIME',
             symbol: 'ANIME',
             decimals: 18
           },
-          rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'],
-          blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
+          rpcUrls: ['https://public-rpc.anime.xyz'],
+          blockExplorerUrls: ['https://explorer.anime.xyz/']
         }]
       });
       console.log('AnimeChain added to MetaMask!');
@@ -168,7 +168,7 @@ const ERC20_ABI = [
   'event Transfer(address indexed from, address indexed to, uint256 value)'
 ];
 
-const provider = new ethers.JsonRpcProvider('https://rpc-animechain-39xf6m45e3.t.conduit.xyz/');
+const provider = new ethers.JsonRpcProvider('https://public-rpc.anime.xyz');
 const wallet = new ethers.Wallet('YOUR_PRIVATE_KEY', provider);
 
 // Connect to token contract

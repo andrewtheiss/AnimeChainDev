@@ -17,14 +17,14 @@ Common issues and solutions when using AnimeChain.
    // Ensure correct network details
    const ANIMECHAIN_MAINNET = {
      chainId: '0x10D88', // 69000 in hex
-     chainName: 'AnimeChain',
+     chainName: 'Animechain Mainnet',
      nativeCurrency: {
        name: 'ANIME',
        symbol: 'ANIME',
        decimals: 18
      },
-     rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'],
-     blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
+     rpcUrls: ['https://public-rpc.anime.xyz'],
+     blockExplorerUrls: ['https://explorer.anime.xyz/']
    };
    ```
 
@@ -39,7 +39,7 @@ Common issues and solutions when using AnimeChain.
    curl -X POST \
      -H "Content-Type: application/json" \
      -d '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' \
-     https://rpc-animechain-39xf6m45e3.t.conduit.xyz/
+     https://public-rpc.anime.xyz
    ```
 
 ### RPC Errors
@@ -352,7 +352,7 @@ Common issues and solutions when using AnimeChain.
    // hardhat.config.js
    networks: {
      animechain: {
-       url: 'https://rpc-animechain-39xf6m45e3.t.conduit.xyz/',
+       url: 'https://public-rpc.anime.xyz',
        chainId: 69000, // Correct chain ID
        accounts: [process.env.PRIVATE_KEY],
        gasPrice: 'auto'
@@ -474,12 +474,12 @@ Common issues and solutions when using AnimeChain.
 ### Check Status Pages
 
 1. **Network Status**
-   - [AnimeChain Explorer](https://explorer-animechain-39xf6m45e3.t.conduit.xyz/)
+   - [AnimeChain Explorer](https://explorer.anime.xyz/)
    - Check for network outages or maintenance
 
 2. **RPC Health**
    ```bash
-   curl -s https://rpc-animechain-39xf6m45e3.t.conduit.xyz/ \
+   curl -s https://public-rpc.anime.xyz \
      -X POST \
      -H "Content-Type: application/json" \
      -d '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'
