@@ -27,7 +27,7 @@ Animechain is like most Ethereum based chains.  If you can learn to deploy code 
   </div>
 
   <div>
-    Reference: <a href="https://explorer-animechain-39xf6m45e3.t.conduit.xyz/tx/0x20c108140ba88af35cfc8afdfa9e80bf0004752251b17fde9c4d401a19ad139f">Successful contract creation on AnimeChain explorer</a>
+    Reference: <a href="https://explorer.anime.xyz/tx/0x20c108140ba88af35cfc8afdfa9e80bf0004752251b17fde9c4d401a19ad139f">Successful contract creation on AnimeChain explorer</a>
   </div>
 </div>
 
@@ -42,10 +42,10 @@ await window.ethereum.request({
   method: 'wallet_addEthereumChain',
   params: [{
     chainId: '0x10D88', // Mainnet: 69000, Testnet: 0x1AF4 (6900)
-    chainName: 'AnimeChain',
+    chainName: 'Animechain Mainnet',
     nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
-    rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'], // Mainnet
-    blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
+    rpcUrls: ['https://public-rpc.anime.xyz'], // Mainnet
+    blockExplorerUrls: ['https://explorer.anime.xyz/']
   }]
 });
 ```
@@ -60,7 +60,7 @@ module.exports = {
   solidity: '0.8.20',
   networks: {
     animechain: { // Mainnet
-      url: 'https://rpc-animechain-39xf6m45e3.t.conduit.xyz/',
+      url: 'https://public-rpc.anime.xyz',
       chainId: 69000,
       accounts: [process.env.PRIVATE_KEY]
     },

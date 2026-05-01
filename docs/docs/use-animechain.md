@@ -31,10 +31,10 @@ In order to use AnimeChain, you must have **Animecoin (ANIME) on AnimeChain** as
 
 ```text
 Network Name: AnimeChain
-RPC URL: https://rpc-animechain-39xf6m45e3.t.conduit.xyz/
+RPC URL: https://public-rpc.anime.xyz
 Chain ID: 69000
 Currency Symbol: ANIME
-Block Explorer: https://explorer-animechain-39xf6m45e3.t.conduit.xyz/
+Block Explorer: https://explorer.anime.xyz/
 ```
 
 2) Get Animecoin (ANIME) for gas
@@ -52,7 +52,7 @@ Block Explorer: https://explorer-animechain-39xf6m45e3.t.conduit.xyz/
 module.exports = {
   networks: {
     animechain: {
-      url: "https://rpc-animechain-39xf6m45e3.t.conduit.xyz/",
+      url: "https://public-rpc.anime.xyz",
       chainId: 69000,
       accounts: [process.env.PRIVATE_KEY]
     }
@@ -64,7 +64,7 @@ module.exports = {
 // ethers.js
 import { ethers } from 'ethers';
 const provider = new ethers.JsonRpcProvider(
-  "https://rpc-animechain-39xf6m45e3.t.conduit.xyz/"
+  "https://public-rpc.anime.xyz"
 );
 ```
 
@@ -74,9 +74,9 @@ import { createPublicClient, http } from 'viem';
 const client = createPublicClient({
   chain: {
     id: 69000,
-    name: 'AnimeChain',
+    name: 'Animechain Mainnet',
     nativeCurrency: { name: 'ANIME', symbol: 'ANIME', decimals: 18 },
-    rpcUrls: { default: { http: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'] } }
+    rpcUrls: { default: { http: ['https://public-rpc.anime.xyz'] } }
   },
   transport: http()
 });
@@ -93,9 +93,9 @@ const client = createPublicClient({
 
 | Service | URL |
 |---------|-----|
-| RPC HTTP | `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` |
-| WebSocket | `wss://rpc-animechain-39xf6m45e3.t.conduit.xyz/` |
-| Explorer | `https://explorer-animechain-39xf6m45e3.t.conduit.xyz/` |
+| RPC HTTP | `https://public-rpc.anime.xyz` |
+| WebSocket | `wss://public-rpc.anime.xyz` |
+| Explorer | `https://explorer.anime.xyz/` |
 | Bridge Interface | [Relay Bridge](https://relay.link/bridge/ethereum?includeChainIds=6167f9a0-84dc-4296-8a26-2bb3cc56dc2c&fromChainId=69000&toCurrency=0x4dc26fc5854e7648a064a4abd590bbe71724c277) |
 
 ### Gas Note (Mainnet)
@@ -206,13 +206,13 @@ const testnetClient = createPublicClient({
           <strong>Chain ID:</strong> 69000 (0x10D88)
         </div>
         <div class="param-item">
-          <strong>RPC URL:</strong> https://rpc-animechain-39xf6m45e3.t.conduit.xyz/
+          <strong>RPC URL:</strong> https://public-rpc.anime.xyz
         </div>
         <div class="param-item">
           <strong>Native Token:</strong> ANIME
         </div>
         <div class="param-item">
-          <strong>Explorer:</strong> <a href="https://explorer-animechain-39xf6m45e3.t.conduit.xyz/" target="_blank">AnimeChain Explorer</a>
+          <strong>Explorer:</strong> <a href="https://explorer.anime.xyz/" target="_blank">AnimeChain Explorer</a>
         </div>
       </div>
       
@@ -285,7 +285,7 @@ const L1_TOKEN_ADDRESS = '0x4dc26fc5854e7648a064a4abd590bbe71724c277';
 const L2_TOKEN_ADDRESS = '0x37a645648df29205c6261289983fb04ecd70b4b3';
 const L1_RPC = 'https://node1.web3api.com/';
 const L2_RPC = 'https://arb1.arbitrum.io/rpc';
-const L3_EXPLORER_BASE = 'https://explorer-animechain-39xf6m45e3.t.conduit.xyz/address/';
+const L3_EXPLORER_BASE = 'https://explorer.anime.xyz/address/';
 
 function sanitizeAddress(addr) {
   if (!addr) return null;
@@ -331,10 +331,10 @@ async function addAnimecoin() {
         method: 'wallet_addEthereumChain',
         params: [{
           chainId: '0x10D88',
-          chainName: 'AnimeChain',
+          chainName: 'Animechain Mainnet',
           nativeCurrency: { name: 'Animecoin', symbol: 'ANIME', decimals: 18 },
-          rpcUrls: ['https://rpc-animechain-39xf6m45e3.t.conduit.xyz/'],
-          blockExplorerUrls: ['https://explorer-animechain-39xf6m45e3.t.conduit.xyz/']
+          rpcUrls: ['https://public-rpc.anime.xyz'],
+          blockExplorerUrls: ['https://explorer.anime.xyz/']
         }]
       });
       if (statusEl) statusEl.textContent = 'AnimeChain network added to wallet.';

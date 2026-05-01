@@ -179,6 +179,13 @@
   font-size: 14px !important;
 }
 
+/* Let node labels honor the inline `color:` from mermaid `style ... color:#...`
+   (mkdocs-material slate would otherwise force them to its own light label color). */
+.mermaid .node .nodeLabel,
+.mermaid .node foreignObject p,
+.mermaid .node foreignObject span,
+.mermaid .node foreignObject div { color: inherit !important; }
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .main-actions {
@@ -369,7 +376,7 @@
 }
 
 [data-md-color-scheme="slate"] .btn-image {
-  background: rgba(255, 255, 255, 0.06);
+  background: #cbd5e1;
 }
 
 [data-md-color-scheme="slate"] .develop-btn {

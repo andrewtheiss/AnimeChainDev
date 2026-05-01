@@ -7,10 +7,11 @@
     "build:app": "react-router build --mode production",
     "dev": "react-router dev",
     "dev:docs": "bash setup/setup.sh python3 -m mkdocs serve -f docs/mkdocs.yml",
+    "build:widgets": "vite build --config vite.widgets.config.ts",
     "build:docs": "bash setup/setup.sh python3 -m mkdocs build -f docs/mkdocs.yml",
     "build:docs:win": "powershell -ExecutionPolicy Bypass -File setup/setup.ps1 python -m mkdocs build -f docs/mkdocs.yml",
-    "build:all": "npm run build:docs && npm run build:app && bash scripts/setup-app.sh",
-    "build:all:win": "npm run build:docs:win && npm run build:app && powershell -ExecutionPolicy Bypass -File scripts/setup-app.ps1",
+    "build:all": "npm run build:widgets && npm run build:docs && npm run build:app && bash scripts/setup-app.sh",
+    "build:all:win": "npm run build:widgets && npm run build:docs:win && npm run build:app && powershell -ExecutionPolicy Bypass -File scripts/setup-app.ps1",
     "serve:docs": "bash setup/setup.sh python3 -m mkdocs serve -f docs/mkdocs.yml",
     "serve:docs:win": "powershell -ExecutionPolicy Bypass -File setup/setup.ps1 python -m mkdocs serve -f docs/mkdocs.yml",
     "start": "react-router-serve ./build/server/index.js",
@@ -19,11 +20,11 @@
   "dependencies": {
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
+    "ethers": "^6.13.5",
     "isbot": "^5.1.27",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.5.3",
-    "ethers": "^6.13.5"
+    "react-router": "^7.5.3"
   },
   "devDependencies": {
     "@react-router/dev": "^7.5.3",

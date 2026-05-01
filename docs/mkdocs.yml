@@ -13,20 +13,20 @@ theme:
   name: material
   logo: /assets/images/animechain.webp
   palette:
-    # Light mode (default)
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Dark mode  
+    # Dark mode (default)
     - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - navigation.tabs
     - navigation.sections
@@ -66,7 +66,7 @@ nav:
     - Code Examples: developers/examples.md
   - Architecture: architecture/index.md
   - Interactive Tools: interactive-tools.md
-  - Faucet: /app/
+  - Faucet: faucet.md
   - Resources:
     - FAQ: resources/faq.md
     - Troubleshooting: resources/troubleshooting.md
@@ -134,10 +134,12 @@ extra:
 # Custom CSS
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/widgets/widgets.css
 
 # Custom JavaScript
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/widgets/widgets.js
 
 # Document directory
 docs_dir: docs

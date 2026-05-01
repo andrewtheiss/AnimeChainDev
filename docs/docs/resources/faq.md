@@ -47,7 +47,7 @@ Simple transfer: **~$0.001**. See [Use AnimeChain](../use-animechain.md) for par
 
 ## 🧱 How can I deploy smart contracts?
 
-Use Hardhat / Foundry with the RPC endpoint `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` and chainId `69000`. A full quick-start is in the [developer guide](../developers/index.md).
+Use Hardhat / Foundry with the RPC endpoint `https://public-rpc.anime.xyz` and chainId `69000`. A full quick-start is in the [developer guide](../developers/index.md).
 
 ---
 

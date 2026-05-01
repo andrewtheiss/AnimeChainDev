@@ -67,8 +67,8 @@ Please see the bridging section for details on how to bridge between chains.
 | **Chain ID** | `69000` | `6900` |
 | **Parent Chain ID** | `42161` | `421614` |
 | **Parent Chain** | Arbitrum One | TBA |
-| **RPC URL** | `https://rpc-animechain-39xf6m45e3.t.conduit.xyz/` | TBA |
-| **Block Explorer** | `https://explorer-animechain-39xf6m45e3.t.conduit.xyz/` | TBA |
+| **RPC URL** | `https://public-rpc.anime.xyz` | TBA |
+| **Block Explorer** | `https://explorer.anime.xyz/` | TBA |
 | **L3 Base Token on Parent (Arbitrum)** | `0x37a645648dF29205C6261289983FB04ECD70b4B3` | TBA |
 | **Native Token (L3)** | `0x4dc26fc5854e7648a064a4abd590bbe71724c277` | `0x38208F36E9d6CE86ccE0977fA5690140Ec78A5d4` |
 | **minL2BaseFee** | `5000000000` | `10000000` |

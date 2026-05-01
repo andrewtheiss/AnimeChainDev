@@ -105,9 +105,9 @@ graph TB
     L2 --- L2_DESC
     L3 --- L3_DESC
     
-    style L3 fill:#ff6b9d,stroke:#333,stroke-width:3px
-    style L2 fill:#4ecdc4,stroke:#333,stroke-width:2px
-    style L1 fill:#45b7d1,stroke:#333,stroke-width:2px
+    style L3 fill:#ff6b9d,stroke:#333,stroke-width:3px,color:#0f172a
+    style L2 fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#0f172a
+    style L1 fill:#45b7d1,stroke:#333,stroke-width:2px,color:#0f172a
 ```
 
 ### Key Benefits

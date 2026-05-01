@@ -50,11 +50,17 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Respect docs dark scheme via attribute if present */
-[data-md-color-scheme="slate"] .faucet-app :root,
-[data-md-color-scheme="slate"] :root.faucet-app { color: #e5e7eb; background-color: #0b1220; }
-[data-md-color-scheme="slate"] .faucet-app body,
-[data-md-color-scheme="slate"] :root.faucet-app body { background-color: #0b1220; }
+/* Respect docs dark scheme via attribute if present.
+   Colors match mkdocs-material slate. Higher specificity than unconditional rules above. */
+:root.faucet-app[data-md-color-scheme="slate"] {
+  color: hsla(232, 15%, 90%, 0.92);
+  background-color: hsla(232, 15%, 14%, 1);
+}
+:root.faucet-app[data-md-color-scheme="slate"] body {
+  background-color: hsla(232, 15%, 14%, 1);
+  color: hsla(232, 15%, 90%, 0.92);
+}
+:root.faucet-app[data-md-color-scheme="slate"] h1 { color: hsla(232, 15%, 90%, 0.92); }
 
 /* Normalize faucet font-size context to avoid production scaling from docs */
 .faucet-app { font-size: 16px; }
