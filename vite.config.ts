@@ -1,19 +1,50 @@
-import { reactRouter } from "@react-router/dev/vite";
-import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { resolve } from "path";
 
-export default defineConfig(({ command, mode }) => {
-  // Only use base path in production builds for docs integration
-  const isProduction = command === 'build' || mode === 'production';
-  
-  return {
-    plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-    // Configure for embedding in docs only during production builds
-    base: isProduction ? "/app/" : "/",
-    build: {
-      // Don't clean the directory (preserve other docs files)
-      emptyOutDir: false,
+/**
+ * Builds the docs-embedded React widgets (bridge, faucet) as a single
+ * self-contained IIFE bundle that MkDocs loads via `extra_javascript`.
+ * Output lives inside the docs source tree so MkDocs copies it to the
+ * published site verbatim.
+ *
+ * Run via `npm run build:widgets` before `npm run build:docs`.
+ */
+export default defineConfig({
+  // Vite's default would treat any project-root `public/` dir as static
+  // assets to copy alongside the bundle. We don't have one (and don't want
+  // the build to ever copy stray files into the widgets output dir).
+  publicDir: false,
+  build: {
+    outDir: "docs/docs/assets/widgets",
+    emptyOutDir: true,
+    cssCodeSplit: false,
+    sourcemap: false,
+    lib: {
+      entry: resolve(__dirname, "widgets/index.ts"),
+      name: "AnimechainWidgets",
+      formats: ["iife"],
+      fileName: () => "widgets.js",
     },
-  };
+    rollupOptions: {
+      output: {
+        assetFileNames: (info) => {
+          // Vite emits the lib's CSS as <name>.css; rename to widgets.css
+          // so we can reference a stable path in mkdocs.yml.
+          if (info.names?.some((n) => n.endsWith(".css"))) return "widgets.css";
+          return "[name][extname]";
+        },
+      },
+    },
+  },
+  esbuild: {
+    jsx: "automatic",
+  },
+  // React (and some libs like ethers) reference `process.env.NODE_ENV` at
+  // module-init time to gate dev warnings. Vite's app build replaces these
+  // automatically, but lib builds do not — without this define the bundle
+  // throws `ReferenceError: process is not defined` before mounting.
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+    "process.env": "{}",
+  },
 });

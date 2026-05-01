@@ -91,5 +91,5 @@ Consistent AnimeChain purple theme:
 
 ---
 
-**Links**: [DevZuki Community](https://t.co/4xlpVFIfDx) • [Docs](http://localhost:8000/) • [Faucet](http://localhost:8000/app/)
+**Links**: [DevZuki Community](https://t.co/4xlpVFIfDx) • [Docs](http://localhost:8000/) • [Faucet](http://localhost:8000/faucet/)
 

@@ -10,7 +10,7 @@ Animechain is like most Ethereum based chains.  If you can learn to deploy code 
   <p>Developing via the Remix UI (remix.ethereum.org) is the simplest way to test</p>
   <ol>
     <li>Add AnimeChain (or AnimeChain Testnet) to your browser wallet provider.</li>
-    <li>Select the wallet/network so it's active and ensure you have funds. If you need funds on testnet, use the <a href="/app/">Testnet Faucet</a>.</li>
+    <li>Select the wallet/network so it's active and ensure you have funds. If you need funds on testnet, use the <a href="/faucet/">Testnet Faucet</a>.</li>
     <li>In Remix, verify the selected network is AnimeChain and your account shows a non‑zero balance.</li>
     <li>Deploy your contract from the Deploy tab.</li>
   </ol>

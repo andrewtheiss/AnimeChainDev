@@ -192,7 +192,7 @@ const testnetClient = createPublicClient({
 
 ### Faucet
 
-- Recommended: [Use Interactive Faucet](/app/)
+- Recommended: [Use Interactive Faucet](/faucet/)
 - Manual flow: Connect wallet → Sign commitment message → Receive tokens.
 
 

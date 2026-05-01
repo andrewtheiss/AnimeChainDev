@@ -6,7 +6,7 @@
 </div>
 
 <div class="faucet-button-container">
-  <a href="/app/" class="faucet-btn">
+  <a href="/faucet/" class="faucet-btn">
     <span class="btn-icon">🚰</span>
     Testnet Faucet
   </a>
@@ -138,7 +138,7 @@ graph TB
 ### For Testers
 1. [Connect to testnet](use-animechain.md#getting-started-testnet)
 2. [Get free test tokens](use-animechain.md#faucet)
-3. [Try our interactive tools](/app/)
+3. [Try our interactive tools](/faucet/)
 
 ---
 

@@ -204,7 +204,7 @@ export default function BridgeWidget() {
         </ol>
 
         <p className="bridge-notes__hint">
-          Need test ANIME instead of bridging real value? See the <a href="/app/">Faucet</a>.
+          Need test ANIME instead of bridging real value? See the <a href="/faucet/">Faucet</a>.
         </p>
       </div>
     </div>

@@ -97,7 +97,7 @@ Common issues and solutions when using AnimeChain.
     
     **Solutions:**
     - Check ANIME balance for gas fees
-    - Get test ANIME from the [interactive faucet](/app/)
+    - Get test ANIME from the [interactive faucet](/faucet/)
     - Reduce transaction amount
 
 === "Gas Estimation Failed"

@@ -127,5 +127,5 @@ task('withdraw', 'Withdraw ANIME to L2')
 ## 🔗 See Also
 
 - [Animecoin Overview](index.md)
-- [Get Test Tokens](/app/)
+- [Get Test Tokens](/faucet/)
 - [Developer Examples](../developers/examples.md) 
