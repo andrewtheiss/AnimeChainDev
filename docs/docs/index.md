@@ -170,14 +170,6 @@ graph TB
 
     [:octicons-arrow-right-24: API Docs](developers/rpc-api.md)
 
--   :material-tools: **Interactive Tools**
-
-    ---
-
-    Test contracts and transactions in your browser
-
-    [:octicons-arrow-right-24: Try Tools](/interactive-tools/)
-
 </div>
 
 ---
@@ -238,7 +230,7 @@ graph TB
 
 
 !!! tip "Need Help?"
-    New to AnimeChain? Start with our [Getting Started Guide](use-animechain.md#getting-started-mainnet) or try our [Interactive Tools](/interactive-tools/) to explore the network safely.
+    New to AnimeChain? Start with our [Getting Started Guide](use-animechain.md#getting-started-mainnet).
 
 ---
    

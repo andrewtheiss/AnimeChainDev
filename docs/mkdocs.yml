@@ -65,7 +65,6 @@ nav:
     - RPC API: developers/rpc-api.md
     - Code Examples: developers/examples.md
   - Architecture: architecture/index.md
-  - Interactive Tools: interactive-tools.md
   - Faucet: faucet.md
   - Resources:
     - FAQ: resources/faq.md

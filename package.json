@@ -14,9 +14,14 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@reservoir0x/relay-kit-ui": "^2.17.2",
+    "@reservoir0x/relay-sdk": "^2.4.0",
+    "@tanstack/react-query": "^5.100.8",
     "ethers": "^6.13.5",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "viem": "^2.48.7",
+    "wagmi": "^2.19.5"
   },
   "devDependencies": {
     "@types/node": "^20",
