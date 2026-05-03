@@ -82,7 +82,8 @@ const client = createPublicClient({
 });
 ```
 
-### Network Information (Mainnet) {#add-to-wallet-mainnet}
+<a id="add-to-wallet-mainnet"></a>
+### Network Information (Mainnet)
 
 | Property | Value |
 |----------|-------|
@@ -164,7 +165,8 @@ const testnetClient = createPublicClient({
 });
 ```
 
-### Network Information (Testnet) {#add-to-wallet-testnet}
+<a id="add-to-wallet-testnet"></a>
+### Network Information (Testnet)
 
 | Property | Value |
 |----------|-------|
@@ -192,7 +194,7 @@ const testnetClient = createPublicClient({
 
 ### Faucet
 
-- Recommended: [Use Interactive Faucet](/faucet/)
+- Recommended: [Use Interactive Faucet](faucet.md)
 - Manual flow: Connect wallet → Sign commitment message → Receive tokens.
 
 

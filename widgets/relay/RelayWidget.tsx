@@ -8,6 +8,7 @@ import { RelayKitProvider, SwapWidget } from "@reservoir0x/relay-kit-ui";
 import { convertViemChainToRelayChain } from "@reservoir0x/relay-sdk";
 import type { Token } from "@reservoir0x/relay-kit-ui";
 import "@reservoir0x/relay-kit-ui/styles.css";
+import "./Relay.css";
 
 const animechain = defineChain({
   id: 69000,

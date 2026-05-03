@@ -27,7 +27,7 @@ Pick a source token, then bridge directly to native ANIME on Animechain. The wid
 | **USDC (Arbitrum) → ANIME (Animechain)** | [open](https://relay.link/bridge/arbitrum?fromChainId=42161&toChainId=69000&fromCurrency=0xaf88d065e77c8cc2239327c5edb3a432268e5831&toCurrency=0x0000000000000000000000000000000000000000) |
 | **ANIME (Animechain) → USDC (Ethereum)** | [open](https://relay.link/bridge/ethereum?fromChainId=69000&toChainId=1&fromCurrency=0x0000000000000000000000000000000000000000&toCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48) |
 
-![Relay showing AnimeChain for Animecoin transfers](/assets/images/bridge assets.webp)
+![Relay showing AnimeChain for Animecoin transfers](../assets/images/bridge%20assets.webp)
 
 ---
 

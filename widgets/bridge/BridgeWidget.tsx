@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import "./Bridge.css";
 
 const NATIVE = "0x0000000000000000000000000000000000000000";
 const OPENSEA_SWAP = "https://opensea.io/swap";
