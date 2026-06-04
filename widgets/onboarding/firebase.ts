@@ -9,6 +9,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   sendSignInLinkToEmail,
   isSignInWithEmailLink,
   signInWithEmailLink,
@@ -30,9 +32,39 @@ export function watchAuth(cb: (user: User | null) => void): () => void {
   return onAuthStateChanged(getAuth(app()), cb);
 }
 
-export async function signInWithGoogle(): Promise<User> {
-  const res = await signInWithPopup(getAuth(app()), new GoogleAuthProvider());
+/**
+ * Google blocks OAuth inside embedded in-app browsers (MetaMask, wallet
+ * and social-app webviews) with `disallowed_useragent` — no flow works
+ * there, so callers should steer those users to the email link instead.
+ */
+export function isInAppBrowser(): boolean {
+  return /MetaMaskMobile|WebView|wv\)|FBAN|FBAV|Instagram|Line\//i.test(navigator.userAgent);
+}
+
+function isMobile(): boolean {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+/**
+ * Desktop uses a popup; mobile browsers use a full-page redirect (popups
+ * are unreliable there). On the redirect path this navigates away and
+ * resolves to null — the result lands via completeRedirect()/watchAuth
+ * after the round-trip.
+ */
+export async function signInWithGoogle(): Promise<User | null> {
+  const auth = getAuth(app());
+  const provider = new GoogleAuthProvider();
+  if (isMobile()) {
+    await signInWithRedirect(auth, provider);
+    return null;
+  }
+  const res = await signInWithPopup(auth, provider);
   return res.user;
+}
+
+/** Surface errors from a Google redirect round-trip (no-op otherwise). */
+export async function completeRedirect(): Promise<void> {
+  await getRedirectResult(getAuth(app()));
 }
 
 /** Email a one-time sign-in link that lands back on the current page. */

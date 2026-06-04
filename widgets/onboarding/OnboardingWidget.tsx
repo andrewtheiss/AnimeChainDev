@@ -4,6 +4,8 @@ import { isFirebaseConfigured } from "./config";
 import {
   watchAuth,
   signInWithGoogle,
+  completeRedirect,
+  isInAppBrowser,
   sendMagicLink,
   completeMagicLink,
   signOutUser,
@@ -47,9 +49,13 @@ export default function OnboardingWidget() {
 
   useEffect(() => {
     if (!isFirebaseConfigured()) return;
-    // Finish a magic-link landing (no-op for normal visits), then track auth.
+    // Finish a magic-link landing or a mobile Google-redirect round-trip
+    // (both no-ops for normal visits), then track auth.
     completeMagicLink().catch((e: Error) =>
       setStatus({ kind: "error", message: `Email link sign-in failed: ${e.message}` })
+    );
+    completeRedirect().catch((e: Error) =>
+      setStatus({ kind: "error", message: `Google sign-in failed: ${e.message}` })
     );
     const unsub = watchAuth((u) => {
       setUser(u);
@@ -133,12 +139,22 @@ export default function OnboardingWidget() {
           <p className="onboarding-status onboarding-status--info">Loading…</p>
         ) : (
           <>
-            <div className="onboarding-providers">
-              <button className="onboarding-button" disabled={!!busy} onClick={() => run("google", async () => void (await signInWithGoogle()))}>
-                {busy === "google" ? "Opening Google…" : "Continue with Google"}
-              </button>
-            </div>
-            <div className="onboarding-divider"><span>or</span></div>
+            {isInAppBrowser() ? (
+              <p className="onboarding-status onboarding-status--info">
+                Google sign-in isn't available inside in-app browsers (like the
+                MetaMask browser) — use the email link below, or open this page
+                in Safari/Chrome.
+              </p>
+            ) : (
+              <>
+                <div className="onboarding-providers">
+                  <button className="onboarding-button" disabled={!!busy} onClick={() => run("google", async () => void (await signInWithGoogle()))}>
+                    {busy === "google" ? "Opening Google…" : "Continue with Google"}
+                  </button>
+                </div>
+                <div className="onboarding-divider"><span>or</span></div>
+              </>
+            )}
             {linkSent ? (
               <p className="onboarding-status onboarding-status--success">
                 Check your inbox — we sent a sign-in link to <strong>{email}</strong>.
@@ -221,23 +237,34 @@ export default function OnboardingWidget() {
       <h3 className="onboarding-title">Welcome, {user.email}</h3>
       <p className="onboarding-subtitle">How do you want to use AnimeChain?</p>
       <div className="onboarding-fork">
-        <div className="onboarding-option">
-          <h4>I have a crypto wallet</h4>
-          <p>
-            Link your wallet to your email with Sign-In with Ethereum. You'll sign one
-            message — it stays in your browser and costs no gas.
-          </p>
-          <button className="onboarding-button" disabled={!!busy} onClick={handleSiwe}>
-            {busy === "siwe" ? "Check your wallet…" : "Sign in with Ethereum"}
-          </button>
-        </div>
-        <div className="onboarding-option">
-          <h4>Just use my email</h4>
-          <p>No wallet needed — continue with the account you just signed in with.</p>
-          <button className="onboarding-button" disabled={!!busy} onClick={handleWeb2}>
-            {busy === "web2" ? "Setting up…" : "Continue with email"}
-          </button>
-        </div>
+        {(() => {
+          // MetaMask injects window.ethereum whenever the extension (or its
+          // in-app browser) is present — even locked — so wallet users see
+          // the SIWE option first; everyone else sees email first.
+          const hasWallet = typeof window !== "undefined" && !!window.ethereum;
+          const walletOption = (
+            <div className="onboarding-option" key="wallet">
+              <h4>Sign In Once with Wallet</h4>
+              <p>
+                Link your wallet to your email with Sign-In with Ethereum. You'll sign one
+                message — it stays in your browser and costs no gas.
+              </p>
+              <button className="onboarding-button" disabled={!!busy} onClick={handleSiwe}>
+                {busy === "siwe" ? "Check your wallet…" : "Sign in with Ethereum"}
+              </button>
+            </div>
+          );
+          const emailOption = (
+            <div className="onboarding-option" key="email">
+              <h4>Continue with Email</h4>
+              <p>No wallet needed — continue with the account you just signed in with.</p>
+              <button className="onboarding-button" disabled={!!busy} onClick={handleWeb2}>
+                {busy === "web2" ? "Setting up…" : "Continue with email"}
+              </button>
+            </div>
+          );
+          return hasWallet ? [walletOption, emailOption] : [emailOption, walletOption];
+        })()}
       </div>
       <div className="onboarding-actions">
         <button className="onboarding-button onboarding-button--ghost" disabled={!!busy} onClick={handleSignOut}>
