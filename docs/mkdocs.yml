@@ -52,11 +52,14 @@ theme:
 nav:
   - Home: index.md
   - Use AnimeChain: use-animechain.md
+  - Onboarding:
+    - Get Started: onboarding/index.md
+    - Sign-In with Ethereum: onboarding/sign-in-with-ethereum.md
+  - Bridging:
+    - The Easy Way: animecoin/bridging-easy.md
+    - The Hard Way: animecoin/bridging.md
   - Animecoin:
     - Overview: animecoin/index.md
-    - Bridging Guide:
-      - The Easy Way: animecoin/bridging-easy.md
-      - The Hard Way: animecoin/bridging.md
     - Contract Addresses: animecoin/contracts.md
   - Developers:
     - Quick Start: developers/index.md

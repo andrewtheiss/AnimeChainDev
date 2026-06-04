@@ -1,0 +1,187 @@
+/* Onboarding widget — matches the docs' card styling (see Faucet.css). */
+.onboarding-card {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%);
+  max-width: 720px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+}
+
+[data-md-color-scheme="slate"] .onboarding-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #e2e8f0;
+}
+
+.onboarding-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+}
+
+.onboarding-subtitle {
+  margin: 0 0 1.25rem;
+  opacity: 0.8;
+}
+
+.onboarding-subtitle code {
+  word-break: break-all;
+}
+
+.onboarding-providers {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.onboarding-button {
+  appearance: none;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  background: #6366f1;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.onboarding-button:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.onboarding-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.onboarding-button--ghost {
+  background: transparent;
+  color: inherit;
+  border-color: rgba(100, 116, 139, 0.5);
+}
+
+.onboarding-button--ghost:hover:not(:disabled) {
+  background: rgba(100, 116, 139, 0.15);
+}
+
+.onboarding-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.onboarding-divider::before,
+.onboarding-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.onboarding-email-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.onboarding-input {
+  flex: 1 1 220px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 116, 139, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+[data-md-color-scheme="slate"] .onboarding-input {
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+}
+
+.onboarding-fork {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.onboarding-option {
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.onboarding-option h4 {
+  margin: 0;
+}
+
+.onboarding-option p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  flex: 1;
+}
+
+.onboarding-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.onboarding-status {
+  margin-top: 1rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.onboarding-status--info {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.onboarding-status--error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.onboarding-status--success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.onboarding-transparency {
+  margin: 0.75rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.onboarding-transparency summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.onboarding-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.78rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+[data-md-color-scheme="slate"] .onboarding-pre {
+  background: rgba(148, 163, 184, 0.12);
+}

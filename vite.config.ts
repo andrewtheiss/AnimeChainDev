@@ -55,6 +55,11 @@ export default defineConfig({
             return "wallet-stack";
           }
           if (id.includes("/ethers/")) return "ethers";
+          // Firebase (auth + functions client) is only used by the
+          // onboarding widget; isolate it so other pages never fetch it.
+          if (id.includes("/firebase/") || id.includes("/@firebase/")) {
+            return "firebase";
+          }
           if (id.includes("/react-dom/") || /\/react\//.test(id)) return "react";
         },
       },

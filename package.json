@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "npm run dev:docs",
+    "build": "npm run build:all",
     "build:widgets": "vite build",
     "build:docs": "bash setup/setup.sh python3 -m mkdocs build -f docs/mkdocs.yml",
     "build:docs:win": "powershell -ExecutionPolicy Bypass -File setup/setup.ps1 python -m mkdocs build -f docs/mkdocs.yml",
@@ -18,6 +20,7 @@
     "@reservoir0x/relay-sdk": "^2.4.0",
     "@tanstack/react-query": "^5.100.8",
     "ethers": "^6.13.5",
+    "firebase": "^12.14.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "viem": "^2.48.7",
